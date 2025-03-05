@@ -16,7 +16,7 @@ const Admin = () => {
           <div className="bg-white p-8 rounded-lg shadow-sm">
             <div className="flex flex-col md:flex-row items-center md:items-start gap-8">
               <img
-                src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=800&q=80"
+                src="/ceo.jpg"
                 alt="創辦人照片"
                 className="w-48 h-48 object-cover rounded-lg"
               />
@@ -46,7 +46,7 @@ const Admin = () => {
           <div className="bg-white p-8 rounded-lg shadow-sm">
             <div className="flex flex-col md:flex-row items-center md:items-start gap-8">
               <img
-                src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=800&q=80"
+                src="/artceo.png"
                 alt="藝術總監照片"
                 className="w-48 h-48 object-cover rounded-lg"
               />
@@ -75,7 +75,7 @@ const Admin = () => {
           <div className="bg-white p-8 rounded-lg shadow-sm">
             <div className="flex flex-col md:flex-row items-center md:items-start gap-8">
               <img
-                src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=800&q=80"
+                src="/codeceo.jpg"
                 alt="技術總監照片"
                 className="w-48 h-48 object-cover rounded-lg"
               />
