@@ -46,7 +46,7 @@ const Admin = () => {
           <div className="bg-white p-8 rounded-lg shadow-sm">
             <div className="flex flex-col md:flex-row items-center md:items-start gap-8">
               <img
-                src="/artceo.png"
+                src="/artceo.jpg"
                 alt="藝術總監照片"
                 className="w-48 h-48 object-cover rounded-lg"
               />
