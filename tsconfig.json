@@ -1,4 +1,8 @@
 {
+  "compilerOptions": {
+    "strict": true, // 您之前提到的選項，可能已存在
+    "forceConsistentCasingInFileNames": true
+  },
   "files": [],
   "references": [
     { "path": "./tsconfig.app.json" },

@@ -62,7 +62,7 @@ const Admin = () => {
                   「向陽而生無悔青春」
                 </p>
                 <a
-                  href="#"
+                  href="https://bone1018.hyjdevelop.com"
                   className="inline-flex items-center text-blue-600 hover:text-blue-700"
                 >
                   個人網站 <ExternalLink className="w-4 h-4 ml-1" />
@@ -83,7 +83,7 @@ const Admin = () => {
                 <h2 className="text-2xl font-bold mb-2">許安祐</h2>
                 <p className="text-lg text-blue-600 mb-4">技術總監</p>
                 <a
-                  href="#"
+                  href="https://larryeng.hyjdevelop.com"
                   className="inline-flex items-center text-blue-600 hover:text-blue-700"
                 >
                   個人網站 <ExternalLink className="w-4 h-4 ml-1" />
