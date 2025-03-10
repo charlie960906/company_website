@@ -18,7 +18,6 @@ const Footer = () => {
             <ul className="space-y-2">
               <li><Link to="/service" className="text-gray-800 hover:text-blue-600">服務條款</Link></li>
               <li><Link to="/database" className="text-gray-800 hover:text-blue-600">媒體庫</Link></li>
-              <li><Link to="/report" className="text-gray-800 hover:text-blue-600">網頁出錯回報</Link></li>
               <li><Link to="/terms" className="text-gray-800 hover:text-blue-600">品牌使用準則</Link></li>
             </ul>
           </div>

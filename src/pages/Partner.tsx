@@ -1,78 +1,116 @@
-import { Handshake, Target, Users } from 'lucide-react';
+import { Handshake, Users, School, ArrowRight, FileText } from 'lucide-react';
 
 const Partner = () => {
   return (
     <div className="container mx-auto px-4 py-24">
       <div className="text-center mb-12">
-        <h1 className="text-4xl font-bold mb-6">成為合作夥伴</h1>
-        <p className="text-gray-600 max-w-2xl mx-auto">
-          我們歡迎各種形式的合作，一起為技術社群創造更多價值。
-          無論您是企業、組織還是個人，都可以成為我們的合作夥伴。
-        </p>
+        <h1 className="text-4xl font-bold mb-2">成為我們的合作夥伴</h1>
+        <h2 className="text-xl text-gray-600 mb-6">To Be Our Cooperator</h2>
+        <p className="text-gray-600 max-w-1xl mx-auto">自 2024 年以來，HYJdevelop 致力於推廣學生自治發展。</p>
+        <p className="text-gray-600 max-w-1xl mx-auto">我們鼓勵學生自治團體跳脫思想框架、發掘潛在的可能性，</p>
+        <p className="text-gray-600 max-w-1xl mx-auto">並幫助它們建構官方網頁，使其能透過更多的管道來傳播自己的理念。</p>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
-        <div className="text-center p-6">
-          <div className="bg-blue-100 p-4 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
-            <Handshake className="w-8 h-8 text-blue-600" />
+      <div className="max-w-4xl mx-auto">
+        {/* 企業合作 */}
+        <div className="bg-white rounded-lg shadow-sm p-8 mb-12">
+          <div className="flex items-center mb-6">
+            <Handshake className="w-8 h-8 text-blue-600 mr-3" />
+            <h2 className="text-2xl font-bold">企業合作</h2>
           </div>
-          <h3 className="text-xl font-bold mb-2">合作模式</h3>
-          <p className="text-gray-600">提供多元且彈性的合作方案</p>
-        </div>
+          
+          <p className="text-gray-600 mb-6">
+            我們也樂見其他企業與這些團體的交流，成為我們的合作夥伴您可以提升品牌影響力、
+            深入這些學生群體推廣產品內容。
+          </p>
 
-        <div className="text-center p-6">
-          <div className="bg-green-100 p-4 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
-            <Target className="w-8 h-8 text-green-600" />
-          </div>
-          <h3 className="text-xl font-bold mb-2">目標共識</h3>
-          <p className="text-gray-600">共同推動技術教育發展</p>
-        </div>
-
-        <div className="text-center p-6">
-          <div className="bg-purple-100 p-4 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
-            <Users className="w-8 h-8 text-purple-600" />
-          </div>
-          <h3 className="text-xl font-bold mb-2">資源共享</h3>
-          <p className="text-gray-600">互惠互利的合作關係</p>
-        </div>
-      </div>
-
-      <div className="max-w-3xl mx-auto">
-        <div className="bg-white p-8 rounded-lg shadow-sm mb-12">
-          <h2 className="text-2xl font-bold mb-6">合作方案</h2>
-          <div className="space-y-6">
-            <div className="p-6 border rounded-lg">
-              <h3 className="text-xl font-bold mb-2">技術課程合作</h3>
-              <p className="text-gray-600">
-                共同開發和提供優質的技術課程，
-                為學習者提供更多元的學習資源。
-              </p>
+          <div className="grid md:grid-cols-2 gap-6 mb-8">
+            <div className="bg-blue-50 p-6 rounded-lg">
+              <h3 className="font-bold mb-3">品牌曝光</h3>
+              <ul className="space-y-2 text-gray-600">
+                <li>• 官方網站品牌展示</li>
+                <li>• 社群媒體聯合推廣</li>
+                <li>• 學生團體網頁廣告位</li>
+              </ul>
             </div>
-            
-            <div className="p-6 border rounded-lg">
-              <h3 className="text-xl font-bold mb-2">活動合辦</h3>
-              <p className="text-gray-600">
-                舉辦技術研討會、工作坊等活動，
-                促進技術交流與分享。
-              </p>
-            </div>
-            
-            <div className="p-6 border rounded-lg">
-              <h3 className="text-xl font-bold mb-2">資源贊助</h3>
-              <p className="text-gray-600">
-                提供場地、設備或其他資源支持，
-                協助社群活動的順利進行。
-              </p>
+            <div className="bg-blue-50 p-6 rounded-lg">
+              <h3 className="font-bold mb-3">資源共享</h3>
+              <ul className="space-y-2 text-gray-600">
+                <li>• 學生社群直接觸及</li>
+                <li>• 產品推廣機會</li>
+                <li>• 人才招募管道</li>
+              </ul>
             </div>
           </div>
-        </div>
-
-        <div className="text-center">
+          
           <a
-            href="#"
-            className="inline-block bg-blue-600 text-white px-8 py-3 rounded-lg hover:bg-blue-700 transition-colors"
+            href="mailto:support@hyjdevelop.com"
+            className="inline-flex items-center text-blue-600 hover:text-blue-700"
           >
-            聯絡我們討論合作
+            聯絡我們討論合作細節 <ArrowRight className="w-4 h-4 ml-1" />
+          </a>
+        </div>
+
+        {/* 學生團體支持 */}
+        <div className="bg-white rounded-lg shadow-sm p-8 mb-12">
+          <div className="flex items-center mb-6">
+            <School className="w-8 h-8 text-green-600 mr-3" />
+            <h2 className="text-2xl font-bold">學生團體支持</h2>
+          </div>
+          
+          <p className="text-gray-600 mb-6">
+            如果您是學生團體，需要我們的幫助，我們非常歡迎與您合作！
+            讓我們一起為學生自治注入新的活力。
+          </p>
+          
+          <div className="grid md:grid-cols-2 gap-6 mb-8">
+            <div className="bg-green-50 p-6 rounded-lg">
+              <h3 className="font-bold mb-3">我們提供</h3>
+              <ul className="space-y-2 text-gray-600">
+                <li>• 網站建置支援</li>
+                <li>• 技術諮詢服務</li>
+                <li>• 推廣資源共享</li>
+              </ul>
+            </div>
+            <div className="bg-green-50 p-6 rounded-lg">
+              <h3 className="font-bold mb-3">合作流程</h3>
+              <ul className="space-y-2 text-gray-600">
+                <li>1. 填寫合作申請表</li>
+                <li>2. 團隊評估討論</li>
+                <li>3. 確認合作細節</li>
+              </ul>
+            </div>
+          </div>
+          
+          <a
+            href="https://forms.gle/mNL2rxvuaQzZ8eiM7"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center bg-green-600 text-white px-6 py-3 rounded-lg hover:bg-green-700 transition-colors"
+          >
+            <FileText className="w-5 h-5 mr-2" />
+            填寫合作申請表
+          </a>
+        </div>
+
+        {/* 支持我們 */}
+        <div className="bg-white rounded-lg shadow-sm p-8">
+          <div className="flex items-center mb-6">
+            <Users className="w-8 h-8 text-purple-600 mr-3" />
+            <h2 className="text-2xl font-bold">支持我們</h2>
+          </div>
+          
+          <p className="text-gray-600 mb-6">
+            如果您也認同 HYJdevelop 的理念，希望在學生邁向未來的路上提供支持，
+            歡迎寄信至「support@hyjdevelop.com」，以實際行動支持 HYJdevelop 的運作。
+            您的支持不僅能幫助更多團體前行，也能讓學生自治的種子散播至臺灣的每個角落。
+          </p>
+          
+          <a
+            href="mailto:support@hyjdevelop.com"
+            className="inline-flex items-center text-purple-600 hover:text-purple-700"
+          >
+            聯絡我們了解更多 <ArrowRight className="w-4 h-4 ml-1" />
           </a>
         </div>
       </div>
