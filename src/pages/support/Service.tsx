@@ -3,19 +3,38 @@ import { FileText, Shield, Scale } from 'lucide-react';
 
 const Service = () => {
   return (
-    <div className="container mx-auto px-4 py-24">
-      <div className="text-center mb-12">
-        <h1 className="text-4xl font-bold mb-6">服務條款</h1>
-        <p className="text-gray-600 max-w-3xl mx-auto">
-          HYJdevelop 開發的技術和服務讓用戶能夠彼此聯繫、使用社群以及拓展人脈。您使用我們所提供的其他產品、功能、應用程式、服務、技術及軟體（以下簡稱「HYJdevelop 產品」或「產品」）的行為，均須受本《服務條款》規範，惟我們明示另有適用條款（且本《服務條款》不適用）者不在此限。這些產品皆由 HYJdevelop 為您提供。除非另有說明，否則我們不會對您使用 HYJdevelop 或本條款涵蓋之其他產品或服務收取費用，但企業商家、組織及其他人會付費請我們向您顯示其商品和服務的廣告。只要使用我們的產品，即表示您同意我們向您顯示我們收到贊助的廣告。
-        </p>
-        <p className="text-gray-600 max-w-3xl mx-auto mt-4">
-          我們的<Link to="/privacy" className="text-blue-600 hover:underline">《資料和隱私》</Link>說明我們如何蒐集和使用您的個人資料來決定您看到的部分廣告內容，以及提供下文所提及的各項服務。
-        </p>
+      <div className="min-h-screen pb-24">
+    {/* Hero Section */}
+    <section className="min-h-screen max-h-screen flex flex-col items-center justify-center bg-gradient-to-b from-blue-50 to-white text-center px-4 relative py-12 overflow-hidden">
+      <h1 className="text-5xl md:text-7xl font-bold mb-8 text-gray-800">服務條款</h1>
+      <p>HYJdevelop 開發的技術和服務讓用戶能夠彼此聯繫、使用社群以及拓展人脈。</p>
+      <div className="animate-bounce absolute bottom-12 mid transform -translate-x-1/2">
+        <svg 
+          className="w-8 h-8 text-gray-400"
+          fill="none" 
+          strokeLinecap="round" 
+          strokeLinejoin="round" 
+          strokeWidth="2" 
+          viewBox="0 0 22 22" 
+          stroke="currentColor"
+        >
+          <path d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+        </svg>
       </div>
-
+    </section>
+    
       <div className="max-w-3xl mx-auto">
         <div className="space-y-8">
+          {/* Section 0 */}
+          <div className="max-w-4xl mx-auto mt-24 px-4">
+            <div className="space-y-4 text-gray-600">
+            <p className="text-gray-700 max-w-2xl mx-auto mb-1">您使用我們所提供的其他產品、功能、應用程式、服務、技術及軟體（以下簡稱「HYJdevelop 產品」或「產品」）的行為，這些產品皆由 HYJdevelop 為您提供。除非另有說明，否則我們不會對您使用 HYJdevelop 或本條款涵蓋之其他產品或服務收取費用，但企業商家、組織及其他人會付費請我們向您顯示其商品和服務的廣告。只要使用我們的產品，即表示您同意我們向您顯示我們收到贊助的廣告。</p>
+            <p className="text-gray-600 max-w-3xl mx-auto mt-4">
+            我們的<Link to="/privacy" className="text-blue-600 hover:underline">《資料和隱私》</Link>說明我們如何蒐集和使用您的個人資料來決定您看到的部分廣告內容，以及提供下文所提及的各項服務。
+            </p>
+            </div>
+          </div>
+
           {/* Section 1 */}
           <div className="bg-white p-6 rounded-lg shadow-sm">
             <div className="flex items-center mb-4">

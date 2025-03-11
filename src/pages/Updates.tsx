@@ -2,16 +2,25 @@ import { Bell, Newspaper, Megaphone } from 'lucide-react';
 
 const Updates = () => {
   return (
-    <div className="container mx-auto px-4 py-24">
-      <div className="text-center mb-12">
-        <div className="inline-block p-4 bg-blue-100 rounded-full mb-4">
-          <Bell className="w-8 h-8 text-blue-600" />
-        </div>
-        <h1 className="text-4xl font-bold mb-6">HYJdevelop 最新消息</h1>
-        <p className="text-gray-600 max-w-2xl mx-auto">
-          關注我們的最新動態，了解社群發展和重要公告。
-        </p>
+      <div className="min-h-screen pb-24">
+    {/* Hero Section */}
+    <section className="min-h-screen max-h-screen flex flex-col items-center justify-center bg-gradient-to-b from-blue-50 to-white text-center px-4 relative py-12 overflow-hidden">
+      <h1 className="text-5xl md:text-7xl font-bold mb-8 text-gray-800">HYJdevelop 最新消息</h1>
+      <p>關注我們的最新動態，了解社群發展和重要公告。</p>
+      <div className="animate-bounce absolute bottom-12 mid transform -translate-x-1/2">
+        <svg 
+          className="w-8 h-8 text-gray-400"
+          fill="none" 
+          strokeLinecap="round" 
+          strokeLinejoin="round" 
+          strokeWidth="2" 
+          viewBox="0 0 22 22" 
+          stroke="currentColor"
+        >
+          <path d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+        </svg>
       </div>
+    </section>
 
       <div className="max-w-4xl mx-auto">
         {/* 最新公告 */}

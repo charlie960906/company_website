@@ -5,7 +5,6 @@ import Home from './pages/Home';
 import Shop from './pages/Shop';
 import Service from './pages/support/Service';
 import Database from './pages/support/Database';
-import Report from './pages/support/Report';
 import Terms from './pages/support/Terms';
 import Privacy from './pages/privacy/Privacy';
 import Updates from './pages/Updates';
@@ -33,7 +32,6 @@ function App() {
             {/* Support Routes */}
             <Route path="/service" element={<Service />} />
             <Route path="/database" element={<Database />} />
-            <Route path="/report" element={<Report />} />
             <Route path="/updates" element={<Updates />} />
             <Route path="/terms" element={<Terms />} />
             

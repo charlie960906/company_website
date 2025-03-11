@@ -2,14 +2,26 @@ import { Users, BookOpen, Heart } from 'lucide-react';
 
 const SLRC = () => {
   return (
-    <div className="container mx-auto px-4 py-24">
-      <div className="text-center mb-12">
-        <h1 className="text-4xl font-bold mb-6">SLRC 學習社群</h1>
-        <p className="text-gray-600 max-w-2xl mx-auto">
-          我們的社群旨在為每位學習者提供一個安全、開放的學習環境，
-          讓大家能夠互相交流、分享知識。
-        </p>
+      <div className="min-h-screen pb-24">
+    {/* Hero Section */}
+    <section className="min-h-screen max-h-screen flex flex-col items-center justify-center bg-gradient-to-b from-blue-50 to-white text-center px-4 relative py-12 overflow-hidden">
+      <h1 className="text-5xl md:text-7xl font-bold mb-8 text-gray-800">SLRC 學生學習資訊社群</h1>
+      <p>我們的社群旨在為每位學習者提供一個安全、開放的學習環境，</p>
+      <p>讓大家能夠互相交流、分享知識。</p>
+      <div className="animate-bounce absolute bottom-12 mid transform -translate-x-1/2">
+        <svg 
+          className="w-8 h-8 text-gray-400"
+          fill="none" 
+          strokeLinecap="round" 
+          strokeLinejoin="round" 
+          strokeWidth="2" 
+          viewBox="0 0 22 22" 
+          stroke="currentColor"
+        >
+          <path d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+        </svg>
       </div>
+    </section>
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
         <div className="text-center p-6">

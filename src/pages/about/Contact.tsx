@@ -33,7 +33,14 @@ const Contact = () => {
               <Mail className="w-8 h-8 text-blue-600" />
             </div>
             <h3 className="font-bold mb-2">電子郵件</h3>
-            <p className="text-gray-600">support@hyjdevelop.com</p>
+            <a
+              href="mailto:support@hyjdevelop.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-gray-600 hover:text-blue-600 underline"
+            >
+              support@hyjdevelop.com
+            </a>
           </div>
 
           <div className="text-center p-6 bg-white rounded-lg shadow-md border border-gray-100">
@@ -49,7 +56,7 @@ const Contact = () => {
               <MapPin className="w-8 h-8 text-purple-600" />
             </div>
             <h3 className="font-bold mb-2">地址</h3>
-            <p className="text-gray-600">123 技術大街, 台北市, 台灣</p>
+            <p className="text-gray-600">台灣,嘉義</p>
           </div>
         </div>
 

@@ -1,17 +1,24 @@
-import { MessageSquare } from 'lucide-react';
-
 const Forum = () => {
   return (
-    <div className="container mx-auto px-4 py-24">
-      <div className="text-center mb-12">
-        <div className="inline-block p-4 bg-blue-100 rounded-full mb-4">
-          <MessageSquare className="w-8 h-8 text-blue-600" />
-        </div>
-        <h1 className="text-4xl font-bold mb-4">社群論壇</h1>
-        <p className="text-gray-600 max-w-2xl mx-auto">
-          加入我們的討論，分享你的想法和經驗，與其他成員互動交流。
-        </p>
+      <div className="min-h-screen pb-24">
+    {/* Hero Section */}
+    <section className="min-h-screen max-h-screen flex flex-col items-center justify-center bg-gradient-to-b from-blue-50 to-white text-center px-4 relative py-12 overflow-hidden">
+      <h1 className="text-5xl md:text-7xl font-bold mb-8 text-gray-800">社群論壇</h1>
+      <p>加入我們的討論，分享你的想法和經驗，與其他成員互動交流。</p>
+      <div className="animate-bounce absolute bottom-12 mid transform -translate-x-1/2">
+        <svg 
+          className="w-8 h-8 text-gray-400"
+          fill="none" 
+          strokeLinecap="round" 
+          strokeLinejoin="round" 
+          strokeWidth="2" 
+          viewBox="0 0 22 22" 
+          stroke="currentColor"
+        >
+          <path d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+        </svg>
       </div>
+    </section>
 
       <div className="bg-white rounded-lg shadow-lg p-8 mb-8">
         <h2 className="text-2xl font-bold mb-4">熱門討論區</h2>

@@ -2,14 +2,26 @@ import { Palette, Type, Image, Layout, AlertTriangle, FileImage, Scale } from 'l
 
 const Terms = () => {
   return (
-    <div className="container mx-auto px-4 py-24">
-      <div className="text-center mb-12">
-        <h1 className="text-4xl font-bold mb-6">品牌使用準則</h1>
-        <p className="text-gray-600 max-w-3xl mx-auto">
-          為確保 HYJdevelop 品牌形象的一致性與專業性，我們制定了以下品牌使用準則。
-          這些規範適用於所有品牌相關的應用場景，包括但不限於數位媒體、印刷品和行銷素材。
-        </p>
+      <div className="min-h-screen pb-24">
+    {/* Hero Section */}
+    <section className="min-h-screen max-h-screen flex flex-col items-center justify-center bg-gradient-to-b from-blue-50 to-white text-center px-4 relative py-12 overflow-hidden">
+      <h1 className="text-5xl md:text-7xl font-bold mb-8 text-gray-800">品牌使用準則</h1>
+      <p className="text-gray-700 max-w-2xl mx-auto mb-1">為確保 HYJdevelop 品牌形象的一致性與專業性，我們制定了以下品牌使用準則。</p>
+      <p className="text-gray-700 max-w-2xl mx-auto mb-1">這些規範適用於所有品牌相關的應用場景，包括但不限於數位媒體、印刷品和行銷素材。</p>
+      <div className="animate-bounce absolute bottom-12 mid transform -translate-x-1/2">
+        <svg 
+          className="w-8 h-8 text-gray-400"
+          fill="none" 
+          strokeLinecap="round" 
+          strokeLinejoin="round" 
+          strokeWidth="2" 
+          viewBox="0 0 22 22" 
+          stroke="currentColor"
+        >
+          <path d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+        </svg>
       </div>
+    </section>
 
       <div className="max-w-3xl mx-auto">
         <div className="space-y-8">
@@ -23,11 +35,12 @@ const Terms = () => {
               <div>
                 <h3 className="font-semibold mb-2">標準標誌</h3>
                 <div className="bg-gray-50 p-4 rounded-lg mb-4">
-                  <img
-                    src="https://fxpszljxakjncoiolqma.supabase.co/storage/v1/object/public/brand-assets/logo.png"
-                    alt="HYJdevelop 標誌"
-                    className="h-16 mx-auto"
-                  />
+                <img
+                  src="./logo.png"
+                  alt="HYJdevelop 標誌"
+                  style={{ height: '450px' }} // 直接設置像素值
+                  className="mx-auto"
+                />
                 </div>
                 <p className="text-sm">我們的標準標誌由「HYJ」和「develop」組成，代表我們的核心價值。</p>
               </div>
@@ -253,7 +266,7 @@ const Terms = () => {
                 <h3 className="font-semibold mb-2">授權使用</h3>
                 <p className="text-sm">
                   如需使用 HYJdevelop 的品牌資產，請聯繫我們的品牌團隊取得授權。
-                  Email: brand@hyjdevelop.com
+                  Email: support@hyjdevelop.com
                 </p>
               </div>
             </div>
@@ -264,8 +277,8 @@ const Terms = () => {
           <p>最後更新：2025年3月15日</p>
           <p className="mt-2">
             如有任何品牌使用相關問題，請聯繫：
-            <a href="mailto:brand@hyjdevelop.com" className="text-blue-600 hover:underline">
-              brand@hyjdevelop.com
+            <a href="mailto:support@hyjdevelop.com" className="text-blue-600 hover:underline">
+              support@hyjdevelop.com
             </a>
           </p>
         </div>
