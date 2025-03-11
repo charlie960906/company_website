@@ -4,9 +4,6 @@ import path from 'path';
 
 export default defineConfig({
   plugins: [react()],
-  optimizeDeps: {
-    exclude: ['lucide-react'],
-  },
   resolve: {
     alias: {
       'src': path.resolve(__dirname, 'src'),
@@ -14,19 +11,22 @@ export default defineConfig({
   },
   root: '.', // 專案根目錄
   publicDir: 'public', // 靜態資源目錄
+  base: '/', // 確保路徑從根目錄解析
   build: {
     outDir: 'dist',
     assetsDir: 'assets',
     rollupOptions: {
-      input: 'public/index.html', // 明確指定入口
+      input: {
+        main: path.resolve(__dirname, 'public/index.html'), // 明確指定入口路徑
+      },
     },
   },
   server: {
     host: true,
-    port: 3000, // 改為 3000 或其他可用端口
+    port: 5173,
   },
   preview: {
     host: true,
-    port: 3000,
-  }
+    port: 4173,
+  },
 });
