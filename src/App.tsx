@@ -28,29 +28,24 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/shop" element={<Shop />} />
-            
             {/* Support Routes */}
             <Route path="/service" element={<Service />} />
             <Route path="/database" element={<Database />} />
             <Route path="/updates" element={<Updates />} />
             <Route path="/terms" element={<Terms />} />
-            
             {/* Privacy Routes */}
             <Route path="/privacy" element={<Privacy />} />
             <Route path="/security" element={<Security />} />
             <Route path="/hosting" element={<Hosting />} />
-            
             {/* Community Routes */}
             <Route path="/slrc" element={<SLRC />} />
             <Route path="/forum" element={<Forum />} />
             <Route path="/rules" element={<CommunityRules />} />
-            
             {/* About Routes */}
             <Route path="/about" element={<About />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/join" element={<Join />} />
             <Route path="/admin" element={<Admin />} />
-            
             {/* Partner Route */}
             <Route path="/partner" element={<Partner />} />
           </Routes>
@@ -59,6 +54,6 @@ function App() {
       </div>
     </Router>
   );
-};
+}
 
 export default App;

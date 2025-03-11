@@ -1,4 +1,4 @@
-import { Bell, Newspaper, Megaphone } from 'lucide-react';
+import { Newspaper, Megaphone } from 'lucide-react';
 
 const Updates = () => {
   return (
@@ -84,7 +84,7 @@ const Updates = () => {
         </div>
 
         {/* 訂閱更新 */}
-        <div className="bg-blue-50 p-8 rounded-lg">
+        {/*<div className="bg-blue-50 p-8 rounded-lg">
           <h2 className="text-2xl font-bold mb-4 text-center">訂閱最新消息</h2>
           <p className="text-gray-600 mb-6 text-center">
             訂閱我們的最新消息，第一時間收到重要更新！
@@ -104,7 +104,7 @@ const Updates = () => {
               </button>
             </div>
           </form>
-        </div>
+        </div>*/}
       </div>
     </div>
   );

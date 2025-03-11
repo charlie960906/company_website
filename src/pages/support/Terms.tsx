@@ -1,27 +1,28 @@
 import { Palette, Type, Image, Layout, AlertTriangle, FileImage, Scale } from 'lucide-react';
+import './Terms.css';
 
 const Terms = () => {
   return (
-      <div className="min-h-screen pb-24">
-    {/* Hero Section */}
-    <section className="min-h-screen max-h-screen flex flex-col items-center justify-center bg-gradient-to-b from-blue-50 to-white text-center px-4 relative py-12 overflow-hidden">
-      <h1 className="text-5xl md:text-7xl font-bold mb-8 text-gray-800">品牌使用準則</h1>
-      <p className="text-gray-700 max-w-2xl mx-auto mb-1">為確保 HYJdevelop 品牌形象的一致性與專業性，我們制定了以下品牌使用準則。</p>
-      <p className="text-gray-700 max-w-2xl mx-auto mb-1">這些規範適用於所有品牌相關的應用場景，包括但不限於數位媒體、印刷品和行銷素材。</p>
-      <div className="animate-bounce absolute bottom-12 mid transform -translate-x-1/2">
-        <svg 
-          className="w-8 h-8 text-gray-400"
-          fill="none" 
-          strokeLinecap="round" 
-          strokeLinejoin="round" 
-          strokeWidth="2" 
-          viewBox="0 0 22 22" 
-          stroke="currentColor"
-        >
-          <path d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
-        </svg>
-      </div>
-    </section>
+    <div className="min-h-screen pb-24">
+      {/* Hero Section */}
+      <section className="min-h-screen max-h-screen flex flex-col items-center justify-center bg-gradient-to-b from-blue-50 to-white text-center px-4 relative py-12 overflow-hidden">
+        <h1 className="text-5xl md:text-7xl font-bold mb-8 text-gray-800">品牌使用準則</h1>
+        <p className="text-gray-700 max-w-2xl mx-auto mb-1">為確保 HYJdevelop 品牌形象的一致性與專業性，我們制定了以下品牌使用準則。</p>
+        <p className="text-gray-700 max-w-2xl mx-auto mb-1">這些規範適用於所有品牌相關的應用場景，包括但不限於數位媒體、印刷品和行銷素材。</p>
+        <div className="animate-bounce absolute bottom-12 mid transform -translate-x-1/2">
+          <svg 
+            className="w-8 h-8 text-gray-400"
+            fill="none" 
+            strokeLinecap="round" 
+            strokeLinejoin="round" 
+            strokeWidth="2" 
+            viewBox="0 0 22 22" 
+            stroke="currentColor"
+          >
+            <path d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+          </svg>
+        </div>
+      </section>
 
       <div className="max-w-3xl mx-auto">
         <div className="space-y-8">
@@ -35,16 +36,15 @@ const Terms = () => {
               <div>
                 <h3 className="font-semibold mb-2">標準標誌</h3>
                 <div className="bg-gray-50 p-4 rounded-lg mb-4">
-                <img
-                  src="./logo.png"
-                  alt="HYJdevelop 標誌"
-                  style={{ height: '450px' }} // 直接設置像素值
-                  className="mx-auto"
-                />
+                  <img
+                    src="./logo.png"
+                    alt="HYJdevelop 標誌"
+                    className="logo-image"
+                  />
                 </div>
                 <p className="text-sm">我們的標準標誌由「HYJ」和「develop」組成，代表我們的核心價值。</p>
               </div>
-              
+              {/* 其他內容保持不變 */}
               <div>
                 <h3 className="font-semibold mb-2">最小使用尺寸</h3>
                 <ul className="list-disc pl-5 space-y-2 text-sm">
@@ -52,12 +52,10 @@ const Terms = () => {
                   <li>印刷使用：最小寬度 30mm</li>
                 </ul>
               </div>
-              
               <div>
                 <h3 className="font-semibold mb-2">安全間距</h3>
                 <p className="text-sm">標誌周圍需保持至少等於「J」字母高度的空白間距。</p>
               </div>
-              
               <div>
                 <h3 className="font-semibold mb-2">禁止事項</h3>
                 <div className="grid grid-cols-2 gap-4 text-sm">
@@ -82,6 +80,7 @@ const Terms = () => {
             </div>
           </div>
 
+          {/* 品牌色彩系統 */}
           <div className="bg-white p-6 rounded-lg shadow-sm">
             <div className="flex items-center mb-4">
               <Palette className="w-6 h-6 text-green-600 mr-3" />
@@ -108,7 +107,6 @@ const Terms = () => {
                   </div>
                 </div>
               </div>
-              
               <div>
                 <h3 className="font-semibold mb-4">輔助色系</h3>
                 <div className="grid grid-cols-4 gap-4">
@@ -132,7 +130,7 @@ const Terms = () => {
               </div>
             </div>
           </div>
-          
+
           {/* 品牌字體 */}
           <div className="bg-white p-6 rounded-lg shadow-sm">
             <div className="flex items-center mb-4">
@@ -153,21 +151,19 @@ const Terms = () => {
                   </div>
                 </div>
               </div>
-              
               <div>
                 <h3 className="font-semibold mb-2">英文字體</h3>
                 <div className="space-y-3">
                   <div>
-                    <p className="text-lg mb-1 font-bold" style={{ fontFamily: 'Inter' }}>Inter</p>
+                    <p className="text-lg mb-1 font-bold font-inter">Inter</p>
                     <p className="text-sm">用於標題與介面元素</p>
                   </div>
                   <div>
-                    <p className="text-lg mb-1" style={{ fontFamily: 'system-ui' }}>System UI</p>
+                    <p className="text-lg mb-1 font-system-ui">System UI</p>
                     <p className="text-sm">用於內文與說明文字</p>
                   </div>
                 </div>
               </div>
-              
               <div>
                 <h3 className="font-semibold mb-2">字級規範</h3>
                 <div className="space-y-4">
@@ -181,7 +177,7 @@ const Terms = () => {
             </div>
           </div>
 
-          {/* 視覺元素 */}
+          {/* 其他部分保持不變 */}
           <div className="bg-white p-6 rounded-lg shadow-sm">
             <div className="flex items-center mb-4">
               <FileImage className="w-6 h-6 text-indigo-600 mr-3" />
@@ -197,7 +193,6 @@ const Terms = () => {
                   <li>避免過度裝飾和複雜的視覺效果</li>
                 </ul>
               </div>
-              
               <div>
                 <h3 className="font-semibold mb-2">圖示設計</h3>
                 <ul className="list-disc pl-5 space-y-2 text-sm">
@@ -206,7 +201,6 @@ const Terms = () => {
                   <li>建議使用 24x24 像素的標準尺寸</li>
                 </ul>
               </div>
-              
               <div>
                 <h3 className="font-semibold mb-2">照片使用</h3>
                 <ul className="list-disc pl-5 space-y-2 text-sm">
@@ -217,8 +211,7 @@ const Terms = () => {
               </div>
             </div>
           </div>
-          
-          {/* 應用規範 */}
+
           <div className="bg-white p-6 rounded-lg shadow-sm">
             <div className="flex items-center mb-4">
               <Layout className="w-6 h-6 text-orange-600 mr-3" />
@@ -233,7 +226,6 @@ const Terms = () => {
                   <li>確保所有互動元素具有適當的視覺回饋</li>
                 </ul>
               </div>
-              
               <div>
                 <h3 className="font-semibold mb-2">印刷品</h3>
                 <ul className="list-disc pl-5 space-y-2 text-sm">
@@ -244,8 +236,7 @@ const Terms = () => {
               </div>
             </div>
           </div>
-          
-          {/* 使用限制 */}
+
           <div className="bg-white p-6 rounded-lg shadow-sm">
             <div className="flex items-center mb-4">
               <Scale className="w-6 h-6 text-red-600 mr-3" />
@@ -261,7 +252,6 @@ const Terms = () => {
                   <li>將品牌元素用於商業用途而未經許可</li>
                 </ul>
               </div>
-              
               <div>
                 <h3 className="font-semibold mb-2">授權使用</h3>
                 <p className="text-sm">
@@ -272,7 +262,7 @@ const Terms = () => {
             </div>
           </div>
         </div>
-        
+
         <div className="mt-12 text-center text-sm text-gray-500">
           <p>最後更新：2025年3月15日</p>
           <p className="mt-2">
