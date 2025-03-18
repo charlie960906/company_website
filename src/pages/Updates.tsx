@@ -36,8 +36,8 @@ const Updates = () => {
                 <span className="text-sm text-gray-500">2025/03/15</span>
               </div>
               <p className="text-gray-600 mb-4">
-                我們很高興地宣布，HYJdevelop 社群網站正式上線！
-                這標誌著我們邁向建立優質技術社群的重要一步。
+                我們很高興地宣布，HYJdevelop網站正式上線！
+                這意味著我們將邁向建立更優質技術的重要里程碑。
               </p>
             </div>
           </div>
@@ -56,10 +56,9 @@ const Updates = () => {
                 <span className="text-sm text-gray-500">2025/03/14</span>
               </div>
               <p className="text-gray-600 mb-4">
-                現在開始接受合作夥伴申請！我們期待與更多優秀的夥伴一起合作，
-                共同推動技術教育的發展。
+                現在開始接受合作夥伴申請！我們期待與更多優秀的夥伴一起合作!
               </p>
-              <a href="./Partner" className="text-blue-600 hover:text-blue-700">
+              <a href="/Partner" className="text-blue-600 hover:text-blue-700">
                 了解更多
               </a>
             </div>
@@ -73,7 +72,7 @@ const Updates = () => {
                 SLRC 學習社群正式成立！這是一個專注於技術學習和交流的平台，
                 歡迎所有對技術有熱情的朋友加入。
               </p>
-              <a href="./SLRC" className="text-blue-600 hover:text-blue-700">
+              <a href="/SLRC" className="text-blue-600 hover:text-blue-700">
                 了解更多
               </a>
             </div>
