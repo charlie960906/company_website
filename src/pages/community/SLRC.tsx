@@ -1,3 +1,4 @@
+import { div } from 'framer-motion/client';
 import { Users, BookOpen, Heart } from 'lucide-react';
 
 const SLRC = () => {
@@ -48,12 +49,12 @@ const SLRC = () => {
           <p className="text-gray-600">建立友善的學習氛圍，互相支持與鼓勵</p>
         </div>
       </div>
-
-      <div className="text-center">
-        <a href="#" className="inline-block bg-blue-600 text-white px-8 py-3 rounded-lg hover:bg-blue-700 transition-colors">
+        <div className="text-center">
+        {/* <a href="" className="inline-block bg-blue-600 text-white px-8 py-3 rounded-lg hover:bg-blue-700 transition-colors">
           立即加入 SLRC
-        </a>
-      </div>
+        </a> */}
+              <h3 className="text-xl font-bold mb-2">正在重新整理群組 預計2025年8月底完成</h3>
+        </div>
     </div>
   );
 };
