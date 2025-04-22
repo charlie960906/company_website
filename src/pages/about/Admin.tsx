@@ -6,7 +6,7 @@ const Admin = () => {
     {/* Hero Section */}
     <section className="min-h-screen max-h-screen flex flex-col items-center justify-center bg-gradient-to-b from-blue-50 to-white text-center px-4 relative py-12 overflow-hidden">
       <h1 className="text-5xl md:text-7xl font-bold mb-8 text-gray-800">我們的主管</h1>
-      <p>認識我們的核心團隊成員，他們致力於為社群提供最好的服務。</p>
+      <p>認識我們的核心團隊成員，我們致力於提供最好的服務。</p>
       <div className="animate-bounce absolute bottom-12 mid transform -translate-x-1/2">
         <svg 
           className="w-8 h-8 text-gray-400"
@@ -47,7 +47,7 @@ const Admin = () => {
                   「I'm not the best but I work hard」
                 </p>
                 <a
-                  href="#"
+                  href="https://ceoblog.hyjdevelop.com"
                   className="inline-flex items-center text-blue-600 hover:text-blue-700"
                 >
                   個人網站 <ExternalLink className="w-4 h-4 ml-1" />
