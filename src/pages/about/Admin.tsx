@@ -47,7 +47,7 @@ const Admin = () => {
                   「I'm not the best but I work hard」
                 </p>
                 <a
-                  href="https:/hyjblog.hyjdevelop.com"
+                  href="https://hyjblog.hyjdevelop.com"
                   className="inline-flex items-center text-blue-600 hover:text-blue-700"
                 >
                   個人網站 <ExternalLink className="w-4 h-4 ml-1" />
