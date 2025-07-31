@@ -1,3 +1,101 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* 響應式設計增強 */
+@layer utilities {
+  /* 移動端觸控優化 */
+  .touch-target {
+    min-height: 44px;
+    min-width: 44px;
+  }
+  
+  /* 移動端文字大小優化 */
+  .mobile-text {
+    font-size: 16px; /* 防止iOS縮放 */
+  }
+  
+  /* 移動端間距優化 */
+  .mobile-spacing {
+    padding: 1rem;
+  }
+  
+  /* 平板端間距優化 */
+  .tablet-spacing {
+    padding: 1.5rem;
+  }
+  
+  /* 桌面端間距優化 */
+  .desktop-spacing {
+    padding: 2rem;
+  }
+}
+
+/* 滾動條樣式 */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #c1c1c1;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #a8a8a8;
+}
+
+/* 移動端選單動畫優化 */
+@media (max-width: 768px) {
+  .mobile-menu-item {
+    transition: all 0.2s ease;
+  }
+  
+  .mobile-menu-item:active {
+    background-color: #f3f4f6;
+    transform: scale(0.98);
+  }
+}
+
+/* 觸控設備優化 */
+@media (hover: none) and (pointer: coarse) {
+  .hover\:scale-105:hover {
+    transform: none;
+  }
+  
+  .hover\:bg-blue-700:hover {
+    background-color: inherit;
+  }
+  
+  .hover\:text-blue-700:hover {
+    color: inherit;
+  }
+}
+
+/* 高解析度螢幕優化 */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  .high-dpi {
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
+  }
+}
+
+/* 深色模式支援（未來擴展） */
+@media (prefers-color-scheme: dark) {
+  /* 可以在這裡添加深色模式樣式 */
+}
+
+/* 減少動畫（無障礙支援） */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

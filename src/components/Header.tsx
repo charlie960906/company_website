@@ -55,24 +55,26 @@ const Header: React.FC = () => {
 
   // 計算背景和文字動畫的總時長
   const totalItems = menuItems.length;
-  const animationDuration = ANIMATION_CONFIG.INITIAL_DELAY + (totalItems - 1) * ANIMATION_CONFIG.STAGGER_DELAY;
+  const animationDuration =
+    ANIMATION_CONFIG.INITIAL_DELAY +
+    (totalItems - 1) * ANIMATION_CONFIG.STAGGER_DELAY;
   const backgroundDuration = animationDuration - 0.2; // 背景動畫時長比文字短 0.2 秒
 
   // 動畫變體
   const containerVariants: Variants = {
-    initial: { 
+    initial: {
       opacity: 0,
       transform: 'translateY(-10%)',
     },
-    animate: { 
+    animate: {
       opacity: 1,
       transform: 'translateY(0)',
-      transition: { 
-        opacity: { 
+      transition: {
+        opacity: {
           duration: backgroundDuration, // 背景透明度提前 0.2 秒結束
           ease: ANIMATION_CONFIG.EASE,
         },
-        transform: { 
+        transform: {
           duration: animationDuration, // 滑動效果與文字同步
           ease: ANIMATION_CONFIG.EASE,
         },
@@ -80,15 +82,15 @@ const Header: React.FC = () => {
         staggerChildren: ANIMATION_CONFIG.STAGGER_DELAY,
       },
     },
-    exit: { 
+    exit: {
       opacity: 0,
       transform: 'translateY(-10%)',
-      transition: { 
-        opacity: { 
+      transition: {
+        opacity: {
           duration: backgroundDuration, // 背景透明度提前 0.2 秒結束
           ease: ANIMATION_CONFIG.EASE,
         },
-        transform: { 
+        transform: {
           duration: animationDuration, // 滑動效果與文字同步
           ease: ANIMATION_CONFIG.EASE,
         },
@@ -108,7 +110,8 @@ const Header: React.FC = () => {
         y: 0,
         transition: {
           duration: ANIMATION_CONFIG.ITEM_DURATION,
-          delay: ANIMATION_CONFIG.INITIAL_DELAY + i * ANIMATION_CONFIG.STAGGER_DELAY,
+          delay:
+            ANIMATION_CONFIG.INITIAL_DELAY + i * ANIMATION_CONFIG.STAGGER_DELAY,
         },
       };
     },
@@ -126,18 +129,18 @@ const Header: React.FC = () => {
   };
 
   const submenuVariants: Variants = {
-    open: { 
+    open: {
       transform: 'translateY(0)',
-      transition: { 
+      transition: {
         duration: animationDuration,
         ease: ANIMATION_CONFIG.EASE,
         when: 'beforeChildren',
         staggerChildren: ANIMATION_CONFIG.STAGGER_DELAY,
       },
     },
-    closed: { 
+    closed: {
       transform: 'translateY(-10%)',
-      transition: { 
+      transition: {
         duration: animationDuration,
         ease: ANIMATION_CONFIG.EASE,
         when: 'afterChildren',
@@ -164,38 +167,44 @@ const Header: React.FC = () => {
   }, []);
 
   return (
-    <header className="bg-white/80 backdrop-blur-md fixed w-full top-0 z-50 shadow-sm">
-      <nav className="container mx-auto px-4 py-3">
-        <div className="flex items-center justify-between">
-          <Link to="/" className="flex items-center space-x-2" onClick={closeMenu}>
-            <img src="/logo.png" alt="HYJdevelop 標誌" className="h-10" />
-            <span className="text-xl font-bold">HYJdevelop</span>
+    <header className='bg-white/80 backdrop-blur-md fixed w-full top-0 z-50 shadow-sm'>
+      <nav className='container mx-auto px-4 py-3'>
+        <div className='flex items-center justify-between'>
+          <Link
+            to='/'
+            className='flex items-center space-x-2'
+            onClick={closeMenu}
+          >
+            <img src='/logo.png' alt='HYJdevelop 標誌' className='h-10' />
+            <span className='text-xl font-bold'>HYJdevelop</span>
           </Link>
 
           {/* Desktop Menu */}
-          <div className="hidden md:flex items-center space-x-6">
+          <div className='hidden md:flex items-center space-x-6'>
             {menuItems.map((item, index) =>
               item.dropdown ? (
                 <div
                   key={index}
-                  className="relative"
+                  className='relative'
                   onMouseEnter={() => handleDropdownEnter(item.label)}
                   onMouseLeave={handleDropdownLeave}
                 >
-                  <button className="flex items-center hover:text-blue-600 py-2">
+                  <button className='flex items-center hover:text-blue-600 py-2'>
                     {item.label}
-                    <ChevronDown className="w-4 h-4 ml-1" />
+                    <ChevronDown className='w-4 h-4 ml-1' />
                   </button>
-                  {(item.label === '我們的社群' && activeDropdown === '我們的社群') ||
-                  (item.label === '認識我們' && activeDropdown === '認識我們') ? (
-                    <div className="absolute top-[calc(100%-4px)] left-0 w-40">
-                      <div className="h-4"></div>
-                      <div className="bg-white rounded-lg shadow-lg py-2">
+                  {(item.label === '我們的社群' &&
+                    activeDropdown === '我們的社群') ||
+                  (item.label === '認識我們' &&
+                    activeDropdown === '認識我們') ? (
+                    <div className='absolute top-[calc(100%-4px)] left-0 w-40'>
+                      <div className='h-4'></div>
+                      <div className='bg-white rounded-lg shadow-lg py-2'>
                         {item.dropdown.map((subItem, subIndex) => (
                           <Link
                             key={subIndex}
                             to={subItem.to}
-                            className="block px-4 py-2 hover:bg-blue-50"
+                            className='block px-4 py-2 hover:bg-blue-50'
                             onClick={closeMenu}
                           >
                             {subItem.label}
@@ -209,7 +218,7 @@ const Header: React.FC = () => {
                 <Link
                   key={index}
                   to={item.to!}
-                  className="hover:text-blue-600"
+                  className='hover:text-blue-600'
                   onClick={closeMenu}
                 >
                   {item.label}
@@ -220,14 +229,14 @@ const Header: React.FC = () => {
 
           {/* Mobile Menu Button */}
           <button
-            className="md:hidden"
+            className='md:hidden p-2 rounded-lg hover:bg-gray-100 transition-colors'
             onClick={() => {
-              setIsMenuOpen((prev) => !prev);
+              setIsMenuOpen(prev => !prev);
               if (isMenuOpen) closeMenu();
             }}
-            aria-label="Toggle Menu"
+            aria-label='Toggle Menu'
           >
-            <Menu className="h-6 w-6" />
+            <Menu className='h-6 w-6' />
           </button>
         </div>
 
@@ -235,32 +244,34 @@ const Header: React.FC = () => {
         <AnimatePresence>
           {isMenuOpen && (
             <motion.div
-              className="md:hidden py-4 w-full overflow-hidden"
+              className='md:hidden py-4 w-full overflow-hidden bg-white/95 backdrop-blur-sm border-t border-gray-200'
               style={{ top: 0, right: 0, willChange: 'transform, opacity' }}
             >
               <motion.div
                 variants={containerVariants}
-                initial="initial"
-                animate="animate"
-                exit="exit"
-                className="flex flex-col space-y-4 text-right"
+                initial='initial'
+                animate='animate'
+                exit='exit'
+                className='flex flex-col space-y-4 text-right'
               >
                 {menuItems.map((item, index) => {
                   const length = menuItems.length;
                   return item.dropdown ? (
-                    <div key={index} className="px-6 py-2">
+                    <div key={index} className='px-6 py-2'>
                       <motion.div
                         variants={itemVariants}
-                        initial="hidden"
-                        animate="visible"
-                        exit="hidden"
+                        initial='hidden'
+                        animate='visible'
+                        exit='hidden'
                         custom={[index, length]}
                       >
                         <button
-                          className="w-full flex justify-end items-center font-medium"
+                          className='w-full flex justify-end items-center font-medium'
                           onClick={() => {
-                            if (item.label === '我們的社群') setCommunityOpen((prev) => !prev);
-                            if (item.label === '認識我們') setAboutOpen((prev) => !prev);
+                            if (item.label === '我們的社群')
+                              setCommunityOpen(prev => !prev);
+                            if (item.label === '認識我們')
+                              setAboutOpen(prev => !prev);
                           }}
                         >
                           {item.label}
@@ -278,23 +289,23 @@ const Header: React.FC = () => {
                         {item.label === '我們的社群' && communityOpen && (
                           <motion.div
                             variants={submenuVariants}
-                            initial="closed"
-                            animate="open"
-                            exit="closed"
-                            className="space-y-2 pr-4 mt-2 overflow-hidden"
+                            initial='closed'
+                            animate='open'
+                            exit='closed'
+                            className='space-y-2 pr-4 mt-2 overflow-hidden'
                           >
                             {item.dropdown.map((subItem, subIndex) => (
                               <motion.div
                                 key={subIndex}
                                 variants={itemVariants}
-                                initial="hidden"
-                                animate="visible"
-                                exit="hidden"
+                                initial='hidden'
+                                animate='visible'
+                                exit='hidden'
                                 custom={[subIndex, item.dropdown!.length]}
                               >
                                 <Link
                                   to={subItem.to}
-                                  className="block hover:text-blue-600"
+                                  className='block hover:text-blue-600'
                                   onClick={closeMenu}
                                 >
                                   {subItem.label}
@@ -306,23 +317,23 @@ const Header: React.FC = () => {
                         {item.label === '認識我們' && aboutOpen && (
                           <motion.div
                             variants={submenuVariants}
-                            initial="closed"
-                            animate="open"
-                            exit="closed"
-                            className="space-y-2 pr-4 mt-2 overflow-hidden"
+                            initial='closed'
+                            animate='open'
+                            exit='closed'
+                            className='space-y-2 pr-4 mt-2 overflow-hidden'
                           >
                             {item.dropdown.map((subItem, subIndex) => (
                               <motion.div
                                 key={subIndex}
                                 variants={itemVariants}
-                                initial="hidden"
-                                animate="visible"
-                                exit="hidden"
+                                initial='hidden'
+                                animate='visible'
+                                exit='hidden'
                                 custom={[subIndex, item.dropdown!.length]}
                               >
                                 <Link
                                   to={subItem.to}
-                                  className="block hover:text-blue-600"
+                                  className='block hover:text-blue-600'
                                   onClick={closeMenu}
                                 >
                                   {subItem.label}
@@ -337,14 +348,14 @@ const Header: React.FC = () => {
                     <motion.div
                       key={index}
                       variants={itemVariants}
-                      initial="hidden"
-                      animate="visible"
-                      exit="hidden"
+                      initial='hidden'
+                      animate='visible'
+                      exit='hidden'
                       custom={[index, length]}
                     >
                       <Link
                         to={item.to!}
-                        className="px-6 py-2 hover:bg-blue-50 block"
+                        className='px-6 py-3 hover:bg-blue-50 block text-lg font-medium'
                         onClick={closeMenu}
                       >
                         {item.label}

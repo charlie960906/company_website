@@ -2,40 +2,42 @@ import { Newspaper, Megaphone } from 'lucide-react';
 
 const Updates = () => {
   return (
-      <div className="min-h-screen pb-24">
-    {/* Hero Section */}
-    <section className="min-h-screen max-h-screen flex flex-col items-center justify-center bg-gradient-to-b from-blue-50 to-white text-center px-4 relative py-12 overflow-hidden">
-      <h1 className="text-5xl md:text-7xl font-bold mb-8 text-gray-800">HYJdevelop 最新消息</h1>
-      <p>關注我們的最新動態，了解社群發展和重要公告。</p>
-      <div className="animate-bounce absolute bottom-12 mid transform -translate-x-1/2">
-        <svg 
-          className="w-8 h-8 text-gray-400"
-          fill="none" 
-          strokeLinecap="round" 
-          strokeLinejoin="round" 
-          strokeWidth="2" 
-          viewBox="0 0 22 22" 
-          stroke="currentColor"
-        >
-          <path d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
-        </svg>
-      </div>
-    </section>
+    <div className='min-h-screen pb-24'>
+      {/* Hero Section */}
+      <section className='min-h-screen max-h-screen flex flex-col items-center justify-center bg-gradient-to-b from-blue-50 to-white text-center px-4 relative py-12 overflow-hidden'>
+        <h1 className='text-5xl md:text-7xl font-bold mb-8 text-gray-800'>
+          HYJdevelop 最新消息
+        </h1>
+        <p>關注我們的最新動態，了解社群發展和重要公告。</p>
+        <div className='animate-bounce absolute bottom-12 mid transform -translate-x-1/2'>
+          <svg
+            className='w-8 h-8 text-gray-400'
+            fill='none'
+            strokeLinecap='round'
+            strokeLinejoin='round'
+            strokeWidth='2'
+            viewBox='0 0 22 22'
+            stroke='currentColor'
+          >
+            <path d='M19 14l-7 7m0 0l-7-7m7 7V3'></path>
+          </svg>
+        </div>
+      </section>
 
-      <div className="max-w-4xl mx-auto">
+      <div className='max-w-4xl mx-auto'>
         {/* 最新公告 */}
-        <div className="mb-12">
-          <h2 className="text-2xl font-bold mb-6 flex items-center">
-            <Megaphone className="w-6 h-6 mr-2 text-blue-600" />
+        <div className='mb-12'>
+          <h2 className='text-2xl font-bold mb-6 flex items-center'>
+            <Megaphone className='w-6 h-6 mr-2 text-blue-600' />
             重要公告
           </h2>
-          <div className="space-y-6">
-            <div className="bg-white p-6 rounded-lg shadow-sm">
-              <div className="flex justify-between items-start mb-4">
-                <h3 className="text-xl font-bold">社群網站正式上線</h3>
-                <span className="text-sm text-gray-500">2025/03/15</span>
+          <div className='space-y-6'>
+            <div className='bg-white p-6 rounded-lg shadow-sm'>
+              <div className='flex justify-between items-start mb-4'>
+                <h3 className='text-xl font-bold'>社群網站正式上線</h3>
+                <span className='text-sm text-gray-500'>2025/03/15</span>
               </div>
-              <p className="text-gray-600 mb-4">
+              <p className='text-gray-600 mb-4'>
                 我們很高興地宣布，HYJdevelop網站正式上線！
                 這意味著我們將邁向建立更優質技術的重要里程碑。
               </p>
@@ -44,35 +46,35 @@ const Updates = () => {
         </div>
 
         {/* 最新消息 */}
-        <div className="mb-12">
-          <h2 className="text-2xl font-bold mb-6 flex items-center">
-            <Newspaper className="w-6 h-6 mr-2 text-green-600" />
+        <div className='mb-12'>
+          <h2 className='text-2xl font-bold mb-6 flex items-center'>
+            <Newspaper className='w-6 h-6 mr-2 text-green-600' />
             最新消息
           </h2>
-          <div className="space-y-6">
-            <div className="bg-white p-6 rounded-lg shadow-sm">
-              <div className="flex justify-between items-start mb-4">
-                <h3 className="text-xl font-bold">開放合作夥伴申請</h3>
-                <span className="text-sm text-gray-500">2025/03/14</span>
+          <div className='space-y-6'>
+            <div className='bg-white p-6 rounded-lg shadow-sm'>
+              <div className='flex justify-between items-start mb-4'>
+                <h3 className='text-xl font-bold'>開放合作夥伴申請</h3>
+                <span className='text-sm text-gray-500'>2025/03/14</span>
               </div>
-              <p className="text-gray-600 mb-4">
+              <p className='text-gray-600 mb-4'>
                 現在開始接受合作夥伴申請！我們期待與更多優秀的夥伴一起合作!
               </p>
-              <a href="/Partner" className="text-blue-600 hover:text-blue-700">
+              <a href='/Partner' className='text-blue-600 hover:text-blue-700'>
                 了解更多
               </a>
             </div>
 
-            <div className="bg-white p-6 rounded-lg shadow-sm">
-              <div className="flex justify-between items-start mb-4">
-                <h3 className="text-xl font-bold">SLRC 學習社群成立</h3>
-                <span className="text-sm text-gray-500">2025/03/13</span>
+            <div className='bg-white p-6 rounded-lg shadow-sm'>
+              <div className='flex justify-between items-start mb-4'>
+                <h3 className='text-xl font-bold'>SLRC 學習社群成立</h3>
+                <span className='text-sm text-gray-500'>2025/03/13</span>
               </div>
-              <p className="text-gray-600 mb-4">
+              <p className='text-gray-600 mb-4'>
                 SLRC 學習社群正式成立！這是一個專注於技術學習和交流的平台，
                 歡迎所有對技術有熱情的朋友加入。
               </p>
-              <a href="/SLRC" className="text-blue-600 hover:text-blue-700">
+              <a href='/SLRC' className='text-blue-600 hover:text-blue-700'>
                 了解更多
               </a>
             </div>

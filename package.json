@@ -1,14 +1,22 @@
 {
-  "name": "vite-react-typescript-starter",
+  "name": "hyjdevelop-website",
   "private": true,
-  "version": "0.0.0",
+  "version": "1.0.0",
   "type": "module",
   "scripts": {
-    "start": "react-scripts start",
     "dev": "vite",
     "build": "vite build",
+    "preview": "vite preview",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "lint:fix": "eslint . --fix",
+    "type-check": "tsc --noEmit",
+    "format": "prettier --write \"src/**/*.{ts,tsx,js,jsx}\"",
+    "format:check": "prettier --check \"src/**/*.{ts,tsx,js,jsx}\"",
+    "analyze": "npm run build && npx vite-bundle-analyzer dist",
+    "test": "vitest",
+    "test:ui": "vitest --ui",
+    "test:coverage": "vitest --coverage",
+    "test:run": "vitest run"
   },
   "dependencies": {
     "framer-motion": "^12.4.10",
@@ -22,6 +30,12 @@
   },
   "devDependencies": {
     "@eslint/js": "^9.9.1",
+    "@sentry/react": "^10.0.0",
+    "@sentry/tracing": "^7.120.4",
+    "@testing-library/jest-dom": "^6.6.4",
+    "@testing-library/react": "^16.3.0",
+    "@testing-library/user-event": "^14.6.1",
+    "@types/node": "^24.1.0",
     "@types/react": "^18.3.5",
     "@types/react-dom": "^18.3.0",
     "@types/react-helmet": "^6.1.11",
@@ -32,10 +46,14 @@
     "eslint-plugin-react-hooks": "^5.1.0-rc.0",
     "eslint-plugin-react-refresh": "^0.4.11",
     "globals": "^15.9.0",
+    "jsdom": "^26.1.0",
     "postcss": "^8.4.35",
+    "prettier": "^3.6.2",
     "tailwindcss": "^3.4.1",
     "typescript-eslint": "^8.3.0",
-    "vite": "^5.4.2"
+    "vite": "^5.4.2",
+    "vite-bundle-analyzer": "^1.1.0",
+    "vitest": "^3.2.4"
   },
   "browserslist": {
     "production": [

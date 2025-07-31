@@ -2,35 +2,37 @@ import { Shield, MessageSquare, Lock } from 'lucide-react';
 
 const Security = () => {
   return (
-      <div className="min-h-screen pb-24">
-    {/* Hero Section */}
-    <section className="min-h-screen max-h-screen flex flex-col items-center justify-center bg-gradient-to-b from-blue-50 to-white text-center px-4 relative py-12 overflow-hidden">
-      <h1 className="text-5xl md:text-7xl font-bold mb-8 text-gray-800">安全和表達自由</h1>
-      <p> 我們致力於提供一個安全且開放的平台，讓每個人都能自由表達想法，</p>
-      <p>同時確保所有用戶的安全和隱私。</p>
-      <div className="animate-bounce absolute bottom-12 mid transform -translate-x-1/2">
-        <svg 
-          className="w-8 h-8 text-gray-400"
-          fill="none" 
-          strokeLinecap="round" 
-          strokeLinejoin="round" 
-          strokeWidth="2" 
-          viewBox="0 0 22 22" 
-          stroke="currentColor"
-        >
-          <path d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
-        </svg>
-      </div>
-    </section>
+    <div className='min-h-screen pb-24'>
+      {/* Hero Section */}
+      <section className='min-h-screen max-h-screen flex flex-col items-center justify-center bg-gradient-to-b from-blue-50 to-white text-center px-4 relative py-12 overflow-hidden'>
+        <h1 className='text-5xl md:text-7xl font-bold mb-8 text-gray-800'>
+          安全和表達自由
+        </h1>
+        <p> 我們致力於提供一個安全且開放的平台，讓每個人都能自由表達想法，</p>
+        <p>同時確保所有用戶的安全和隱私。</p>
+        <div className='animate-bounce absolute bottom-12 mid transform -translate-x-1/2'>
+          <svg
+            className='w-8 h-8 text-gray-400'
+            fill='none'
+            strokeLinecap='round'
+            strokeLinejoin='round'
+            strokeWidth='2'
+            viewBox='0 0 22 22'
+            stroke='currentColor'
+          >
+            <path d='M19 14l-7 7m0 0l-7-7m7 7V3'></path>
+          </svg>
+        </div>
+      </section>
 
-      <div className="max-w-3xl mx-auto">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
-          <div className="bg-white p-6 rounded-lg shadow-sm">
-            <div className="flex items-center mb-4">
-              <Shield className="w-8 h-8 text-blue-600" />
-              <h2 className="text-xl font-bold ml-3">安全保障</h2>
+      <div className='max-w-3xl mx-auto'>
+        <div className='grid grid-cols-1 md:grid-cols-2 gap-8 mb-12'>
+          <div className='bg-white p-6 rounded-lg shadow-sm'>
+            <div className='flex items-center mb-4'>
+              <Shield className='w-8 h-8 text-blue-600' />
+              <h2 className='text-xl font-bold ml-3'>安全保障</h2>
             </div>
-            <ul className="space-y-3 text-gray-600">
+            <ul className='space-y-3 text-gray-600'>
               <li>• 全站 HTTPS 加密</li>
               <li>• 定期安全掃描</li>
               <li>• 多重身份驗證</li>
@@ -38,12 +40,12 @@ const Security = () => {
             </ul>
           </div>
 
-          <div className="bg-white p-6 rounded-lg shadow-sm">
-            <div className="flex items-center mb-4">
-              <MessageSquare className="w-8 h-8 text-green-600" />
-              <h2 className="text-xl font-bold ml-3">表達自由</h2>
+          <div className='bg-white p-6 rounded-lg shadow-sm'>
+            <div className='flex items-center mb-4'>
+              <MessageSquare className='w-8 h-8 text-green-600' />
+              <h2 className='text-xl font-bold ml-3'>表達自由</h2>
             </div>
-            <ul className="space-y-3 text-gray-600">
+            <ul className='space-y-3 text-gray-600'>
               <li>• 開放討論空間</li>
               <li>• 尊重多元觀點</li>
               <li>• 保護言論自由</li>
@@ -52,24 +54,16 @@ const Security = () => {
           </div>
         </div>
 
-        <div className="bg-white p-8 rounded-lg shadow-sm">
-          <div className="flex items-center mb-6">
-            <Lock className="w-8 h-8 text-purple-600" />
-            <h2 className="text-2xl font-bold ml-3">我們的承諾</h2>
+        <div className='bg-white p-8 rounded-lg shadow-sm'>
+          <div className='flex items-center mb-6'>
+            <Lock className='w-8 h-8 text-purple-600' />
+            <h2 className='text-2xl font-bold ml-3'>我們的承諾</h2>
           </div>
-          <div className="space-y-4 text-gray-600">
-            <p>
-              1. 保護用戶資料安全，絕不對外洩露個人資訊。
-            </p>
-            <p>
-              2. 維護開放且理性的討論環境，不容忍任何形式的騷擾或歧視。
-            </p>
-            <p>
-              3. 持續改進安全措施，應對新興威脅。
-            </p>
-            <p>
-              4. 尊重用戶隱私，確保資料使用透明度。
-            </p>
+          <div className='space-y-4 text-gray-600'>
+            <p>1. 保護用戶資料安全，絕不對外洩露個人資訊。</p>
+            <p>2. 維護開放且理性的討論環境，不容忍任何形式的騷擾或歧視。</p>
+            <p>3. 持續改進安全措施，應對新興威脅。</p>
+            <p>4. 尊重用戶隱私，確保資料使用透明度。</p>
           </div>
         </div>
       </div>

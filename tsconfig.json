@@ -4,8 +4,7 @@
     "lib": ["ESNext", "DOM"],
     "module": "ESNext",
     "skipLibCheck": true,
-    "moduleResolution": "bundler",
-    "allowImportingTsExtensions": true,
+    "moduleResolution": "node",
     "isolatedModules": true,
     "moduleDetection": "force",
     "noEmit": true,
@@ -17,7 +16,9 @@
     "paths": {
       "src/*": ["src/*"]
     },
-    "jsx": "react-jsx"
+    "jsx": "react-jsx",
+    "allowSyntheticDefaultImports": true,
+    "types": ["vitest/globals", "@testing-library/jest-dom"]
   },
-  "include": ["src"]
+  "include": ["src", "src/**/*.ts", "src/**/*.tsx", "src/**/*.test.ts", "src/**/*.test.tsx"]
 }
