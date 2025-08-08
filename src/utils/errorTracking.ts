@@ -1,11 +1,11 @@
 // 錯誤追蹤工具配置
 import * as Sentry from '@sentry/react';
 
-// Sentry 配置
-const SENTRY_DSN = 'https://626370e1033dc4fab0c249178916df73@o4509763936256000.ingest.de.sentry.io/4509763938222160';
+// Sentry 配置：從環境變數讀取
+const SENTRY_DSN: string | undefined = (import.meta as any)?.env?.VITE_SENTRY_DSN;
 
 export const initErrorTracking = () => {
-  if (typeof window !== 'undefined') {
+  if (typeof window !== 'undefined' && SENTRY_DSN) {
     try {
       Sentry.init({
         dsn: SENTRY_DSN,
@@ -24,6 +24,8 @@ export const initErrorTracking = () => {
     } catch (error) {
       console.warn('Sentry 初始化失敗:', error);
     }
+  } else if (!SENTRY_DSN) {
+    console.warn('[Sentry] 未設定 VITE_SENTRY_DSN，略過初始化');
   }
 };
 

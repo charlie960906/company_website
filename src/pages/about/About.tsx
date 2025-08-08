@@ -1,4 +1,4 @@
-import { Users, Target, Heart } from 'lucide-react';
+import { Users, Target, Heart, CalendarDays, Clock } from 'lucide-react';
 
 const About = () => {
   return (
@@ -55,164 +55,80 @@ const About = () => {
         </div>
       </div>
 
-      <div className='max-w-3xl mx-auto'>
-        <h2 className='text-2xl font-bold mb-6 text-center'>我們的成長歷程</h2>
-        <div className='space-y-8'>
-          {/* 2024 */}
-          <div className='flex items-start'>
-            <div className='bg-gray-100 rounded-full p-2 mr-4'>
-              <div className='w-4 h-4 bg-blue-600 rounded-full'></div>
-            </div>
-            <div>
-              <h3 className='font-bold mb-2'>2024年</h3>
-              <ul className='text-gray-600 list-disc pl-5 space-y-2'>
-                <li>
-                  <strong>12月14日</strong> - 購買 HYJdevelop.com 作為
-                  HYJdevelop 的網域
-                </li>
-                <li>
-                  <strong>5月15日</strong> - HYJdevelop 網頁與 SLRC 網頁合併
-                </li>
-                <li>
-                  <strong>2月29日</strong> - HYJdevelop 粉專上線
-                </li>
-              </ul>
-            </div>
-          </div>
+      <div className='max-w-4xl mx-auto px-4'>
+        <h2 className='text-2xl font-bold mt-2 mb-6 text-center'>重要發展時間</h2>
+        {(() => {
+          type TimelineItem = { date: string; title: string; description?: string; year: number };
+          const timelineItems: TimelineItem[] = [
+            { date: '2024-12-14', title: '購買 HYJdevelop.com 為 HYJdevelop 的網域', year: 2024 },
+            { date: '2024-07-26', title: 'HYJdevelop 網頁論壇啟用', year: 2024 },
+            { date: '2024', title: '使用 HTML 開發 HYJdevelop 網頁', description: '預計 2026 年第二季上線', year: 2024 },
+            { date: '2024-05-15', title: 'HYJdevelop 網頁與 SLRC 網頁合併', year: 2024 },
+            { date: '2024-02-29', title: 'HYJdevelop 粉專上線', year: 2024 },
+            { date: '2023-12-27', title: 'SLRC 成員超過 50 人', description: 'IG 粉絲超過 50 人', year: 2023 },
+            { date: '2023-12-23', title: 'HYJdevelop 官網上線', year: 2023 },
+            { date: '2023-12-15', title: 'SLRC 官網上線', year: 2023 },
+            { date: '2023-12-03', title: 'HYJdevelop IG 上線', year: 2023 },
+            { date: '2023-12-01', title: 'SLRC 粉專和 IG 上線', year: 2023 },
+            { date: '2023-11-01', title: '學生學習資源社群 SLRC 正式對外開放加入', year: 2023 },
+            { date: '2023-09-20', title: 'SLRC 標誌產生', year: 2023 },
+            { date: '2023-08-14', title: '進行 SLRC 社群內測', year: 2023 },
+            { date: '2023-07-11', title: '提出學生學習資源社群 SLRC', year: 2023 },
+            { date: '2023-06-09', title: '開始進行 Discord 群組改造', year: 2023 },
+            { date: '2023-05-10', title: '將「會考討論群」的加入連結放在個人網頁中，對外開放', year: 2023 },
+            { date: '2023-05-02', title: '黃宥鈞的個人網頁正式上線', year: 2023 },
+            { date: '2023-04-17', title: 'HYJdevelop 官網開始設計', year: 2023 },
+            { date: '2023-04-16', title: '黃宥鈞在 11:04 決定並創立 HYJdevelop，並第一次將名稱放在個人網頁上', year: 2023 },
+            { date: '2023-04-13', title: '使用 Google Site 建立個人網頁', year: 2023 },
+            { date: '2023-01-20', title: '擁有 2TB 儲存空間，將資料從 Discord 移到資料庫上，並開始使用分享連結', year: 2023 },
+            { date: '2023-01-01', title: 'HYJdevelop 新一年的願景', description: '1. 社群超過 300 人 2. 合作夥伴越來越多 3. 服務品質越來越好', year: 2023 },
+            { date: '2022-07-10', title: '建立 Discord「會考討論群」，僅開放部分朋友加入', year: 2022 },
+            { date: '2022-04-08', title: '因為疫情線上上課開始接觸 Discord', year: 2022 },
+          ];
 
-          {/* 2023 */}
-          <div className='flex items-start'>
-            <div className='bg-gray-100 rounded-full p-2 mr-4'>
-              <div className='w-4 h-4 bg-blue-600 rounded-full'></div>
-            </div>
-            <div>
-              <h3 className='font-bold mb-2'>2023年</h3>
-              <ul className='text-gray-600 list-disc pl-5 space-y-2'>
-                <li>
-                  <strong>12月27日</strong> - SLRC 成員超過 50 人，IG 粉絲超過
-                  50 人
-                </li>
-                <li>
-                  <strong>12月23日</strong> - HYJdevelop 官網上線
-                </li>
-                <li>
-                  <strong>12月15日</strong> - SLRC 官網上線
-                </li>
-                <li>
-                  <strong>12月3日</strong> - HYJdevelop IG 上線
-                </li>
-                <li>
-                  <strong>12月1日</strong> - SLRC 粉專和 IG 上線
-                </li>
-                <li>
-                  <strong>11月1日</strong> - 「學生學習資源社群
-                  SLRC」正式對外開放加入
-                </li>
-                <li>
-                  <strong>9月20日</strong> - SLRC 標誌產生
-                </li>
-                <li>
-                  <strong>8月14日</strong> - 進行 SLRC 社群內測
-                </li>
-                <li>
-                  <strong>7月11日</strong> - 提出學生學習資源社群 SLRC
-                </li>
-                <li>
-                  <strong>6月9日</strong> - 開始進行 Discord 群組改造
-                </li>
-                <li>
-                  <strong>5月10日</strong> -
-                  將「會考討論群」的加入連結放在個人網頁中，對外開放
-                </li>
-                <li>
-                  <strong>5月2日</strong> - 黃宥鈞的個人網頁正式上線
-                </li>
-                <li>
-                  <strong>4月17日</strong> - HYJdevelop 官網開始設計
-                </li>
-                <li>
-                  <strong>4月16日</strong> - 黃宥鈞在 11:04 決定並創立
-                  HYJdevelop，並首次將名稱放在個人網頁上
-                </li>
-                <li>
-                  <strong>4月13日</strong> - 黃宥鈞使用 Google Sites
-                  建立個人網頁
-                </li>
-                <li>
-                  <strong>1月20日</strong> - 擁有 2TB 儲存空間，將資料從 Discord
-                  移至資料庫並使用分享連結
-                </li>
-                <li>
-                  <strong>1月1日</strong> - HYJdevelop 新一年願景：社群超過 300
-                  人、合作夥伴增加、服務品質提升
-                </li>
-              </ul>
-            </div>
-          </div>
+          const groupByYear = (items: TimelineItem[]) =>
+            items.reduce<Record<number, TimelineItem[]>>((map, i) => {
+              map[i.year] ||= [];
+              map[i.year].push(i);
+              return map;
+            }, {});
 
-          {/* 2022 */}
-          <div className='flex items-start'>
-            <div className='bg-gray-100 rounded-full p-2 mr-4'>
-              <div className='w-4 h-4 bg-blue-600 rounded-full'></div>
-            </div>
-            <div>
-              <h3 className='font-bold mb-2'>2022年</h3>
-              <ul className='text-gray-600 list-disc pl-5 space-y-2'>
-                <li>
-                  <strong>7月10日</strong> - 建立
-                  Discord「會考討論群」，僅開放部分朋友加入
-                </li>
-                <li>
-                  <strong>4月8日</strong> - 因疫情線上上課，開始接觸 Discord
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
+          const grouped = groupByYear(timelineItems);
+          const years = Object.keys(grouped)
+            .map(Number)
+            .sort((a, b) => b - a);
 
-        {/* 未來展望 */}
-        <h2 className='text-2xl font-bold mt-12 mb-6 text-center'>未來展望</h2>
-        <div className='space-y-8'>
-          {/* 2026 */}
-          <div className='flex items-start'>
-            <div className='bg-gray-100 rounded-full p-2 mr-4'>
-              <div className='w-4 h-4 bg-purple-600 rounded-full'></div>
-            </div>
+          return (
             <div>
-              <h3 className='font-bold mb-2'>2026年</h3>
-              <ul className='text-gray-600 list-disc pl-5 space-y-2'>
-                <li>
-                  <strong>全年目標</strong> - 社群成員突破 500 人，與至少 5
-                  家教育或技術機構建立合作關係
-                </li>
-                <li>
-                  <strong>第三季</strong> - 推出 SLRC
-                  線上課程平台，提供結構化的技術學習路徑
-                </li>
-                <li>
-                  <strong>第一季</strong> - 舉辦首屆 HYJdevelop
-                  技術分享會，邀請社群成員參與
-                </li>
-              </ul>
+              {years.map(year => (
+                <div key={year} className='mb-10'>
+                  <h3 className='text-xl font-bold mb-4 flex items-center'>
+                    <CalendarDays className='w-6 h-6 text-blue-600 mr-2' />
+                    {year} 年
+                  </h3>
+                  <div className='relative border-l border-gray-200 pl-6'>
+                    {grouped[year]
+                      .slice()
+                      .sort((a, b) => (a.date > b.date ? -1 : 1))
+                      .map((item, idx) => (
+                        <div key={`${item.date}-${idx}`} className='mb-6'>
+                          <div className='absolute -left-2 mt-1 w-3 h-3 bg-blue-600 rounded-full'></div>
+                          <div className='text-sm text-gray-500 flex items-center mb-1'>
+                            <Clock className='w-4 h-4 mr-1' />
+                            <span>{item.date}</span>
+                          </div>
+                          <h4 className='font-semibold text-gray-900'>{item.title}</h4>
+                          {item.description ? (
+                            <p className='text-gray-600 mt-1'>{item.description}</p>
+                          ) : null}
+                        </div>
+                      ))}
+                  </div>
+                </div>
+              ))}
             </div>
-          </div>
-
-          {/* 2025 */}
-          <div className='flex items-start'>
-            <div className='bg-gray-100 rounded-full p-2 mr-4'>
-              <div className='w-4 h-4 bg-purple-600 rounded-full'></div>
-            </div>
-            <div>
-              <h3 className='font-bold mb-2'>2025年</h3>
-              <ul className='text-gray-600 list-disc pl-5 space-y-2'>
-                <li>
-                  <strong>第二季</strong> - 使用 HTML 開發的 HYJdevelop
-                  全新網頁正式上線，提供更豐富的學習資源與互動功能
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
+          );
+        })()}
       </div>
     </div>
   );

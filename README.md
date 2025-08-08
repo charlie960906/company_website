@@ -26,6 +26,10 @@ project/
 │   ├── components/        # 共用組件
 │   │   ├── Header.tsx     # 導航欄組件
 │   │   └── Footer.tsx     # 頁腳組件
+│   ├── layouts/           # 版面配置 (Layout)
+│   │   └── MainLayout.tsx # 主版面，含 Header/Footer 與 <Outlet/>
+│   ├── config/            # 設定/常數
+│   │   └── seo.ts         # 路由對應 SEO 設定集中管理
 │   ├── hooks/             # 自定義 Hooks
 │   │   └── useScrollToTop.ts
 │   ├── pages/             # 頁面組件

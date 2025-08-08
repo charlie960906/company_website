@@ -45,7 +45,7 @@ const Forum = () => {
           href='#'
           className='inline-block bg-blue-600 text-white px-8 py-3 rounded-lg hover:bg-blue-700 transition-colors'
         >
-          開始參與討論
+          尚在建置中
         </a>
       </div>
     </div>

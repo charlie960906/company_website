@@ -1,10 +1,7 @@
 import { Facebook, Instagram, Disc as Discord } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import { useScrollToTop } from '../hooks/useScrollToTop';
 
 const Footer = () => {
-  useScrollToTop();
-
   return (
     <footer className='bg-white/80 backdrop-blur-sm text-gray-800 border-t'>
       <div className='container mx-auto px-4 py-8'>
