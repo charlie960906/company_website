@@ -1,5 +1,5 @@
 import { Routes, Route, useLocation } from 'react-router-dom';
-import { Helmet } from 'react-helmet';
+import { Helmet } from 'react-helmet-async';
 import { useScrollToTop } from 'src/hooks/useScrollToTop';
 import { setTag, setContext } from 'src/utils/errorTracking';
 import MainLayout from 'src/layouts/MainLayout';

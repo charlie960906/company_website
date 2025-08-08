@@ -3,10 +3,13 @@ import { render } from '@testing-library/react';
 import { BrowserRouter } from 'react-router-dom';
 import App from '../../App';
 
-// Mock react-helmet
-vi.mock('react-helmet', () => ({
+// Mock react-helmet-async
+vi.mock('react-helmet-async', () => ({
   Helmet: ({ children }: { children: React.ReactNode }) => (
     <div data-testid='helmet'>{children}</div>
+  ),
+  HelmetProvider: ({ children }: { children: React.ReactNode }) => (
+    <div data-testid='helmet-provider'>{children}</div>
   ),
 }));
 
