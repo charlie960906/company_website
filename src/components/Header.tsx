@@ -32,19 +32,11 @@ const Header: React.FC = () => {
   // 定義選單項目
   const menuItems: DropdownMenuItem[] = [
     { to: '/', label: '首頁' },
-    { to: '/shop', label: '線上商城' },
-    {
-      label: '我們的社群',
-      dropdown: [
-        { to: '/slrc', label: 'SLRC' },
-        { to: '/forum', label: '論壇' },
-        { to: '/rules', label: '社群守則' },
-      ],
-    },
+    { to: '/tutorgo', label: 'Tutor Go' },
+    // 移除『我們的社群』下拉
     {
       label: '認識我們',
       dropdown: [
-        { to: '/about', label: '社群發展' },
         { to: '/contact', label: '聯絡我們' },
         { to: '/join', label: '加入我們' },
         { to: '/admin', label: '我們的主管' },
@@ -175,7 +167,7 @@ const Header: React.FC = () => {
             className='flex items-center space-x-2'
             onClick={closeMenu}
           >
-            <img src='/logo.png' alt='HYJdevelop 標誌' className='h-10' />
+            <img src='/logo.png' alt='HYJdevelop 標誌' className='h-8 md:h-10 high-dpi' />
             <span className='text-xl font-bold'>HYJdevelop</span>
           </Link>
 

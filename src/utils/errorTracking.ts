@@ -15,10 +15,18 @@ export const initErrorTracking = () => {
         // 環境配置
         environment: process.env.NODE_ENV || 'development',
         // 性能監控
-        tracesSampleRate: 1.0,
+        tracesSampleRate: 0.2,
         // 錯誤採樣率
         replaysSessionSampleRate: 0.1,
         replaysOnErrorSampleRate: 1.0,
+        // 錯誤過濾
+        beforeSend(event) {
+          // 過濾掉開發環境的錯誤
+          if (process.env.NODE_ENV === 'development') {
+            return null;
+          }
+          return event;
+        },
       });
       console.log('Sentry 初始化成功');
     } catch (error) {
@@ -33,6 +41,10 @@ export const captureError = (error: Error, context?: Record<string, unknown>) =>
   if (typeof window !== 'undefined') {
     Sentry.captureException(error, {
       extra: context,
+      tags: {
+        errorType: 'application_error',
+        component: context?.component || 'unknown',
+      },
     });
   }
 };
@@ -46,6 +58,44 @@ export const captureMessage = (
   }
 };
 
+// 新增：用戶行為追蹤
+export const trackUserAction = (action: string, data?: Record<string, unknown>) => {
+  if (typeof window !== 'undefined') {
+    Sentry.addBreadcrumb({
+      category: 'user_action',
+      message: action,
+      data,
+      level: 'info',
+    });
+  }
+};
+
+// 新增：頁面載入時間追蹤
+export const trackPageLoad = (pageName: string) => {
+  if (typeof window !== 'undefined') {
+    const loadTime = performance.now();
+    // 使用 Sentry 的 breadcrumb 來記錄頁面載入時間
+    Sentry.addBreadcrumb({
+      category: 'performance',
+      message: `Page load: ${pageName}`,
+      data: { loadTime },
+      level: 'info',
+    });
+  }
+};
+
+// 新增：API 請求追蹤
+export const trackApiRequest = (url: string, method: string, status: number, duration: number) => {
+  if (typeof window !== 'undefined') {
+    Sentry.addBreadcrumb({
+      category: 'api_request',
+      message: `${method} ${url}`,
+      data: { url, method, status, duration },
+      level: status >= 400 ? 'error' : 'info',
+    });
+  }
+};
+
 // 全局錯誤處理器
 export const setupGlobalErrorHandler = () => {
   if (typeof window !== 'undefined') {
@@ -54,14 +104,28 @@ export const setupGlobalErrorHandler = () => {
         filename: event.filename,
         lineno: event.lineno,
         colno: event.colno,
+        errorType: 'runtime_error',
       });
     });
 
     window.addEventListener('unhandledrejection', event => {
       captureError(new Error(event.reason), {
         type: 'unhandledrejection',
+        errorType: 'promise_rejection',
       });
     });
+
+    // 新增：資源載入錯誤追蹤
+    window.addEventListener('error', event => {
+      if (event.target && event.target !== window) {
+        const target = event.target as HTMLElement;
+        captureError(new Error(`Resource load failed: ${target.tagName}`), {
+          errorType: 'resource_error',
+          resource: target.tagName,
+          src: (target as any).src || (target as any).href,
+        });
+      }
+    }, true);
   }
 };
 
@@ -73,6 +137,24 @@ export const startPerformanceMonitoring = () => {
       performance.mark('page-load-start');
       performance.mark('page-load-end');
       performance.measure('page-load', 'page-load-start', 'page-load-end');
+    }
+
+    // 新增：Core Web Vitals 監控
+    if ('PerformanceObserver' in window) {
+      const observer = new PerformanceObserver((list) => {
+        for (const entry of list.getEntries()) {
+          if (entry.entryType === 'largest-contentful-paint') {
+            trackUserAction('lcp_measured', { value: entry.startTime });
+          } else if (entry.entryType === 'first-input') {
+            const fid = entry.processingStart - entry.startTime;
+            trackUserAction('fid_measured', { value: fid });
+          } else if (entry.entryType === 'layout-shift') {
+            trackUserAction('cls_measured', { value: (entry as any).value });
+          }
+        }
+      });
+      
+      observer.observe({ entryTypes: ['largest-contentful-paint', 'first-input', 'layout-shift'] });
     }
   }
 };
@@ -99,4 +181,29 @@ export const setContext = (name: string, context: Record<string, unknown>) => {
   if (typeof window !== 'undefined') {
     Sentry.setContext(name, context);
   }
+};
+
+// 新增：自定義錯誤類型
+export const captureNetworkError = (url: string, status: number, message: string) => {
+  captureError(new Error(`Network Error: ${message}`), {
+    errorType: 'network_error',
+    url,
+    status,
+  });
+};
+
+export const captureValidationError = (field: string, value: unknown) => {
+  captureError(new Error(`Validation Error: ${field}`), {
+    errorType: 'validation_error',
+    field,
+    value,
+  });
+};
+
+export const captureAuthError = (action: string, reason: string) => {
+  captureError(new Error(`Auth Error: ${action}`), {
+    errorType: 'auth_error',
+    action,
+    reason,
+  });
 };

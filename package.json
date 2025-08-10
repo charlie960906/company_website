@@ -19,6 +19,7 @@
     "test:run": "vitest run"
   },
   "dependencies": {
+    "@sentry/browser": "^10.3.0",
     "framer-motion": "^12.23.12",
     "lucide-react": "^0.539.0",
     "react": "^19.1.1",

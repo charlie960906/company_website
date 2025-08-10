@@ -14,8 +14,8 @@ describe('Home', () => {
 
   it('renders features section', () => {
     const { getByText } = renderWithRouter(<Home />);
-    expect(getByText('雲端服務')).toBeInTheDocument();
-    expect(getByText('網路安全和表達自由')).toBeInTheDocument();
+    expect(getByText('網站製作')).toBeInTheDocument();
+    expect(getByText('家教媒合 App（規劃中）')).toBeInTheDocument();
     expect(getByText('為學習做準備')).toBeInTheDocument();
   });
 
@@ -32,9 +32,7 @@ describe('Home', () => {
   it('has correct links', () => {
     const { getAllByRole } = renderWithRouter(<Home />);
     const links = getAllByRole('link');
-    expect(links.some((link: HTMLElement) => link.getAttribute('href') === '/hosting')).toBe(
-      true
-    );
+    expect(links.some((link: HTMLElement) => link.getAttribute('href') === '/partner')).toBe(true);
     expect(links.some((link: HTMLElement) => link.getAttribute('href') === '/security')).toBe(
       true
     );

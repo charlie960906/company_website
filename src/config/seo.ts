@@ -15,10 +15,6 @@ export const ROUTE_META: Record<string, RouteMeta> = {
     description:
       '我們的產品將各地的人與人聯繫在一起，為大家創造機會並發出聲音，我們正在努力，建立一個安全、自由、開放的社群',
   },
-  '/shop': {
-    title: 'HYJdevelop - 線上商城',
-    description: 'HYJdevelop 線上商城，即將推出，敬請期待我們的創新產品！',
-  },
   '/service': {
     title: 'HYJdevelop - 服務條款',
     description: '查看 HYJdevelop 的服務條款與支援資訊，確保您的體驗安全與順暢。',
@@ -40,28 +36,20 @@ export const ROUTE_META: Record<string, RouteMeta> = {
     description: '了解 HYJdevelop 的安全與隱私政策，保障您的權益。',
   },
   '/security': {
-    title: 'HYJdevelop - 安全和表達自由',
-    description: 'HYJdevelop 致力於安全即是自由，了解我們的保護措施。',
+    title: 'HYJdevelop - 網路安全與資料保護',
+    description: 'HYJdevelop 採用業界最先進的安全技術，全方位保護您的資料安全和隱私。',
+  },
+  '/freedom': {
+    title: 'HYJdevelop - 表達自由與社群保護',
+    description: 'HYJdevelop 致力於保護每個人的表達自由權利，同時確保社群環境的安全與和諧。',
   },
   '/hosting': {
-    title: 'HYJdevelop - 雲端服務',
-    description: '了解 HYJdevelop 提供的雲端服務。',
-  },
-  '/slrc': {
-    title: 'HYJdevelop - SLRC 學生學習資訊社群',
-    description: '探索 SLRC 的活動與資訊。',
-  },
-  '/forum': {
-    title: 'HYJdevelop - 論壇',
-    description: '加入 HYJdevelop 的論壇，與社群互動與交流。',
+    title: 'HYJdevelop - 網站製作與合作',
+    description: 'HYJdevelop 提供網站製作與教育/民間團體合作服務。',
   },
   '/rules': {
     title: 'HYJdevelop - 社群守則',
     description: '查看 HYJdevelop 的社群守則，維護健康的社群環境。',
-  },
-  '/about': {
-    title: 'HYJdevelop - 歷史發展',
-    description: '了解 HYJdevelop 的歷史發展。',
   },
   '/contact': {
     title: 'HYJdevelop - 聯絡我們',
@@ -78,6 +66,10 @@ export const ROUTE_META: Record<string, RouteMeta> = {
   '/partner': {
     title: 'HYJdevelop - 成為合作夥伴',
     description: '成為 HYJdevelop 的合作夥伴，共同開創美好未來。',
+  },
+  '/tutorgo': {
+    title: 'HYJdevelop - Tutor Go 家教媒合（規劃中）',
+    description: 'Tutor Go 為 SLRC 的未來版本，打造安全、透明的家教媒合平台。',
   },
 };
 

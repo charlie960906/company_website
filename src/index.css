@@ -2,12 +2,80 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  /* 估計導覽列高度（桌面） */
+  --header-h: 64px;
+  /* 背景過場平滑 */
+  --bg-transition: background 800ms ease;
+  --bg-from: #f7fbff; /* hero */
+  --bg-via: #ffffff;
+  --bg-to: #ffffff;
+  --bg-overlay: radial-gradient(1200px 800px at 60% 10%, rgba(59,130,246,0.06), transparent 60%),
+                 radial-gradient(900px 700px at 10% 70%, rgba(16,185,129,0.05), transparent 55%),
+                 radial-gradient(1000px 700px at 90% 80%, rgba(99,102,241,0.05), transparent 60%);
+}
+
+/* 單一全局背景：避免每段切換時閃爍 */
+.app-bg {
+  background:
+    /* 柔和上下漸暗的暗角，降低區塊感 */
+    linear-gradient(
+      to bottom,
+      rgba(0,0,0,0.02) 0%,
+      rgba(0,0,0,0.00) 12%,
+      rgba(0,0,0,0.00) 88%,
+      rgba(0,0,0,0.02) 100%
+    ),
+    /* 超淡裝飾光暈 */
+    radial-gradient(1100px 700px at 60% 10%, rgba(59,130,246,0.03), transparent 65%),
+    radial-gradient(900px 600px at 12% 75%, rgba(16,185,129,0.02), transparent 60%),
+    radial-gradient(1000px 650px at 88% 85%, rgba(99,102,241,0.02), transparent 65%),
+    #ffffff;
+}
+
+@media (min-width: 1024px) {
+  :root {
+    --header-h: 72px;
+  }
+}
+
+/* 讓單一區塊剛好滿版（扣除固定導覽列高度） */
+@layer utilities {
+  .section-hero {
+    min-height: 100vh;
+    max-height: 100vh;
+    transition: opacity 300ms ease;
+  }
+  .section-screen {
+    min-height: calc(100vh - var(--header-h));
+    max-height: calc(100vh - var(--header-h));
+    transition: opacity 300ms ease;
+  }
+  /* 文字排版優化：避免小螢幕溢出、過長單字換行 */
+  .text-balance {
+    text-wrap: balance;
+  }
+  .break-anywhere {
+    overflow-wrap: anywhere;
+    word-break: break-word;
+  }
+}
+
 /* 響應式設計增強 */
 @layer utilities {
   /* 移動端觸控優化 */
   .touch-target {
-    min-height: 44px;
-    min-width: 44px;
+    min-height: 40px; /* 稍微縮小但仍可點擊 */
+    min-width: 40px;
+  }
+  
+  /* 手機：容器與字級更緊湊 */
+  .container-sm-compact {
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+  }
+  .heading-tight {
+    line-height: 1.2;
   }
   
   /* 移動端文字大小優化 */
@@ -17,17 +85,17 @@
   
   /* 移動端間距優化 */
   .mobile-spacing {
-    padding: 1rem;
+    padding: 0.75rem; /* 更緊湊 */
   }
   
   /* 平板端間距優化 */
   .tablet-spacing {
-    padding: 1.5rem;
+    padding: 1.25rem;
   }
   
   /* 桌面端間距優化 */
   .desktop-spacing {
-    padding: 2rem;
+    padding: 1.75rem;
   }
 }
 
@@ -59,6 +127,11 @@
     background-color: #f3f4f6;
     transform: scale(0.98);
   }
+  /* Hero padding 更緊湊 */
+  .hero-compact {
+    padding-top: 2.5rem !important;
+    padding-bottom: 2.5rem !important;
+  }
 }
 
 /* 觸控設備優化 */
@@ -84,11 +157,6 @@
   }
 }
 
-/* 深色模式支援（未來擴展） */
-@media (prefers-color-scheme: dark) {
-  /* 可以在這裡添加深色模式樣式 */
-}
-
 /* 減少動畫（無障礙支援） */
 @media (prefers-reduced-motion: reduce) {
   *,
@@ -98,4 +166,21 @@
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
   }
+}
+
+@keyframes glowPulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(59, 130, 246, 0.0), 0 0 0 rgba(59, 130, 246, 0.0);
+  }
+  50% {
+    box-shadow: 0 0 0 6px rgba(59, 130, 246, 0.18), 0 12px 28px rgba(59, 130, 246, 0.35);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(59, 130, 246, 0.0), 0 0 0 rgba(59, 130, 246, 0.0);
+  }
+}
+
+/* 脈衝發光效果（藍色） */
+.glow-pulse {
+  animation: glowPulse 1.8s ease-in-out infinite;
 }
