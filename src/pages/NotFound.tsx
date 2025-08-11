@@ -19,7 +19,9 @@ const NotFound: React.FC = () => {
           transition={{ duration: 0.5, delay: 0.1 }}
           className='mb-8'
         >
-          <div className='text-6xl md:text-9xl font-bold text-gray-300 mb-4'>404</div>
+          <div className='text-6xl md:text-9xl font-bold text-gray-300 mb-4'>
+            404
+          </div>
           <div className='w-24 h-24 mx-auto bg-gradient-to-r from-blue-500 to-indigo-600 rounded-full flex items-center justify-center'>
             <SearchX className='w-12 h-12 text-white' aria-label='找不到頁面' />
           </div>
@@ -73,7 +75,9 @@ const NotFound: React.FC = () => {
           transition={{ duration: 0.5, delay: 0.5 }}
           className='mt-8 pt-8 border-t border-gray-200 pb-16 md:pb-24'
         >
-          <p className='text-xs md:text-sm text-gray-500 mb-4'>您也可以嘗試：</p>
+          <p className='text-xs md:text-sm text-gray-500 mb-4'>
+            您也可以嘗試：
+          </p>
           <div className='flex flex-wrap justify-center gap-2 md:gap-4 text-xs md:text-sm'>
             <Link
               to='/tutorgo'

@@ -1,5 +1,14 @@
 import { motion } from 'framer-motion';
-import { Briefcase, Clock, Users, MapPin, DollarSign, Calendar, ArrowRight, Mail } from 'lucide-react';
+import {
+  Briefcase,
+  Clock,
+  Users,
+  MapPin,
+  DollarSign,
+  Calendar,
+  ArrowRight,
+  Mail,
+} from 'lucide-react';
 import { useState } from 'react';
 
 interface JobPosition {
@@ -25,18 +34,14 @@ const jobPositions: JobPosition[] = [
       '對學習有熱情',
       '對團隊有責任感',
       '對未來有遠見',
-      '對自己有要求'
+      '對自己有要求',
     ],
-    benefits: [
-      '彈性工作時間',
-      '良好的團隊氣氛',
-      '新創公司有無限可能'
-    ],
+    benefits: ['彈性工作時間', '良好的團隊氣氛', '新創公司有無限可能'],
     location: '嘉義市 / 遠程',
     salary: '新創公司新資可討論',
     type: '全職 / 兼職',
-    experience: '不限'
-  }
+    experience: '不限',
+  },
 ];
 
 const Join = () => {
@@ -56,13 +61,13 @@ const Join = () => {
   return (
     <div className='min-h-screen pb-24'>
       {/* Hero Section */}
-      <motion.section 
+      <motion.section
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, ease: [0.33, 1, 0.68, 1] }}
         className='min-h-screen max-h-screen flex flex-col items-center justify-center bg-gradient-to-b from-blue-50 to-white text-center px-4 relative py-12 overflow-hidden'
       >
-        <motion.h1 
+        <motion.h1
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, ease: [0.33, 1, 0.68, 1] }}
@@ -70,7 +75,7 @@ const Join = () => {
         >
           加入我們
         </motion.h1>
-        <motion.p 
+        <motion.p
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.1 }}
@@ -78,7 +83,7 @@ const Join = () => {
         >
           我們正在尋找充滿熱情的夥伴，一起打造最棒的技術社群。
         </motion.p>
-        <motion.p 
+        <motion.p
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.2 }}
@@ -86,7 +91,7 @@ const Join = () => {
         >
           如果你也對此充滿熱忱，歡迎加入我們的團隊！
         </motion.p>
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.3 }}
@@ -107,14 +112,14 @@ const Join = () => {
       </motion.section>
 
       <div className='max-w-4xl mx-auto'>
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
           className='grid grid-cols-1 md:grid-cols-3 gap-8 mb-12'
         >
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.1 }}
@@ -128,7 +133,7 @@ const Join = () => {
             <p className='text-gray-600'>開放、自由的工作氛圍</p>
           </motion.div>
 
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
@@ -142,7 +147,7 @@ const Join = () => {
             <p className='text-gray-600'>自由安排工作時間</p>
           </motion.div>
 
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.3 }}
@@ -157,7 +162,7 @@ const Join = () => {
           </motion.div>
         </motion.div>
 
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
@@ -167,7 +172,7 @@ const Join = () => {
           <h2 className='text-2xl font-bold mb-6'>目前職缺</h2>
           <div className='space-y-6'>
             {jobPositions.map((job, index) => (
-              <motion.div 
+              <motion.div
                 key={job.id}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -177,21 +182,29 @@ const Join = () => {
                 onClick={() => handleJobClick(job)}
               >
                 <div className='flex justify-between items-start mb-4'>
-                  <h3 className='text-xl font-bold text-gray-800'>{job.title}</h3>
+                  <h3 className='text-xl font-bold text-gray-800'>
+                    {job.title}
+                  </h3>
                   <ArrowRight className='w-5 h-5 text-gray-400' />
                 </div>
                 <p className='text-gray-600 mb-4'>{job.description}</p>
                 <div className='flex flex-wrap gap-4 text-sm text-gray-500'>
-                  <span className='flex items-center'><MapPin className='w-4 h-4 mr-1' /> {job.location}</span>
-                  <span className='flex items-center'><DollarSign className='w-4 h-4 mr-1' /> {job.salary}</span>
-                  <span className='flex items-center'><Calendar className='w-4 h-4 mr-1' /> {job.type}</span>
+                  <span className='flex items-center'>
+                    <MapPin className='w-4 h-4 mr-1' /> {job.location}
+                  </span>
+                  <span className='flex items-center'>
+                    <DollarSign className='w-4 h-4 mr-1' /> {job.salary}
+                  </span>
+                  <span className='flex items-center'>
+                    <Calendar className='w-4 h-4 mr-1' /> {job.type}
+                  </span>
                 </div>
               </motion.div>
             ))}
           </div>
         </motion.div>
 
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
@@ -214,7 +227,7 @@ const Join = () => {
       {/* 職缺詳情 Modal */}
       {showModal && selectedJob && (
         <div className='fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50'>
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0, scale: 0.9 }}
@@ -222,7 +235,9 @@ const Join = () => {
           >
             <div className='p-6'>
               <div className='flex justify-between items-start mb-6'>
-                <h2 className='text-2xl font-bold text-gray-800'>{selectedJob.title}</h2>
+                <h2 className='text-2xl font-bold text-gray-800'>
+                  {selectedJob.title}
+                </h2>
                 <button
                   onClick={closeModal}
                   className='text-gray-400 hover:text-gray-600 text-2xl font-bold'
@@ -233,31 +248,50 @@ const Join = () => {
 
               <div className='space-y-6'>
                 <div>
-                  <h3 className='text-lg font-semibold mb-2 text-gray-800'>職位描述</h3>
+                  <h3 className='text-lg font-semibold mb-2 text-gray-800'>
+                    職位描述
+                  </h3>
                   <p className='text-gray-600'>{selectedJob.description}</p>
                 </div>
 
                 <div className='grid grid-cols-1 md:grid-cols-2 gap-6'>
                   <div>
-                    <h3 className='text-lg font-semibold mb-2 text-gray-800'>工作地點</h3>
-                    <p className='text-gray-600 flex items-center'><MapPin className='w-4 h-4 mr-2' /> {selectedJob.location}</p>
+                    <h3 className='text-lg font-semibold mb-2 text-gray-800'>
+                      工作地點
+                    </h3>
+                    <p className='text-gray-600 flex items-center'>
+                      <MapPin className='w-4 h-4 mr-2' /> {selectedJob.location}
+                    </p>
                   </div>
                   <div>
-                    <h3 className='text-lg font-semibold mb-2 text-gray-800'>薪資範圍</h3>
-                    <p className='text-gray-600 flex items-center'><DollarSign className='w-4 h-4 mr-2' /> {selectedJob.salary}</p>
+                    <h3 className='text-lg font-semibold mb-2 text-gray-800'>
+                      薪資範圍
+                    </h3>
+                    <p className='text-gray-600 flex items-center'>
+                      <DollarSign className='w-4 h-4 mr-2' />{' '}
+                      {selectedJob.salary}
+                    </p>
                   </div>
                   <div>
-                    <h3 className='text-lg font-semibold mb-2 text-gray-800'>工作類型</h3>
-                    <p className='text-gray-600 flex items-center'><Calendar className='w-4 h-4 mr-2' /> {selectedJob.type}</p>
+                    <h3 className='text-lg font-semibold mb-2 text-gray-800'>
+                      工作類型
+                    </h3>
+                    <p className='text-gray-600 flex items-center'>
+                      <Calendar className='w-4 h-4 mr-2' /> {selectedJob.type}
+                    </p>
                   </div>
                   <div>
-                    <h3 className='text-lg font-semibold mb-2 text-gray-800'>經驗要求</h3>
+                    <h3 className='text-lg font-semibold mb-2 text-gray-800'>
+                      經驗要求
+                    </h3>
                     <p className='text-gray-600'>{selectedJob.experience}</p>
                   </div>
                 </div>
 
                 <div>
-                  <h3 className='text-lg font-semibold mb-2 text-gray-800'>職位要求</h3>
+                  <h3 className='text-lg font-semibold mb-2 text-gray-800'>
+                    職位要求
+                  </h3>
                   <ul className='list-disc list-inside space-y-1 text-gray-600'>
                     {selectedJob.requirements.map((req, index) => (
                       <li key={index}>{req}</li>
@@ -266,7 +300,9 @@ const Join = () => {
                 </div>
 
                 <div>
-                  <h3 className='text-lg font-semibold mb-2 text-gray-800'>福利待遇</h3>
+                  <h3 className='text-lg font-semibold mb-2 text-gray-800'>
+                    福利待遇
+                  </h3>
                   <ul className='list-disc list-inside space-y-1 text-gray-600'>
                     {selectedJob.benefits.map((benefit, index) => (
                       <li key={index}>{benefit}</li>

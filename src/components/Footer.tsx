@@ -18,7 +18,7 @@ const Footer = () => {
         </div>
 
         {/* 四欄排版（手機1欄 / 平板2欄 / 桌面4欄），置中對齊 */}
-        <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 md:gap-6 lg:gap-8 text-center justify-items-center'>
+        <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 md:gap-6 lg:gap-8 text-center justify-items-center'>
           {/* 支援 */}
           <div className='w-full'>
             <h3 className='font-bold mb-3'>支援</h3>
@@ -26,7 +26,7 @@ const Footer = () => {
               <li>
                 <Link
                   to='/service'
-                  className='inline-block py-2 text-gray-800 hover:text-blue-600'
+                  className='inline-block py-1 sm:py-2 text-gray-800 hover:text-blue-600'
                 >
                   服務條款
                 </Link>
@@ -34,13 +34,16 @@ const Footer = () => {
               <li>
                 <Link
                   to='/database'
-                  className='inline-block py-2 text-gray-800 hover:text-blue-600'
+                  className='inline-block py-1 sm:py-2 text-gray-800 hover:text-blue-600'
                 >
                   媒體庫
                 </Link>
               </li>
               <li>
-                <Link to='/terms' className='inline-block py-2 text-gray-800 hover:text-blue-600'>
+                <Link
+                  to='/terms'
+                  className='inline-block py-1 sm:py-2 text-gray-800 hover:text-blue-600'
+                >
                   品牌使用準則
                 </Link>
               </li>
@@ -54,7 +57,7 @@ const Footer = () => {
               <li>
                 <Link
                   to='/privacy'
-                  className='inline-block py-2 text-gray-800 hover:text-blue-600'
+                  className='inline-block py-1 sm:py-2 text-gray-800 hover:text-blue-600'
                 >
                   資料和隱私
                 </Link>
@@ -62,7 +65,7 @@ const Footer = () => {
               <li>
                 <Link
                   to='/security'
-                  className='inline-block py-2 text-gray-800 hover:text-blue-600'
+                  className='inline-block py-1 sm:py-2 text-gray-800 hover:text-blue-600'
                 >
                   網路安全
                 </Link>
@@ -70,7 +73,7 @@ const Footer = () => {
               <li>
                 <Link
                   to='/freedom'
-                  className='inline-block py-2 text-gray-800 hover:text-blue-600'
+                  className='inline-block py-1 sm:py-2 text-gray-800 hover:text-blue-600'
                 >
                   表達自由
                 </Link>
@@ -83,12 +86,18 @@ const Footer = () => {
             <h3 className='font-bold mb-3'>產品與服務</h3>
             <ul className='space-y-1'>
               <li>
-                <Link to='/tutorgo' className='inline-block py-2 text-gray-800 hover:text-blue-600'>
+                <Link
+                  to='/tutorgo'
+                  className='inline-block py-1 sm:py-2 text-gray-800 hover:text-blue-600'
+                >
                   Tutor Go
                 </Link>
               </li>
               <li>
-                <Link to='/partner' className='inline-block py-2 text-gray-800 hover:text-blue-600'>
+                <Link
+                  to='/partner'
+                  className='inline-block py-1 sm:py-2 text-gray-800 hover:text-blue-600'
+                >
                   成為合作夥伴
                 </Link>
               </li>
@@ -100,25 +109,34 @@ const Footer = () => {
             <h3 className='font-bold mb-3'>關於</h3>
             <ul className='space-y-1'>
               <li>
-                <Link to='/#history' className='inline-block py-2 text-gray-800 hover:text-blue-600'>
+                <Link
+                  to='/#history'
+                  className='inline-block py-1 sm:py-2 text-gray-800 hover:text-blue-600'
+                >
                   社群發展
                 </Link>
               </li>
               <li>
                 <Link
                   to='/contact'
-                  className='inline-block py-2 text-gray-800 hover:text-blue-600'
+                  className='inline-block py-1 sm:py-2 text-gray-800 hover:text-blue-600'
                 >
                   聯絡我們
                 </Link>
               </li>
               <li>
-                <Link to='/join' className='inline-block py-2 text-gray-800 hover:text-blue-600'>
+                <Link
+                  to='/join'
+                  className='inline-block py-1 sm:py-2 text-gray-800 hover:text-blue-600'
+                >
                   加入我們
                 </Link>
               </li>
               <li>
-                <Link to='/admin' className='inline-block py-2 text-gray-800 hover:text-blue-600'>
+                <Link
+                  to='/admin'
+                  className='inline-block py-1 sm:py-2 text-gray-800 hover:text-blue-600'
+                >
                   我們的主管
                 </Link>
               </li>

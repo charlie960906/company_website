@@ -15,6 +15,12 @@
                  radial-gradient(1000px 700px at 90% 80%, rgba(99,102,241,0.05), transparent 60%);
 }
 
+/* 禁止整頁水平滾動，避免任何子元素造成的橫向捲動 */
+html, body, #root {
+  overflow-x: hidden;
+  max-width: 100%;
+}
+
 /* 單一全局背景：避免每段切換時閃爍 */
 .app-bg {
   background:
@@ -42,8 +48,8 @@
 /* 讓單一區塊剛好滿版（扣除固定導覽列高度） */
 @layer utilities {
   .section-hero {
-    min-height: 100vh;
-    max-height: 100vh;
+    min-height: 100svh;
+    max-height: 100svh;
     transition: opacity 300ms ease;
   }
   .section-screen {
@@ -65,14 +71,14 @@
 @layer utilities {
   /* 移動端觸控優化 */
   .touch-target {
-    min-height: 40px; /* 稍微縮小但仍可點擊 */
-    min-width: 40px;
+    min-height: 44px; /* iOS 建議的最小觸控目標 */
+    min-width: 44px;
   }
   
   /* 手機：容器與字級更緊湊 */
   .container-sm-compact {
-    padding-left: 0.75rem;
-    padding-right: 0.75rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
   }
   .heading-tight {
     line-height: 1.2;
@@ -85,17 +91,27 @@
   
   /* 移動端間距優化 */
   .mobile-spacing {
-    padding: 0.75rem; /* 更緊湊 */
+    padding: 1rem;
   }
   
   /* 平板端間距優化 */
   .tablet-spacing {
-    padding: 1.25rem;
+    padding: 1.5rem;
   }
   
   /* 桌面端間距優化 */
   .desktop-spacing {
-    padding: 1.75rem;
+    padding: 2rem;
+  }
+  
+  /* 手機版導航列高度調整 */
+  .mobile-header {
+    min-height: 60px;
+  }
+  
+  /* 手機版內容區域調整 */
+  .mobile-content {
+    padding-top: 60px;
   }
 }
 
@@ -131,6 +147,40 @@
   .hero-compact {
     padding-top: 2.5rem !important;
     padding-bottom: 2.5rem !important;
+  }
+  
+  /* 手機版按鈕觸控優化 */
+  .mobile-button {
+    min-height: 44px;
+    min-width: 44px;
+    touch-action: manipulation;
+  }
+  
+  /* 手機版文字大小優化 */
+  .mobile-text-sm {
+    font-size: 14px;
+  }
+  
+  .mobile-text-base {
+    font-size: 16px;
+  }
+  
+  .mobile-text-lg {
+    font-size: 18px;
+  }
+  
+  /* 手機版間距優化 */
+  .mobile-padding {
+    padding: 1rem;
+  }
+  
+  .mobile-margin {
+    margin: 1rem;
+  }
+  .section-screen {
+    /* 手機也維持一屏高度，使用 svh 適配行動瀏覽器工具列 */
+    min-height: calc(100svh - var(--header-h)) !important;
+    max-height: calc(100svh - var(--header-h)) !important;
   }
 }
 
@@ -183,4 +233,72 @@
 /* 脈衝發光效果（藍色） */
 .glow-pulse {
   animation: glowPulse 1.8s ease-in-out infinite;
+}
+
+/* 品牌動態漸層（藍-黃-紅 對應 LOGO 色） */
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.brand-gradient-text {
+  background-image: linear-gradient(90deg, #2563eb, #f59e0b, #ef4444, #2563eb);
+  background-size: 200% 200%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: gradientShift 6s ease infinite;
+}
+
+.btn-gradient-animated {
+  background-image: linear-gradient(90deg, #2563eb, #a855f7, #ef4444, #f59e0b, #2563eb);
+  background-size: 300% 300%;
+  animation: gradientShift 8s ease infinite;
+}
+
+/* 柔和品牌漸層（低彩度、不刺眼） */
+.brand-gradient-soft {
+  background-image: linear-gradient(90deg, #93c5fd, #fcd34d, #fca5a5, #93c5fd);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* 低調外框按鈕 */
+.btn-soft-outline {
+  border: 1.5px solid rgba(59, 130, 246, 0.35);
+  color: #1d4ed8; /* blue-700 */
+  background: rgba(255,255,255,0.7);
+  backdrop-filter: blur(4px);
+}
+.btn-soft-outline:hover {
+  background: linear-gradient(180deg, rgba(239,246,255,0.8), rgba(255,255,255,0.8));
+  box-shadow: 0 6px 14px rgba(59,130,246,0.12);
+}
+.btn-soft-outline:active { transform: translateY(1px); }
+
+/* 側邊小型流光動畫 */
+@keyframes shimmerY {
+  0% { background-position: 50% 0%; }
+  100% { background-position: 50% 200%; }
+}
+.side-shimmer {
+  background: linear-gradient(180deg, rgba(59,130,246,0), rgba(59,130,246,0.18), rgba(59,130,246,0));
+  background-size: 100% 200%;
+  animation: shimmerY 3.5s linear infinite;
+  filter: blur(0.5px);
+}
+
+/* 背景浮動光暈 */
+@keyframes floatSlow {
+  0% { transform: translate3d(0,0,0) scale(1); }
+  50% { transform: translate3d(8px,-10px,0) scale(1.05); }
+  100% { transform: translate3d(0,0,0) scale(1); }
+}
+
+.blob {
+  filter: blur(28px);
+  opacity: 0.35;
+  animation: floatSlow 10s ease-in-out infinite;
 }

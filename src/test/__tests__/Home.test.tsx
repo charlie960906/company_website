@@ -24,7 +24,7 @@ describe('Home', () => {
     expect(getByText('成為合作夥伴')).toBeInTheDocument();
   });
 
-  it('renders newsletter section', () => {
+  it('renders updates teaser section', () => {
     const { getByText } = renderWithRouter(<Home />);
     expect(getByText(/關注更多有關/)).toBeInTheDocument();
   });
@@ -32,18 +32,28 @@ describe('Home', () => {
   it('has correct links', () => {
     const { getAllByRole } = renderWithRouter(<Home />);
     const links = getAllByRole('link');
-    expect(links.some((link: HTMLElement) => link.getAttribute('href') === '/partner')).toBe(true);
-    expect(links.some((link: HTMLElement) => link.getAttribute('href') === '/security')).toBe(
-      true
-    );
-    expect(links.some((link: HTMLElement) => link.getAttribute('href') === '/slrc')).toBe(
-      true
-    );
-    expect(links.some((link: HTMLElement) => link.getAttribute('href') === '/partner')).toBe(
-      true
-    );
-    expect(links.some((link: HTMLElement) => link.getAttribute('href') === '/updates')).toBe(
-      true
-    );
+    expect(
+      links.some(
+        (link: HTMLElement) => link.getAttribute('href') === '/partner'
+      )
+    ).toBe(true);
+    expect(
+      links.some(
+        (link: HTMLElement) => link.getAttribute('href') === '/security'
+      )
+    ).toBe(true);
+    expect(
+      links.some((link: HTMLElement) => link.getAttribute('href') === '/slrc')
+    ).toBe(true);
+    expect(
+      links.some(
+        (link: HTMLElement) => link.getAttribute('href') === '/partner'
+      )
+    ).toBe(true);
+    expect(
+      links.some(
+        (link: HTMLElement) => link.getAttribute('href') === '/updates'
+      )
+    ).toBe(true);
   });
 });

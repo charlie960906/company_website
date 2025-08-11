@@ -2,7 +2,9 @@
 import * as Sentry from '@sentry/react';
 
 // Sentry 配置：從環境變數讀取
-const SENTRY_DSN: string | undefined = (import.meta as any)?.env?.VITE_SENTRY_DSN;
+const SENTRY_DSN: string | undefined = (
+  import.meta as { env?: { VITE_SENTRY_DSN?: string } }
+)?.env?.VITE_SENTRY_DSN;
 
 export const initErrorTracking = () => {
   if (typeof window !== 'undefined' && SENTRY_DSN) {
@@ -13,7 +15,9 @@ export const initErrorTracking = () => {
         // 例如，事件上的自動 IP 地址收集
         sendDefaultPii: true,
         // 環境配置
-        environment: process.env.NODE_ENV || 'development',
+        environment:
+          (import.meta as { env?: { MODE?: string } })?.env?.MODE ||
+          'development',
         // 性能監控
         tracesSampleRate: 0.2,
         // 錯誤採樣率
@@ -22,9 +26,9 @@ export const initErrorTracking = () => {
         // 錯誤過濾
         beforeSend(event) {
           // 過濾掉開發環境的錯誤
-          if (process.env.NODE_ENV === 'development') {
-            return null;
-          }
+          const isDev =
+            (import.meta as { env?: { DEV?: boolean } })?.env?.DEV === true;
+          if (isDev) return null;
           return event;
         },
       });
@@ -37,15 +41,16 @@ export const initErrorTracking = () => {
   }
 };
 
-export const captureError = (error: Error, context?: Record<string, unknown>) => {
+export const captureError = (
+  error: Error,
+  context?: Record<string, unknown>
+) => {
   if (typeof window !== 'undefined') {
-    Sentry.captureException(error, {
-      extra: context,
-      tags: {
-        errorType: 'application_error',
-        component: context?.component || 'unknown',
-      },
-    });
+    const tags: Record<string, string> = {
+      errorType: 'application_error',
+      component: String((context as Record<string, unknown> | undefined)?.component ?? 'unknown'),
+    };
+    Sentry.captureException(error, { extra: context, tags });
   }
 };
 
@@ -59,7 +64,10 @@ export const captureMessage = (
 };
 
 // 新增：用戶行為追蹤
-export const trackUserAction = (action: string, data?: Record<string, unknown>) => {
+export const trackUserAction = (
+  action: string,
+  data?: Record<string, unknown>
+) => {
   if (typeof window !== 'undefined') {
     Sentry.addBreadcrumb({
       category: 'user_action',
@@ -85,7 +93,12 @@ export const trackPageLoad = (pageName: string) => {
 };
 
 // 新增：API 請求追蹤
-export const trackApiRequest = (url: string, method: string, status: number, duration: number) => {
+export const trackApiRequest = (
+  url: string,
+  method: string,
+  status: number,
+  duration: number
+) => {
   if (typeof window !== 'undefined') {
     Sentry.addBreadcrumb({
       category: 'api_request',
@@ -109,23 +122,34 @@ export const setupGlobalErrorHandler = () => {
     });
 
     window.addEventListener('unhandledrejection', event => {
-      captureError(new Error(event.reason), {
+      const reason =
+        event.reason instanceof Error
+          ? event.reason
+          : new Error(String(event.reason));
+      captureError(reason, {
         type: 'unhandledrejection',
         errorType: 'promise_rejection',
       });
     });
 
     // 新增：資源載入錯誤追蹤
-    window.addEventListener('error', event => {
-      if (event.target && event.target !== window) {
-        const target = event.target as HTMLElement;
-        captureError(new Error(`Resource load failed: ${target.tagName}`), {
-          errorType: 'resource_error',
-          resource: target.tagName,
-          src: (target as any).src || (target as any).href,
-        });
-      }
-    }, true);
+    window.addEventListener(
+      'error',
+      event => {
+        if (event.target && event.target !== window) {
+          const target = event.target as HTMLElement & {
+            src?: string;
+            href?: string;
+          };
+          captureError(new Error(`Resource load failed: ${target.tagName}`), {
+            errorType: 'resource_error',
+            resource: target.tagName,
+            src: target.src || target.href,
+          });
+        }
+      },
+      true
+    );
   }
 };
 
@@ -141,26 +165,35 @@ export const startPerformanceMonitoring = () => {
 
     // 新增：Core Web Vitals 監控
     if ('PerformanceObserver' in window) {
-      const observer = new PerformanceObserver((list) => {
+      const observer = new PerformanceObserver(list => {
         for (const entry of list.getEntries()) {
           if (entry.entryType === 'largest-contentful-paint') {
             trackUserAction('lcp_measured', { value: entry.startTime });
           } else if (entry.entryType === 'first-input') {
-            const fid = entry.processingStart - entry.startTime;
-            trackUserAction('fid_measured', { value: fid });
+            const fid = (entry as PerformanceEntry & { processingStart?: number })
+              .processingStart;
+            const value = typeof fid === 'number' ? fid - entry.startTime : 0;
+            trackUserAction('fid_measured', { value });
           } else if (entry.entryType === 'layout-shift') {
-            trackUserAction('cls_measured', { value: (entry as any).value });
+            const value =
+              (entry as PerformanceEntry & { value?: number }).value ?? 0;
+            trackUserAction('cls_measured', { value });
           }
         }
       });
-      
-      observer.observe({ entryTypes: ['largest-contentful-paint', 'first-input', 'layout-shift'] });
+
+      observer.observe({
+        entryTypes: ['largest-contentful-paint', 'first-input', 'layout-shift'],
+      });
     }
   }
 };
 
 // 用戶識別
-export const identifyUser = (userId: string, userData?: Record<string, unknown>) => {
+export const identifyUser = (
+  userId: string,
+  userData?: Record<string, unknown>
+) => {
   if (typeof window !== 'undefined') {
     Sentry.setUser({
       id: userId,
@@ -184,7 +217,11 @@ export const setContext = (name: string, context: Record<string, unknown>) => {
 };
 
 // 新增：自定義錯誤類型
-export const captureNetworkError = (url: string, status: number, message: string) => {
+export const captureNetworkError = (
+  url: string,
+  status: number,
+  message: string
+) => {
   captureError(new Error(`Network Error: ${message}`), {
     errorType: 'network_error',
     url,

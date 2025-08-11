@@ -1,5 +1,13 @@
-import React from 'react';
-import { MessageSquare, Users, Shield, AlertTriangle, FileText, Heart, Globe, Lock } from 'lucide-react';
+import {
+  MessageSquare,
+  Users,
+  Shield,
+  AlertTriangle,
+  FileText,
+  Heart,
+  Globe,
+  Lock,
+} from 'lucide-react';
 import { motion } from 'framer-motion';
 
 const Freedom = () => {
@@ -65,67 +73,87 @@ const Freedom = () => {
             </p>
             <div className='grid grid-cols-1 md:grid-cols-2 gap-6'>
               <div className='bg-green-50 p-6 rounded-lg'>
-                <h4 className='font-semibold text-green-800 mb-4 text-lg'>表達自由的內涵：</h4>
+                <h4 className='font-semibold text-green-800 mb-4 text-lg'>
+                  表達自由的內涵：
+                </h4>
                 <ul className='space-y-3 text-gray-700'>
                   <li className='flex items-start'>
                     <div className='w-2 h-2 bg-green-600 rounded-full mt-2 mr-3 flex-shrink-0'></div>
                     <div>
                       <strong>言論自由</strong>
-                      <p className='text-sm text-gray-600 mt-1'>自由表達意見、觀點和想法</p>
+                      <p className='text-sm text-gray-600 mt-1'>
+                        自由表達意見、觀點和想法
+                      </p>
                     </div>
                   </li>
                   <li className='flex items-start'>
                     <div className='w-2 h-2 bg-green-600 rounded-full mt-2 mr-3 flex-shrink-0'></div>
                     <div>
                       <strong>資訊自由</strong>
-                      <p className='text-sm text-gray-600 mt-1'>自由獲取和傳播資訊</p>
+                      <p className='text-sm text-gray-600 mt-1'>
+                        自由獲取和傳播資訊
+                      </p>
                     </div>
                   </li>
                   <li className='flex items-start'>
                     <div className='w-2 h-2 bg-green-600 rounded-full mt-2 mr-3 flex-shrink-0'></div>
                     <div>
                       <strong>創意表達</strong>
-                      <p className='text-sm text-gray-600 mt-1'>藝術、文學、音樂等創意作品</p>
+                      <p className='text-sm text-gray-600 mt-1'>
+                        藝術、文學、音樂等創意作品
+                      </p>
                     </div>
                   </li>
                   <li className='flex items-start'>
                     <div className='w-2 h-2 bg-green-600 rounded-full mt-2 mr-3 flex-shrink-0'></div>
                     <div>
                       <strong>學術自由</strong>
-                      <p className='text-sm text-gray-600 mt-1'>學術研究和知識分享</p>
+                      <p className='text-sm text-gray-600 mt-1'>
+                        學術研究和知識分享
+                      </p>
                     </div>
                   </li>
                 </ul>
               </div>
               <div className='bg-blue-50 p-6 rounded-lg'>
-                <h4 className='font-semibold text-blue-800 mb-4 text-lg'>表達自由的價值：</h4>
+                <h4 className='font-semibold text-blue-800 mb-4 text-lg'>
+                  表達自由的價值：
+                </h4>
                 <ul className='space-y-3 text-gray-700'>
                   <li className='flex items-start'>
                     <div className='w-2 h-2 bg-blue-600 rounded-full mt-2 mr-3 flex-shrink-0'></div>
                     <div>
                       <strong>促進民主發展</strong>
-                      <p className='text-sm text-gray-600 mt-1'>多元意見促進社會進步</p>
+                      <p className='text-sm text-gray-600 mt-1'>
+                        多元意見促進社會進步
+                      </p>
                     </div>
                   </li>
                   <li className='flex items-start'>
                     <div className='w-2 h-2 bg-blue-600 rounded-full mt-2 mr-3 flex-shrink-0'></div>
                     <div>
                       <strong>知識傳播</strong>
-                      <p className='text-sm text-gray-600 mt-1'>促進資訊流通和知識分享</p>
+                      <p className='text-sm text-gray-600 mt-1'>
+                        促進資訊流通和知識分享
+                      </p>
                     </div>
                   </li>
                   <li className='flex items-start'>
                     <div className='w-2 h-2 bg-blue-600 rounded-full mt-2 mr-3 flex-shrink-0'></div>
                     <div>
                       <strong>創意激發</strong>
-                      <p className='text-sm text-gray-600 mt-1'>鼓勵創新和藝術創作</p>
+                      <p className='text-sm text-gray-600 mt-1'>
+                        鼓勵創新和藝術創作
+                      </p>
                     </div>
                   </li>
                   <li className='flex items-start'>
                     <div className='w-2 h-2 bg-blue-600 rounded-full mt-2 mr-3 flex-shrink-0'></div>
                     <div>
                       <strong>社會監督</strong>
-                      <p className='text-sm text-gray-600 mt-1'>監督權力，促進透明</p>
+                      <p className='text-sm text-gray-600 mt-1'>
+                        監督權力，促進透明
+                      </p>
                     </div>
                   </li>
                 </ul>
@@ -205,67 +233,87 @@ const Freedom = () => {
             </p>
             <div className='grid grid-cols-1 md:grid-cols-2 gap-6'>
               <div className='bg-indigo-50 p-6 rounded-lg'>
-                <h4 className='font-semibold text-indigo-800 mb-4 text-lg'>審核標準：</h4>
+                <h4 className='font-semibold text-indigo-800 mb-4 text-lg'>
+                  審核標準：
+                </h4>
                 <ul className='space-y-3 text-gray-700'>
                   <li className='flex items-start'>
                     <div className='w-2 h-2 bg-indigo-600 rounded-full mt-2 mr-3 flex-shrink-0'></div>
                     <div>
                       <strong>合法性原則</strong>
-                      <p className='text-sm text-gray-600 mt-1'>遵守當地法律法規要求</p>
+                      <p className='text-sm text-gray-600 mt-1'>
+                        遵守當地法律法規要求
+                      </p>
                     </div>
                   </li>
                   <li className='flex items-start'>
                     <div className='w-2 h-2 bg-indigo-600 rounded-full mt-2 mr-3 flex-shrink-0'></div>
                     <div>
                       <strong>必要性原則</strong>
-                      <p className='text-sm text-gray-600 mt-1'>限制措施必須是必要且適當的</p>
+                      <p className='text-sm text-gray-600 mt-1'>
+                        限制措施必須是必要且適當的
+                      </p>
                     </div>
                   </li>
                   <li className='flex items-start'>
                     <div className='w-2 h-2 bg-indigo-600 rounded-full mt-2 mr-3 flex-shrink-0'></div>
                     <div>
                       <strong>比例性原則</strong>
-                      <p className='text-sm text-gray-600 mt-1'>限制程度與危害程度相稱</p>
+                      <p className='text-sm text-gray-600 mt-1'>
+                        限制程度與危害程度相稱
+                      </p>
                     </div>
                   </li>
                   <li className='flex items-start'>
                     <div className='w-2 h-2 bg-indigo-600 rounded-full mt-2 mr-3 flex-shrink-0'></div>
                     <div>
                       <strong>透明性原則</strong>
-                      <p className='text-sm text-gray-600 mt-1'>審核過程和標準公開透明</p>
+                      <p className='text-sm text-gray-600 mt-1'>
+                        審核過程和標準公開透明
+                      </p>
                     </div>
                   </li>
                 </ul>
               </div>
               <div className='bg-teal-50 p-6 rounded-lg'>
-                <h4 className='font-semibold text-teal-800 mb-4 text-lg'>審核流程：</h4>
+                <h4 className='font-semibold text-teal-800 mb-4 text-lg'>
+                  審核流程：
+                </h4>
                 <ul className='space-y-3 text-gray-700'>
                   <li className='flex items-start'>
                     <div className='w-2 h-2 bg-teal-600 rounded-full mt-2 mr-3 flex-shrink-0'></div>
                     <div>
                       <strong>自動化初篩</strong>
-                      <p className='text-sm text-gray-600 mt-1'>AI 技術初步識別違規內容</p>
+                      <p className='text-sm text-gray-600 mt-1'>
+                        AI 技術初步識別違規內容
+                      </p>
                     </div>
                   </li>
                   <li className='flex items-start'>
                     <div className='w-2 h-2 bg-teal-600 rounded-full mt-2 mr-3 flex-shrink-0'></div>
                     <div>
                       <strong>人工審核</strong>
-                      <p className='text-sm text-gray-600 mt-1'>專業團隊進行詳細審核</p>
+                      <p className='text-sm text-gray-600 mt-1'>
+                        專業團隊進行詳細審核
+                      </p>
                     </div>
                   </li>
                   <li className='flex items-start'>
                     <div className='w-2 h-2 bg-teal-600 rounded-full mt-2 mr-3 flex-shrink-0'></div>
                     <div>
                       <strong>社群參與</strong>
-                      <p className='text-sm text-gray-600 mt-1'>用戶可參與內容評審</p>
+                      <p className='text-sm text-gray-600 mt-1'>
+                        用戶可參與內容評審
+                      </p>
                     </div>
                   </li>
                   <li className='flex items-start'>
                     <div className='w-2 h-2 bg-teal-600 rounded-full mt-2 mr-3 flex-shrink-0'></div>
                     <div>
                       <strong>申訴機制</strong>
-                      <p className='text-sm text-gray-600 mt-1'>提供公平的申訴管道</p>
+                      <p className='text-sm text-gray-600 mt-1'>
+                        提供公平的申訴管道
+                      </p>
                     </div>
                   </li>
                 </ul>
@@ -301,7 +349,9 @@ const Freedom = () => {
                   </ul>
                 </div>
                 <div className='bg-orange-50 p-4 rounded-lg'>
-                  <h4 className='font-semibold text-orange-800 mb-2'>仇恨言論</h4>
+                  <h4 className='font-semibold text-orange-800 mb-2'>
+                    仇恨言論
+                  </h4>
                   <ul className='text-sm text-gray-700 space-y-1'>
                     <li>• 種族歧視言論</li>
                     <li>• 宗教仇恨內容</li>
@@ -313,7 +363,9 @@ const Freedom = () => {
               </div>
               <div className='space-y-4'>
                 <div className='bg-yellow-50 p-4 rounded-lg'>
-                  <h4 className='font-semibold text-yellow-800 mb-2'>騷擾與霸凌</h4>
+                  <h4 className='font-semibold text-yellow-800 mb-2'>
+                    騷擾與霸凌
+                  </h4>
                   <ul className='text-sm text-gray-700 space-y-1'>
                     <li>• 個人騷擾行為</li>
                     <li>• 網路霸凌</li>
@@ -353,67 +405,95 @@ const Freedom = () => {
             </p>
             <div className='grid grid-cols-1 md:grid-cols-2 gap-6'>
               <div className='bg-pink-50 p-6 rounded-lg'>
-                <h4 className='font-semibold text-pink-800 mb-4 text-lg'>申訴流程：</h4>
+                <h4 className='font-semibold text-pink-800 mb-4 text-lg'>
+                  申訴流程：
+                </h4>
                 <div className='space-y-4'>
                   <div className='flex items-start'>
-                    <div className='w-6 h-6 bg-pink-600 text-white rounded-full flex items-center justify-center text-sm font-bold mr-3 mt-1'>1</div>
+                    <div className='w-6 h-6 bg-pink-600 text-white rounded-full flex items-center justify-center text-sm font-bold mr-3 mt-1'>
+                      1
+                    </div>
                     <div>
                       <h5 className='font-semibold text-pink-800'>提交申訴</h5>
-                      <p className='text-sm text-gray-700 mt-1'>透過申訴表單或郵件提交申訴</p>
+                      <p className='text-sm text-gray-700 mt-1'>
+                        透過申訴表單或郵件提交申訴
+                      </p>
                     </div>
                   </div>
                   <div className='flex items-start'>
-                    <div className='w-6 h-6 bg-pink-600 text-white rounded-full flex items-center justify-center text-sm font-bold mr-3 mt-1'>2</div>
+                    <div className='w-6 h-6 bg-pink-600 text-white rounded-full flex items-center justify-center text-sm font-bold mr-3 mt-1'>
+                      2
+                    </div>
                     <div>
                       <h5 className='font-semibold text-pink-800'>初步審查</h5>
-                      <p className='text-sm text-gray-700 mt-1'>專業團隊進行初步審查</p>
+                      <p className='text-sm text-gray-700 mt-1'>
+                        專業團隊進行初步審查
+                      </p>
                     </div>
                   </div>
                   <div className='flex items-start'>
-                    <div className='w-6 h-6 bg-pink-600 text-white rounded-full flex items-center justify-center text-sm font-bold mr-3 mt-1'>3</div>
+                    <div className='w-6 h-6 bg-pink-600 text-white rounded-full flex items-center justify-center text-sm font-bold mr-3 mt-1'>
+                      3
+                    </div>
                     <div>
                       <h5 className='font-semibold text-pink-800'>詳細調查</h5>
-                      <p className='text-sm text-gray-700 mt-1'>必要時進行更深入的調查</p>
+                      <p className='text-sm text-gray-700 mt-1'>
+                        必要時進行更深入的調查
+                      </p>
                     </div>
                   </div>
                   <div className='flex items-start'>
-                    <div className='w-6 h-6 bg-pink-600 text-white rounded-full flex items-center justify-center text-sm font-bold mr-3 mt-1'>4</div>
+                    <div className='w-6 h-6 bg-pink-600 text-white rounded-full flex items-center justify-center text-sm font-bold mr-3 mt-1'>
+                      4
+                    </div>
                     <div>
                       <h5 className='font-semibold text-pink-800'>結果通知</h5>
-                      <p className='text-sm text-gray-700 mt-1'>在7個工作日內通知結果</p>
+                      <p className='text-sm text-gray-700 mt-1'>
+                        在7個工作日內通知結果
+                      </p>
                     </div>
                   </div>
                 </div>
               </div>
               <div className='bg-purple-50 p-6 rounded-lg'>
-                <h4 className='font-semibold text-purple-800 mb-4 text-lg'>救濟措施：</h4>
+                <h4 className='font-semibold text-purple-800 mb-4 text-lg'>
+                  救濟措施：
+                </h4>
                 <ul className='space-y-3 text-gray-700'>
                   <li className='flex items-start'>
                     <div className='w-2 h-2 bg-purple-600 rounded-full mt-2 mr-3 flex-shrink-0'></div>
                     <div>
                       <strong>內容恢復</strong>
-                      <p className='text-sm text-gray-600 mt-1'>確認誤判時立即恢復內容</p>
+                      <p className='text-sm text-gray-600 mt-1'>
+                        確認誤判時立即恢復內容
+                      </p>
                     </div>
                   </li>
                   <li className='flex items-start'>
                     <div className='w-2 h-2 bg-purple-600 rounded-full mt-2 mr-3 flex-shrink-0'></div>
                     <div>
                       <strong>帳號解封</strong>
-                      <p className='text-sm text-gray-600 mt-1'>解除不當的帳號限制</p>
+                      <p className='text-sm text-gray-600 mt-1'>
+                        解除不當的帳號限制
+                      </p>
                     </div>
                   </li>
                   <li className='flex items-start'>
                     <div className='w-2 h-2 bg-purple-600 rounded-full mt-2 mr-3 flex-shrink-0'></div>
                     <div>
                       <strong>道歉與補償</strong>
-                      <p className='text-sm text-gray-600 mt-1'>對誤判造成的損失進行補償</p>
+                      <p className='text-sm text-gray-600 mt-1'>
+                        對誤判造成的損失進行補償
+                      </p>
                     </div>
                   </li>
                   <li className='flex items-start'>
                     <div className='w-2 h-2 bg-purple-600 rounded-full mt-2 mr-3 flex-shrink-0'></div>
                     <div>
                       <strong>政策改進</strong>
-                      <p className='text-sm text-gray-600 mt-1'>根據申訴改進審核政策</p>
+                      <p className='text-sm text-gray-600 mt-1'>
+                        根據申訴改進審核政策
+                      </p>
                     </div>
                   </li>
                 </ul>
@@ -438,67 +518,87 @@ const Freedom = () => {
             </p>
             <div className='grid grid-cols-1 md:grid-cols-2 gap-6'>
               <div className='bg-blue-50 p-6 rounded-lg'>
-                <h4 className='font-semibold text-blue-800 mb-4 text-lg'>國際合作：</h4>
+                <h4 className='font-semibold text-blue-800 mb-4 text-lg'>
+                  國際合作：
+                </h4>
                 <ul className='space-y-3 text-gray-700'>
                   <li className='flex items-start'>
                     <div className='w-2 h-2 bg-blue-600 rounded-full mt-2 mr-3 flex-shrink-0'></div>
                     <div>
                       <strong>聯合國人權理事會</strong>
-                      <p className='text-sm text-gray-600 mt-1'>參與數位人權相關討論</p>
+                      <p className='text-sm text-gray-600 mt-1'>
+                        參與數位人權相關討論
+                      </p>
                     </div>
                   </li>
                   <li className='flex items-start'>
                     <div className='w-2 h-2 bg-blue-600 rounded-full mt-2 mr-3 flex-shrink-0'></div>
                     <div>
                       <strong>國際特赦組織</strong>
-                      <p className='text-sm text-gray-600 mt-1'>合作推動表達自由保護</p>
+                      <p className='text-sm text-gray-600 mt-1'>
+                        合作推動表達自由保護
+                      </p>
                     </div>
                   </li>
                   <li className='flex items-start'>
                     <div className='w-2 h-2 bg-blue-600 rounded-full mt-2 mr-3 flex-shrink-0'></div>
                     <div>
                       <strong>電子前線基金會</strong>
-                      <p className='text-sm text-gray-600 mt-1'>技術合作與政策倡議</p>
+                      <p className='text-sm text-gray-600 mt-1'>
+                        技術合作與政策倡議
+                      </p>
                     </div>
                   </li>
                   <li className='flex items-start'>
                     <div className='w-2 h-2 bg-blue-600 rounded-full mt-2 mr-3 flex-shrink-0'></div>
                     <div>
                       <strong>全球網路倡議</strong>
-                      <p className='text-sm text-gray-600 mt-1'>推動負責任的網路治理</p>
+                      <p className='text-sm text-gray-600 mt-1'>
+                        推動負責任的網路治理
+                      </p>
                     </div>
                   </li>
                 </ul>
               </div>
               <div className='bg-green-50 p-6 rounded-lg'>
-                <h4 className='font-semibold text-green-800 mb-4 text-lg'>遵循標準：</h4>
+                <h4 className='font-semibold text-green-800 mb-4 text-lg'>
+                  遵循標準：
+                </h4>
                 <ul className='space-y-3 text-gray-700'>
                   <li className='flex items-start'>
                     <div className='w-2 h-2 bg-green-600 rounded-full mt-2 mr-3 flex-shrink-0'></div>
                     <div>
                       <strong>聯合國人權宣言</strong>
-                      <p className='text-sm text-gray-600 mt-1'>遵循基本人權保護原則</p>
+                      <p className='text-sm text-gray-600 mt-1'>
+                        遵循基本人權保護原則
+                      </p>
                     </div>
                   </li>
                   <li className='flex items-start'>
                     <div className='w-2 h-2 bg-green-600 rounded-full mt-2 mr-3 flex-shrink-0'></div>
                     <div>
                       <strong>國際電信聯盟標準</strong>
-                      <p className='text-sm text-gray-600 mt-1'>遵循國際通訊標準</p>
+                      <p className='text-sm text-gray-600 mt-1'>
+                        遵循國際通訊標準
+                      </p>
                     </div>
                   </li>
                   <li className='flex items-start'>
                     <div className='w-2 h-2 bg-green-600 rounded-full mt-2 mr-3 flex-shrink-0'></div>
                     <div>
                       <strong>GDPR 隱私保護</strong>
-                      <p className='text-sm text-gray-600 mt-1'>遵循歐盟資料保護法規</p>
+                      <p className='text-sm text-gray-600 mt-1'>
+                        遵循歐盟資料保護法規
+                      </p>
                     </div>
                   </li>
                   <li className='flex items-start'>
                     <div className='w-2 h-2 bg-green-600 rounded-full mt-2 mr-3 flex-shrink-0'></div>
                     <div>
                       <strong>網路安全最佳實踐</strong>
-                      <p className='text-sm text-gray-600 mt-1'>遵循國際網路安全標準</p>
+                      <p className='text-sm text-gray-600 mt-1'>
+                        遵循國際網路安全標準
+                      </p>
                     </div>
                   </li>
                 </ul>
@@ -515,20 +615,30 @@ const Freedom = () => {
           transition={{ duration: 0.5, delay: 0.6 }}
           className='mt-12 bg-green-50 p-8 rounded-lg'
         >
-          <h3 className='text-2xl font-bold text-green-800 mb-6'>表達自由相關聯絡</h3>
+          <h3 className='text-2xl font-bold text-green-800 mb-6'>
+            表達自由相關聯絡
+          </h3>
           <p className='text-gray-700 mb-6 leading-relaxed'>
             如果您對我們的表達自由政策有任何疑問，或需要申訴內容限制決定，請透過以下方式聯絡我們。我們承諾保護您的表達自由權利，並提供公平的申訴管道。
           </p>
           <div className='grid grid-cols-1 md:grid-cols-2 gap-6'>
             <div className='bg-white p-6 rounded-lg'>
-              <h4 className='font-semibold text-green-800 mb-3 text-lg'>一般諮詢：</h4>
+              <h4 className='font-semibold text-green-800 mb-3 text-lg'>
+                一般諮詢：
+              </h4>
               <p className='text-gray-600 mb-2'>freedom@hyjdevelop.com</p>
-              <p className='text-sm text-gray-500'>適用於表達自由政策諮詢、權利保護等一般問題</p>
+              <p className='text-sm text-gray-500'>
+                適用於表達自由政策諮詢、權利保護等一般問題
+              </p>
             </div>
             <div className='bg-white p-6 rounded-lg'>
-              <h4 className='font-semibold text-green-800 mb-3 text-lg'>內容申訴：</h4>
+              <h4 className='font-semibold text-green-800 mb-3 text-lg'>
+                內容申訴：
+              </h4>
               <p className='text-gray-600 mb-2'>appeal@hyjdevelop.com</p>
-              <p className='text-sm text-gray-500'>專門處理內容限制申訴、帳號解封等請求</p>
+              <p className='text-sm text-gray-500'>
+                專門處理內容限制申訴、帳號解封等請求
+              </p>
             </div>
           </div>
         </motion.div>

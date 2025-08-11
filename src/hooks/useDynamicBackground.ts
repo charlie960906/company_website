@@ -28,7 +28,9 @@ export function useDynamicBackground() {
   useEffect(() => {
     if (typeof window === 'undefined') return;
 
-    const sections = Array.from(document.querySelectorAll<HTMLElement>('[data-bg]'));
+    const sections = Array.from(
+      document.querySelectorAll<HTMLElement>('[data-bg]')
+    );
     if (sections.length === 0) return;
 
     // 初始化為第一個區塊
@@ -99,5 +101,3 @@ export function useDynamicBackground() {
     };
   }, []);
 }
-
-

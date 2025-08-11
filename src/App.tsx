@@ -1,7 +1,12 @@
 import { Routes, Route, useLocation } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import { useScrollToTop } from 'src/hooks/useScrollToTop';
-import { setTag, setContext, initErrorTracking, setupGlobalErrorHandler } from 'src/utils/errorTracking';
+import {
+  setTag,
+  setContext,
+  initErrorTracking,
+  setupGlobalErrorHandler,
+} from 'src/utils/errorTracking';
 import MainLayout from 'src/layouts/MainLayout';
 import { ROUTE_META, DEFAULT_META } from 'src/config/seo';
 import Home from 'src/pages/Home';
@@ -31,7 +36,7 @@ function App() {
     initErrorTracking();
     setupGlobalErrorHandler();
   }, []);
-  
+
   // 使用現有的 hook
   useScrollToTop();
 
@@ -77,13 +82,16 @@ function App() {
             <Route path='/privacy' element={<Privacy />} />
             <Route path='/security' element={<Security />} />
             <Route path='/freedom' element={<Freedom />} />
-            <Route path='/hosting' element={<Navigate to='/partner' replace />} />
+            <Route
+              path='/hosting'
+              element={<Navigate to='/partner' replace />}
+            />
             <Route path='/rules' element={<CommunityRules />} />
             <Route path='/contact' element={<Contact />} />
             <Route path='/join' element={<Join />} />
             <Route path='/admin' element={<Admin />} />
             <Route path='/partner' element={<Partner />} />
-            <Route path='/tutorgo' element={<TutorGo />} />
+             <Route path='/tutorgo' element={<TutorGo />} />
           </Route>
           <Route path='*' element={<NotFound />} />
         </Routes>

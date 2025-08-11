@@ -1,4 +1,4 @@
-import { Palette, Type, Image, Layout, FileImage, Scale, Copyright } from 'lucide-react';
+import { Palette, Image, Layout, FileImage, Copyright } from 'lucide-react';
 
 const Terms = () => {
   return (
@@ -8,7 +8,8 @@ const Terms = () => {
           品牌使用準則
         </h1>
         <p className='text-gray-700 max-w-2xl mx-auto mb-1'>
-          本準則說明使用 HYJdevelop 商標、名稱、內容、照片等資產時的規則與標註方式。
+          本準則說明使用 HYJdevelop
+          商標、名稱、內容、照片等資產時的規則與標註方式。
         </p>
       </section>
 
@@ -20,7 +21,9 @@ const Terms = () => {
               <h2 className='text-xl font-bold'>1. 商標與名稱</h2>
             </div>
             <ul className='list-disc pl-5 space-y-2 text-gray-600'>
-              <li>請使用官方提供的標誌檔案，不得自行重繪或變形、傾斜、拉伸。</li>
+              <li>
+                請使用官方提供的標誌檔案，不得自行重繪或變形、傾斜、拉伸。
+              </li>
               <li>不得修改顏色、加上陰影、描邊或其他特效。</li>
               <li>標誌周圍需留有足夠留白，至少等同「J」高度。</li>
               <li>以文字提及時，請使用「HYJdevelop」。</li>
@@ -44,8 +47,12 @@ const Terms = () => {
               <h2 className='text-xl font-bold'>3. 內容與照片使用</h2>
             </div>
             <ul className='list-disc pl-5 space-y-2 text-gray-600'>
-              <li>引用我們的文章、設計、截圖、照片時，需標註「來源：HYJdevelop」。</li>
-              <li>如包含人物或可識別資訊之影像，需確認權利與同意；不得造成誤導或貶損。</li>
+              <li>
+                引用我們的文章、設計、截圖、照片時，需標註「來源：HYJdevelop」。
+              </li>
+              <li>
+                如包含人物或可識別資訊之影像，需確認權利與同意；不得造成誤導或貶損。
+              </li>
               <li>未經授權，不得將內容用於商業銷售或廣告背書。</li>
               <li>媒體報導可於合理使用範圍內節錄，仍需附上出處連結。</li>
             </ul>
@@ -69,7 +76,10 @@ const Terms = () => {
               <h2 className='text-xl font-bold'>5. 授權與禁止事項</h2>
             </div>
             <ul className='list-disc pl-5 space-y-2 text-gray-600'>
-              <li>不得暗示與 HYJdevelop 具有合作、背書或贊助關係，除非事先取得書面同意。</li>
+              <li>
+                不得暗示與 HYJdevelop
+                具有合作、背書或贊助關係，除非事先取得書面同意。
+              </li>
               <li>不得將標誌或內容用於違法、歧視、欺詐或不當情境。</li>
               <li>商業使用（活動聯名、商品印製等）需事前書面授權。</li>
             </ul>

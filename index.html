@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/logo.png" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <meta name="description" content="HYJdevelop - 創新科技與社群平台，致力於軟體開發、網站建設和社群建立" />
     <meta name="keywords" content="HYJdevelop, 軟體開發, 網站建設, 社群平台, 科技創新" />
     <meta name="author" content="HYJdevelop" />
@@ -11,10 +11,19 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="theme-color" content="#3B82F6" />
     <link rel="canonical" href="https://hyjdevelop.com" />
+    <link rel="manifest" href="/manifest.json" />
     <title>HYJdevelop</title>
+    <!-- Google Analytics (defer, network failures won't block rendering) -->
+    <script defer src="https://www.googletagmanager.com/gtag/js?id=G-LGD28KXEXL"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);} 
+      gtag('js', new Date());
+      gtag('config', 'G-LGD28KXEXL');
+    </script>
   </head>
   <body>
     <div id="root"></div>
-    <script type="module" src="/src/index.tsx"></script>
+    <script type="module" src="./src/index.tsx"></script>
   </body>
 </html> 

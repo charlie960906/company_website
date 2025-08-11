@@ -1,4 +1,11 @@
-import { Shield, AlertTriangle, Users, Eye, Zap, Lock, Database, Server } from 'lucide-react';
+import {
+  Shield,
+  AlertTriangle,
+  Eye,
+  Lock,
+  Globe,
+  CheckCircle,
+} from 'lucide-react';
 import { motion } from 'framer-motion';
 import SecurityMonitor from 'src/components/SecurityMonitor';
 
@@ -6,39 +13,39 @@ const Security = () => {
   return (
     <div className='min-h-screen pb-24'>
       {/* Hero Section */}
-      <motion.section 
+      <motion.section
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, ease: [0.33, 1, 0.68, 1] }}
         className='section-hero flex flex-col items-center justify-center text-center px-4 relative overflow-hidden'
       >
-        <motion.h1 
+        <motion.h1
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, ease: [0.33, 1, 0.68, 1] }}
-          className='text-5xl md:text-7xl font-bold mb-8 text-gray-800'
+          className='text-4xl md:text-6xl font-bold mb-4 text-gray-800'
         >
           網路安全與資料保護
         </motion.h1>
-        <motion.p 
+        <motion.p
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.1 }}
-          className='text-lg text-gray-700 max-w-3xl mx-auto mb-4'
+          className='text-base md:text-lg text-gray-700 max-w-2xl mx-auto mb-2'
         >
           我們致力於保護您的資料安全，採用最新的安全技術和最佳實踐，
           確保您的資訊在我們的平台上得到最高等級的保護。
         </motion.p>
-        <motion.p 
+        <motion.p
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.2 }}
-          className='text-lg text-gray-700 max-w-3xl mx-auto'
+          className='text-base md:text-lg text-gray-700 max-w-2xl mx-auto'
         >
           從加密傳輸到安全儲存，我們在每個環節都嚴格把關，
           讓您能夠安心使用我們的服務。
         </motion.p>
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.3 }}
@@ -60,7 +67,7 @@ const Security = () => {
 
       <div className='max-w-6xl mx-auto px-4'>
         {/* 安全狀態監控 */}
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
@@ -71,16 +78,18 @@ const Security = () => {
         </motion.div>
 
         {/* 安全措施 */}
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
           className='mb-16'
         >
-          <h2 className='text-3xl font-bold mb-8 text-center'>我們的安全措施</h2>
+          <h2 className='text-3xl font-bold mb-8 text-center'>
+            我們的安全措施
+          </h2>
           <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8'>
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.1 }}
@@ -92,11 +101,12 @@ const Security = () => {
               </div>
               <h3 className='text-xl font-bold mb-3'>加密傳輸</h3>
               <p className='text-gray-600'>
-                所有資料傳輸都使用 TLS 1.3 加密協議，確保您的資訊在傳輸過程中不會被竊取或篡改。
+                所有資料傳輸都使用 TLS 1.3
+                加密協議，確保您的資訊在傳輸過程中不會被竊取或篡改。
               </p>
             </motion.div>
 
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.2 }}
@@ -108,11 +118,12 @@ const Security = () => {
               </div>
               <h3 className='text-xl font-bold mb-3'>內容安全政策</h3>
               <p className='text-gray-600'>
-                實施嚴格的 CSP 政策，防止跨站腳本攻擊（XSS）和其他注入攻擊，保護您的瀏覽器安全。
+                實施嚴格的 CSP
+                政策，防止跨站腳本攻擊（XSS）和其他注入攻擊，保護您的瀏覽器安全。
               </p>
             </motion.div>
 
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.3 }}
@@ -128,7 +139,7 @@ const Security = () => {
               </p>
             </motion.div>
 
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.4 }}
@@ -140,11 +151,12 @@ const Security = () => {
               </div>
               <h3 className='text-xl font-bold mb-3'>威脅檢測</h3>
               <p className='text-gray-600'>
-                24/7 監控系統檢測和防禦各種網路威脅，包括 DDoS 攻擊、惡意軟體和異常活動。
+                24/7 監控系統檢測和防禦各種網路威脅，包括 DDoS
+                攻擊、惡意軟體和異常活動。
               </p>
             </motion.div>
 
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.5 }}
@@ -160,7 +172,7 @@ const Security = () => {
               </p>
             </motion.div>
 
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.6 }}
@@ -172,14 +184,15 @@ const Security = () => {
               </div>
               <h3 className='text-xl font-bold mb-3'>全球安全標準</h3>
               <p className='text-gray-600'>
-                遵循國際安全標準和最佳實踐，包括 OWASP 指南、ISO 27001 等，確保最高安全等級。
+                遵循國際安全標準和最佳實踐，包括 OWASP 指南、ISO 27001
+                等，確保最高安全等級。
               </p>
             </motion.div>
           </div>
         </motion.div>
 
         {/* 技術細節 */}
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
@@ -190,7 +203,9 @@ const Security = () => {
           <div className='bg-white p-8 rounded-lg shadow-sm border border-gray-100'>
             <div className='grid grid-cols-1 md:grid-cols-2 gap-8'>
               <div>
-                <h3 className='text-xl font-bold mb-4 text-gray-800'>加密技術</h3>
+                <h3 className='text-xl font-bold mb-4 text-gray-800'>
+                  加密技術
+                </h3>
                 <ul className='space-y-2 text-gray-600'>
                   <li>• TLS 1.3 加密協議</li>
                   <li>• AES-256 資料加密</li>
@@ -199,7 +214,9 @@ const Security = () => {
                 </ul>
               </div>
               <div>
-                <h3 className='text-xl font-bold mb-4 text-gray-800'>安全標頭</h3>
+                <h3 className='text-xl font-bold mb-4 text-gray-800'>
+                  安全標頭
+                </h3>
                 <ul className='space-y-2 text-gray-600'>
                   <li>• Content-Security-Policy (CSP)</li>
                   <li>• Strict-Transport-Security (HSTS)</li>
@@ -212,7 +229,7 @@ const Security = () => {
         </motion.div>
 
         {/* 安全承諾 */}
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}

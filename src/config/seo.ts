@@ -5,8 +5,7 @@ export type RouteMeta = {
 
 export const DEFAULT_META: RouteMeta = {
   title: 'HYJdevelop - 頁面未找到 (404)',
-  description:
-    '抱歉，您要尋找的頁面不存在。請返回首頁或聯絡我們獲取協助。',
+  description: '抱歉，您要尋找的頁面不存在。請返回首頁或聯絡我們獲取協助。',
 };
 
 export const ROUTE_META: Record<string, RouteMeta> = {
@@ -17,7 +16,8 @@ export const ROUTE_META: Record<string, RouteMeta> = {
   },
   '/service': {
     title: 'HYJdevelop - 服務條款',
-    description: '查看 HYJdevelop 的服務條款與支援資訊，確保您的體驗安全與順暢。',
+    description:
+      '查看 HYJdevelop 的服務條款與支援資訊，確保您的體驗安全與順暢。',
   },
   '/database': {
     title: 'HYJdevelop - 媒體庫',
@@ -37,11 +37,13 @@ export const ROUTE_META: Record<string, RouteMeta> = {
   },
   '/security': {
     title: 'HYJdevelop - 網路安全與資料保護',
-    description: 'HYJdevelop 採用業界最先進的安全技術，全方位保護您的資料安全和隱私。',
+    description:
+      'HYJdevelop 採用業界最先進的安全技術，全方位保護您的資料安全和隱私。',
   },
   '/freedom': {
     title: 'HYJdevelop - 表達自由與社群保護',
-    description: 'HYJdevelop 致力於保護每個人的表達自由權利，同時確保社群環境的安全與和諧。',
+    description:
+      'HYJdevelop 致力於保護每個人的表達自由權利，同時確保社群環境的安全與和諧。',
   },
   '/hosting': {
     title: 'HYJdevelop - 網站製作與合作',
@@ -72,5 +74,3 @@ export const ROUTE_META: Record<string, RouteMeta> = {
     description: 'Tutor Go 為 SLRC 的未來版本，打造安全、透明的家教媒合平台。',
   },
 };
-
-

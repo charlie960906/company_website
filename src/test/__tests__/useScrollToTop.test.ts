@@ -16,7 +16,9 @@ Object.defineProperty(window, 'scrollTo', {
 });
 
 describe('useScrollToTop', () => {
-  const mockUseLocation = useLocation as any;
+  const mockUseLocation = useLocation as unknown as {
+    mockReturnValue: (value: { pathname: string }) => void;
+  };
 
   beforeEach(() => {
     vi.clearAllMocks();

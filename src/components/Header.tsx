@@ -159,7 +159,7 @@ const Header: React.FC = () => {
   }, []);
 
   return (
-    <header className='bg-white/80 backdrop-blur-md fixed w-full top-0 z-50 shadow-sm'>
+    <header className='bg-white/80 backdrop-blur-md fixed w-full top-0 z-50 shadow-sm mobile-header'>
       <nav className='container mx-auto px-4 py-3'>
         <div className='flex items-center justify-between'>
           <Link
@@ -167,7 +167,11 @@ const Header: React.FC = () => {
             className='flex items-center space-x-2'
             onClick={closeMenu}
           >
-            <img src='/logo.png' alt='HYJdevelop 標誌' className='h-8 md:h-10 high-dpi' />
+            <img
+              src='/logo.png'
+              alt='HYJdevelop 標誌'
+              className='h-8 md:h-10 high-dpi'
+            />
             <span className='text-xl font-bold'>HYJdevelop</span>
           </Link>
 
@@ -236,8 +240,8 @@ const Header: React.FC = () => {
         <AnimatePresence>
           {isMenuOpen && (
             <motion.div
-              className='md:hidden py-4 w-full overflow-hidden bg-white/95 backdrop-blur-sm border-t border-gray-200'
-              style={{ top: 0, right: 0, willChange: 'transform, opacity' }}
+              className='md:hidden py-4 w-full overflow-hidden bg-white/95 backdrop-blur-sm border-t border-gray-200 absolute top-full left-0 z-50'
+              style={{ willChange: 'transform, opacity' }}
             >
               <motion.div
                 variants={containerVariants}

@@ -1,33 +1,40 @@
 import { motion } from 'framer-motion';
-import { Newspaper, Megaphone, Star, Shield, Smartphone, Code } from 'lucide-react';
+import {
+  Newspaper,
+  Megaphone,
+  Star,
+  Shield,
+  Smartphone,
+  Code,
+} from 'lucide-react';
 
 const Updates = () => {
   return (
     <div className='min-h-screen pb-24'>
       {/* Hero Section */}
-      <motion.section 
+      <motion.section
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, ease: [0.33, 1, 0.68, 1] }}
         className='section-hero flex flex-col items-center justify-center text-center px-4 relative overflow-hidden'
       >
-        <motion.h1 
+        <motion.h1
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, ease: [0.33, 1, 0.68, 1] }}
-          className='text-5xl md:text-7xl font-bold mb-8 text-gray-800'
+          className='text-4xl md:text-6xl font-bold mb-4 text-gray-800'
         >
           HYJdevelop 最新消息
         </motion.h1>
-        <motion.p 
+        <motion.p
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.1 }}
-          className='text-lg text-gray-700 max-w-3xl mx-auto mb-4'
+          className='text-base md:text-lg text-gray-700 max-w-2xl mx-auto mb-2'
         >
           關注我們的最新動態，了解社群發展和重要公告。
         </motion.p>
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.2 }}
@@ -49,7 +56,7 @@ const Updates = () => {
 
       <div className='max-w-4xl mx-auto'>
         {/* 最新公告 */}
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
@@ -61,7 +68,7 @@ const Updates = () => {
             重要公告
           </h2>
           <div className='space-y-6'>
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.1 }}
@@ -69,19 +76,24 @@ const Updates = () => {
               className='bg-white p-6 rounded-lg shadow-sm border border-gray-100'
             >
               <div className='flex justify-between items-start mb-4'>
-                <h3 className='text-xl font-bold'>Tutor Go 家教媒合 App 正式發布</h3>
+                <h3 className='text-xl font-bold'>
+                  Tutor Go 家教媒合 App 正式發布
+                </h3>
                 <span className='text-sm text-gray-500'>2025/01/20</span>
               </div>
               <p className='text-gray-600 mb-4'>
-                我們很高興地宣布，Tutor Go 家教媒合 App 正式發布！這是 SLRC 的未來版本，
-                提供更智能的家教媒合服務，讓學習更有效率。
+                我們很高興地宣布，Tutor Go 家教媒合 App 正式發布！這是 SLRC
+                的未來版本， 提供更智能的家教媒合服務，讓學習更有效率。
               </p>
-              <a href='/tutorgo' className='text-blue-600 hover:text-blue-700 font-medium'>
+              <a
+                href='/tutorgo'
+                className='text-blue-600 hover:text-blue-700 font-medium'
+              >
                 了解更多 →
               </a>
             </motion.div>
 
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.2 }}
@@ -97,12 +109,16 @@ const Updates = () => {
                 APM 錯誤追蹤系統，以及全域 ErrorBoundary 防護機制。
               </p>
               <div className='flex items-center space-x-4 text-sm text-gray-500'>
-                <span className='flex items-center'><Shield className='w-4 h-4 mr-1' /> 安全強化</span>
-                <span className='flex items-center'><Code className='w-4 h-4 mr-1' /> 性能優化</span>
+                <span className='flex items-center'>
+                  <Shield className='w-4 h-4 mr-1' /> 安全強化
+                </span>
+                <span className='flex items-center'>
+                  <Code className='w-4 h-4 mr-1' /> 性能優化
+                </span>
               </div>
             </motion.div>
 
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.3 }}
@@ -118,15 +134,19 @@ const Updates = () => {
                 提供最佳的瀏覽體驗。
               </p>
               <div className='flex items-center space-x-4 text-sm text-gray-500'>
-                <span className='flex items-center'><Smartphone className='w-4 h-4 mr-1' /> 手機優化</span>
-                <span className='flex items-center'><Code className='w-4 h-4 mr-1' /> 平板支援</span>
+                <span className='flex items-center'>
+                  <Smartphone className='w-4 h-4 mr-1' /> 手機優化
+                </span>
+                <span className='flex items-center'>
+                  <Code className='w-4 h-4 mr-1' /> 平板支援
+                </span>
               </div>
             </motion.div>
           </div>
         </motion.div>
 
         {/* 最新消息 */}
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
@@ -138,7 +158,7 @@ const Updates = () => {
             最新消息
           </h2>
           <div className='space-y-6'>
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.1 }}
@@ -153,12 +173,15 @@ const Updates = () => {
                 現在開始接受合作夥伴申請！我們期待與更多優秀的夥伴一起合作，
                 共同打造更好的技術生態圈。
               </p>
-              <a href='/partner' className='text-blue-600 hover:text-blue-700 font-medium'>
+              <a
+                href='/partner'
+                className='text-blue-600 hover:text-blue-700 font-medium'
+              >
                 了解更多 →
               </a>
             </motion.div>
 
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.2 }}
@@ -174,16 +197,22 @@ const Updates = () => {
                 確保透明度和合規性。
               </p>
               <div className='flex space-x-4'>
-                <a href='/service' className='text-blue-600 hover:text-blue-700 font-medium'>
+                <a
+                  href='/service'
+                  className='text-blue-600 hover:text-blue-700 font-medium'
+                >
                   服務條款 →
                 </a>
-                <a href='/privacy' className='text-blue-600 hover:text-blue-700 font-medium'>
+                <a
+                  href='/privacy'
+                  className='text-blue-600 hover:text-blue-700 font-medium'
+                >
                   隱私政策 →
                 </a>
               </div>
             </motion.div>
 
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.3 }}
@@ -207,7 +236,7 @@ const Updates = () => {
         </motion.div>
 
         {/* 技術更新 */}
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
@@ -219,7 +248,7 @@ const Updates = () => {
             技術更新
           </h2>
           <div className='space-y-6'>
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.1 }}
@@ -231,11 +260,12 @@ const Updates = () => {
                 <span className='text-sm text-gray-500'>2025/01/16</span>
               </div>
               <p className='text-gray-600 mb-4'>
-                優化 404 錯誤頁面的動畫效果和用戶體驗，提供更友善的錯誤處理機制。
+                優化 404
+                錯誤頁面的動畫效果和用戶體驗，提供更友善的錯誤處理機制。
               </p>
             </motion.div>
 
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.2 }}
@@ -253,33 +283,23 @@ const Updates = () => {
           </div>
         </motion.div>
 
-        {/* 訂閱更新 */}
-        <motion.div 
+        {/* 追蹤我們 */}
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          className="bg-gradient-to-r from-blue-50 to-indigo-50 p-8 rounded-lg border border-blue-100"
+          className='bg-gradient-to-r from-blue-50 to-indigo-50 p-8 rounded-lg border border-blue-100 text-center'
         >
-          <h2 className="text-2xl font-bold mb-4 text-center text-gray-800">訂閱最新消息</h2>
-          <p className="text-gray-600 mb-6 text-center">
-            訂閱我們的最新消息，第一時間收到重要更新！
+          <h2 className='text-2xl font-bold mb-4 text-gray-800'>
+            追蹤我們
+          </h2>
+          <p className='text-gray-600 mb-6'>
+            查看近期公告與歷史更新，歡迎關注我們的最新動態。
           </p>
-          <form className="max-w-md mx-auto">
-            <div className="flex gap-4">
-              <input
-                type="email"
-                placeholder="請輸入您的電子郵件"
-                className="flex-1 px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none"
-              />
-              <button
-                type="submit"
-                className="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors font-medium"
-              >
-                訂閱
-              </button>
-            </div>
-          </form>
+          <a href='/updates' className='inline-block btn-soft-outline px-8 py-3 rounded-xl shadow-md'>
+            前往最新消息
+          </a>
         </motion.div>
       </div>
     </div>

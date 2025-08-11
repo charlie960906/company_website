@@ -22,7 +22,8 @@ const Partner = () => {
           HYJdevelop 是一間科技公司的母公司，聚焦數位產品與服務整合。
         </p>
         <p className='text-gray-700 max-w-2xl mx-auto mb-1 text-balance'>
-          我們的業務包含家教媒合 App（規劃中）、網站製作、以及與教育/民間團體的合作專案。
+          我們的業務包含家教媒合
+          App（規劃中）、網站製作、以及與教育/民間團體的合作專案。
         </p>
         <p className='text-gray-700 max-w-2xl mx-auto mb-1'>
           我們鼓勵學生自治團體跳脫思想框架、發掘潛在的可能性
