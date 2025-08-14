@@ -1,4 +1,6 @@
 import { motion } from 'framer-motion';
+import { inViewMotion } from 'src/utils/motion';
+
 import {
   User,
   Shield,
@@ -23,7 +25,7 @@ const Service = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, ease: [0.33, 1, 0.68, 1] }}
-          className='text-5xl md:text-7xl font-bold mb-6 text-gray-800'
+          className='hero-title mb-6 text-gray-800'
         >
           服務條款
         </motion.h1>
@@ -31,32 +33,17 @@ const Service = () => {
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.1 }}
-          className='text-xl md:text-2xl text-gray-700 max-w-2xl mx-auto mb-4'
+          className='hero-subtitle max-w-2xl mx-auto mb-4'
         >
           歡迎您使用 HYJdevelop 及其相關服務，請詳閱下列服務條款。
         </motion.p>
-        <div className='animate-bounce absolute bottom-12 mid transform -translate-x-1/2'>
-          <svg
-            className='w-8 h-8 text-gray-400'
-            fill='none'
-            strokeLinecap='round'
-            strokeLinejoin='round'
-            strokeWidth='2'
-            viewBox='0 0 22 22'
-            stroke='currentColor'
-          >
-            <path d='M19 14l-7 7m0 0l-7-7m7 7V3'></path>
-          </svg>
-        </div>
+
       </section>
 
       <div className='max-w-3xl mx-auto px-4 py-12 space-y-10'>
         {/* 1. 導言與適用範圍 */}
         <motion.section
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.3 }}
-          transition={{ duration: 0.5 }}
+          {...inViewMotion(false, { duration: 0.5, amount: 0.3 })}
           className='bg-white p-6 rounded-lg shadow-sm'
         >
           <div className='flex items-center mb-4'>
@@ -82,10 +69,7 @@ const Service = () => {
 
         {/* 2. 用戶註冊與帳號安全 */}
         <motion.section
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.3 }}
-          transition={{ duration: 0.5, delay: 0.1 }}
+          {...inViewMotion(false, { duration: 0.5, delay: 0.1, amount: 0.3 })}
           className='bg-white p-6 rounded-lg shadow-sm'
         >
           <div className='flex items-center mb-4'>
@@ -108,10 +92,7 @@ const Service = () => {
 
         {/* 3. 用戶義務與禁止行為 */}
         <motion.section
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.3 }}
-          transition={{ duration: 0.5, delay: 0.2 }}
+          {...inViewMotion(false, { duration: 0.5, delay: 0.2, amount: 0.3 })}
           className='bg-white p-6 rounded-lg shadow-sm'
         >
           <div className='flex items-center mb-4'>
@@ -128,10 +109,7 @@ const Service = () => {
 
         {/* 4. 服務內容與權利義務 */}
         <motion.section
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.3 }}
-          transition={{ duration: 0.5, delay: 0.3 }}
+          {...inViewMotion(false, { duration: 0.5, delay: 0.3, amount: 0.3 })}
           className='bg-white p-6 rounded-lg shadow-sm'
         >
           <div className='flex items-center mb-4'>
@@ -172,10 +150,7 @@ const Service = () => {
 
         {/* 5. 隱私權與資料保護 */}
         <motion.section
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.3 }}
-          transition={{ duration: 0.5, delay: 0.4 }}
+          {...inViewMotion(false, { duration: 0.5, delay: 0.4, amount: 0.3 })}
           className='bg-white p-6 rounded-lg shadow-sm'
         >
           <div className='flex items-center mb-4'>
@@ -196,10 +171,7 @@ const Service = () => {
 
         {/* 6. 智慧財產權（含用戶授權） */}
         <motion.section
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.3 }}
-          transition={{ duration: 0.5, delay: 0.5 }}
+          {...inViewMotion(false, { duration: 0.5, delay: 0.5, amount: 0.3 })}
           className='bg-white p-6 rounded-lg shadow-sm'
         >
           <div className='flex items-center mb-4'>
@@ -228,10 +200,7 @@ const Service = () => {
 
         {/* 7. 責任免除與限制 */}
         <motion.section
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.3 }}
-          transition={{ duration: 0.5, delay: 0.6 }}
+          {...inViewMotion(false, { duration: 0.5, delay: 0.6, amount: 0.3 })}
           className='bg-white p-6 rounded-lg shadow-sm'
         >
           <div className='flex items-center mb-4'>
@@ -255,10 +224,7 @@ const Service = () => {
 
         {/* 8. 服務終止與帳號刪除 */}
         <motion.section
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.3 }}
-          transition={{ duration: 0.5, delay: 0.7 }}
+          {...inViewMotion(false, { duration: 0.5, delay: 0.7, amount: 0.3 })}
           className='bg-white p-6 rounded-lg shadow-sm'
         >
           <div className='flex items-center mb-4'>
@@ -275,10 +241,7 @@ const Service = () => {
 
         {/* 9. 爭議處理與準據法 */}
         <motion.section
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.3 }}
-          transition={{ duration: 0.5, delay: 0.8 }}
+          {...inViewMotion(false, { duration: 0.5, delay: 0.8, amount: 0.3 })}
           className='bg-white p-6 rounded-lg shadow-sm'
         >
           <div className='flex items-center mb-4'>
@@ -292,10 +255,7 @@ const Service = () => {
 
         {/* 10. 聯絡方式 */}
         <motion.section
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.3 }}
-          transition={{ duration: 0.5, delay: 0.9 }}
+          {...inViewMotion(false, { duration: 0.5, delay: 0.9, amount: 0.3 })}
           className='bg-white p-6 rounded-lg shadow-sm'
         >
           <div className='flex items-center mb-4'>
@@ -315,10 +275,7 @@ const Service = () => {
 
         {/* 11. 條款修訂與公告 */}
         <motion.section
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.3 }}
-          transition={{ duration: 0.5, delay: 1.0 }}
+          {...inViewMotion(false, { duration: 0.5, delay: 1.0, amount: 0.3 })}
           className='bg-white p-6 rounded-lg shadow-sm'
         >
           <div className='flex items-center mb-4'>

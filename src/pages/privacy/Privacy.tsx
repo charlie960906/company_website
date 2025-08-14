@@ -1,58 +1,46 @@
 import { Lock, Eye, Shield, Cookie, Database, UserCheck } from 'lucide-react';
-import { motion } from 'framer-motion';
+import { motion, useReducedMotion } from 'framer-motion';
+import { inViewMotion } from 'src/utils/motion';
+
 
 const Privacy = () => {
+  const shouldReduceMotion = useReducedMotion();
   return (
     <div className='min-h-screen pb-24'>
       {/* Hero Section */}
       <section className='min-h-screen max-h-screen flex flex-col items-center justify-center bg-gradient-to-b from-blue-50 to-white text-center px-4 relative py-12 overflow-hidden'>
         <motion.h1
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: shouldReduceMotion ? 0 : 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, ease: [0.33, 1, 0.68, 1] }}
-          className='text-5xl md:text-7xl font-bold mb-8 text-gray-800'
+          className='hero-title mb-8 text-gray-800'
         >
           資料和隱私
         </motion.h1>
         <motion.p
-          initial={{ opacity: 0, y: 16 }}
+          initial={{ opacity: 0, y: shouldReduceMotion ? 0 : 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.1 }}
-          className='text-lg text-gray-700 max-w-3xl mx-auto mb-4'
+          className='hero-subtitle max-w-3xl mx-auto mb-4'
         >
           我們致力於讓您掌控自己的隱私並保護自己的資訊，以便在我們的產品上享受您最重視的體驗。
         </motion.p>
         <motion.p
-          initial={{ opacity: 0, y: 16 }}
+          initial={{ opacity: 0, y: shouldReduceMotion ? 0 : 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.2 }}
-          className='text-lg text-gray-700 max-w-3xl mx-auto'
+          className='hero-subtitle max-w-3xl mx-auto'
         >
           而我們在了解您的資訊時將全力協助保護資訊安全以及做出正確隱私決定的原因，同時我們也會遵守嚴格的業界隱私標準，並保護您資料的安全。
         </motion.p>
-        <div className='animate-bounce absolute bottom-12 mid transform -translate-x-1/2'>
-          <svg
-            className='w-8 h-8 text-gray-400'
-            fill='none'
-            strokeLinecap='round'
-            strokeLinejoin='round'
-            strokeWidth='2'
-            viewBox='0 0 22 22'
-            stroke='currentColor'
-          >
-            <path d='M19 14l-7 7m0 0l-7-7m7 7V3'></path>
-          </svg>
-        </div>
+
       </section>
 
       <div className='max-w-4xl mx-auto px-4'>
         <div className='space-y-12'>
           {/* 資料與體驗 */}
           <motion.section
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.3 }}
-            transition={{ duration: 0.5 }}
+            {...inViewMotion(!!shouldReduceMotion, { duration: 0.5, amount: 0.3 })}
             className='bg-white p-8 rounded-lg shadow-sm'
           >
             <div className='flex items-center mb-6'>
@@ -113,10 +101,7 @@ const Privacy = () => {
 
           {/* Cookie 與追蹤技術 */}
           <motion.section
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.3 }}
-            transition={{ duration: 0.5, delay: 0.1 }}
+            {...inViewMotion(!!shouldReduceMotion, { duration: 0.5, delay: 0.1, amount: 0.3 })}
             className='bg-white p-8 rounded-lg shadow-sm'
           >
             <div className='flex items-center mb-6'>
@@ -190,10 +175,7 @@ const Privacy = () => {
 
           {/* 資料處理與保護 */}
           <motion.section
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.3 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
+            {...inViewMotion(!!shouldReduceMotion, { duration: 0.5, delay: 0.2, amount: 0.3 })}
             className='bg-white p-8 rounded-lg shadow-sm'
           >
             <div className='flex items-center mb-6'>
@@ -295,10 +277,7 @@ const Privacy = () => {
 
           {/* 您的權利 */}
           <motion.section
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.3 }}
-            transition={{ duration: 0.5, delay: 0.3 }}
+            {...inViewMotion(!!shouldReduceMotion, { duration: 0.5, delay: 0.3 })}
             className='bg-white p-8 rounded-lg shadow-sm'
           >
             <div className='flex items-center mb-6'>
@@ -368,10 +347,7 @@ const Privacy = () => {
 
           {/* 為何需要提供資料 */}
           <motion.section
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.3 }}
-            transition={{ duration: 0.5, delay: 0.4 }}
+            {...inViewMotion(!!shouldReduceMotion, { duration: 0.5, delay: 0.4 })}
             className='bg-white p-8 rounded-lg shadow-sm'
           >
             <div className='flex items-center mb-6'>
@@ -432,10 +408,7 @@ const Privacy = () => {
 
           {/* 資料刪除申請 */}
           <motion.section
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.3 }}
-            transition={{ duration: 0.5, delay: 0.5 }}
+            {...inViewMotion(!!shouldReduceMotion, { duration: 0.5, delay: 0.5 })}
             className='bg-white p-8 rounded-lg shadow-sm'
           >
             <div className='flex items-center mb-6'>
@@ -509,10 +482,7 @@ const Privacy = () => {
 
         {/* 聯絡資訊 */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.3 }}
-          transition={{ duration: 0.5, delay: 0.6 }}
+          {...inViewMotion(!!shouldReduceMotion, { duration: 0.5, delay: 0.6, amount: 0.3 })}
           className='mt-12 bg-blue-50 p-8 rounded-lg'
         >
           <h3 className='text-2xl font-bold text-blue-800 mb-6'>

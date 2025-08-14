@@ -1,4 +1,6 @@
-import { motion } from 'framer-motion';
+import { motion, useReducedMotion } from 'framer-motion';
+import { inViewMotion } from 'src/utils/motion';
+
 import {
   Briefcase,
   Clock,
@@ -58,17 +60,18 @@ const Join = () => {
     setSelectedJob(null);
   };
 
+  const shouldReduceMotion = useReducedMotion();
   return (
     <div className='min-h-screen pb-24'>
       {/* Hero Section */}
       <motion.section
-        initial={{ opacity: 0, y: 20 }}
+        initial={{ opacity: 0, y: shouldReduceMotion ? 0 : 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, ease: [0.33, 1, 0.68, 1] }}
         className='min-h-screen max-h-screen flex flex-col items-center justify-center bg-gradient-to-b from-blue-50 to-white text-center px-4 relative py-12 overflow-hidden'
       >
         <motion.h1
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: shouldReduceMotion ? 0 : 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, ease: [0.33, 1, 0.68, 1] }}
           className='text-5xl md:text-7xl font-bold mb-8 text-gray-800'
@@ -76,7 +79,7 @@ const Join = () => {
           加入我們
         </motion.h1>
         <motion.p
-          initial={{ opacity: 0, y: 16 }}
+          initial={{ opacity: 0, y: shouldReduceMotion ? 0 : 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.1 }}
           className='text-lg text-gray-700 max-w-3xl mx-auto mb-4'
@@ -84,46 +87,23 @@ const Join = () => {
           我們正在尋找充滿熱情的夥伴，一起打造最棒的技術社群。
         </motion.p>
         <motion.p
-          initial={{ opacity: 0, y: 16 }}
+          initial={{ opacity: 0, y: shouldReduceMotion ? 0 : 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.2 }}
           className='text-lg text-gray-700 max-w-3xl mx-auto'
         >
           如果你也對此充滿熱忱，歡迎加入我們的團隊！
         </motion.p>
-        <motion.div
-          initial={{ opacity: 0, y: 16 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.3 }}
-          className='animate-bounce absolute bottom-12 mid transform -translate-x-1/2'
-        >
-          <svg
-            className='w-8 h-8 text-gray-400'
-            fill='none'
-            strokeLinecap='round'
-            strokeLinejoin='round'
-            strokeWidth='2'
-            viewBox='0 0 22 22'
-            stroke='currentColor'
-          >
-            <path d='M19 14l-7 7m0 0l-7-7m7 7V3'></path>
-          </svg>
-        </motion.div>
+
       </motion.section>
 
       <div className='max-w-4xl mx-auto'>
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
+          {...inViewMotion(!!shouldReduceMotion, { duration: 0.6 })}
           className='grid grid-cols-1 md:grid-cols-3 gap-8 mb-12'
         >
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.1 }}
-            viewport={{ once: true }}
+            {...inViewMotion(!!shouldReduceMotion, { duration: 0.5, delay: 0.1 })}
             className='text-center p-6 bg-white rounded-lg shadow-sm border border-gray-100'
           >
             <div className='bg-blue-100 p-4 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4'>
@@ -134,10 +114,7 @@ const Join = () => {
           </motion.div>
 
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-            viewport={{ once: true }}
+            {...inViewMotion(!!shouldReduceMotion, { duration: 0.5, delay: 0.2 })}
             className='text-center p-6 bg-white rounded-lg shadow-sm border border-gray-100'
           >
             <div className='bg-green-100 p-4 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4'>
@@ -148,10 +125,7 @@ const Join = () => {
           </motion.div>
 
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.3 }}
-            viewport={{ once: true }}
+            {...inViewMotion(!!shouldReduceMotion, { duration: 0.5, delay: 0.3 })}
             className='text-center p-6 bg-white rounded-lg shadow-sm border border-gray-100'
           >
             <div className='bg-purple-100 p-4 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4'>
@@ -163,10 +137,7 @@ const Join = () => {
         </motion.div>
 
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
+          {...inViewMotion(!!shouldReduceMotion, { duration: 0.6 })}
           className='bg-white p-8 rounded-lg shadow-sm border border-gray-100 mb-12'
         >
           <h2 className='text-2xl font-bold mb-6'>目前職缺</h2>
@@ -174,10 +145,7 @@ const Join = () => {
             {jobPositions.map((job, index) => (
               <motion.div
                 key={job.id}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                viewport={{ once: true }}
+                {...inViewMotion(!!shouldReduceMotion, { duration: 0.5, delay: index * 0.1 })}
                 className='p-6 border border-gray-200 rounded-lg hover:shadow-md transition-shadow cursor-pointer'
                 onClick={() => handleJobClick(job)}
               >
@@ -205,10 +173,7 @@ const Join = () => {
         </motion.div>
 
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
+          {...inViewMotion(!!shouldReduceMotion, { duration: 0.6 })}
           className='text-center'
         >
           <p className='text-gray-600 mb-4'>

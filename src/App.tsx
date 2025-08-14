@@ -24,7 +24,7 @@ import Admin from 'src/pages/about/Admin';
 import Partner from 'src/pages/Partner';
 import NotFound from 'src/pages/NotFound';
 import React from 'react';
-import { Navigate } from 'react-router-dom';
+// 移除未使用的 Navigate 匯入
 import TutorGo from 'src/pages/TutorGo';
 import ErrorBoundary from 'src/components/ErrorBoundary';
 
@@ -49,9 +49,15 @@ function App() {
     });
   }, [location.pathname]);
 
-  // 動態設置中繼說明和標題
+  // 動態設置中繼說明和標題（需先計算，供下方 useEffect 依賴）
   const meta = ROUTE_META[location.pathname] || DEFAULT_META;
   const { title, description } = meta;
+
+  // 路由變更時對螢幕閱讀器宣告目前頁面
+  const [routeAnnouncement, setRouteAnnouncement] = React.useState('');
+  React.useEffect(() => {
+    setRouteAnnouncement(`已載入 ${title}`);
+  }, [title]);
 
   return (
     <div className='flex flex-col min-h-screen'>
@@ -71,6 +77,9 @@ function App() {
         <meta name='twitter:description' content={description} />
         <meta name='twitter:image' content='https://hyjdevelop.com/logo.png' />
       </Helmet>
+      <div aria-live='polite' aria-atomic='true' className='sr-only'>
+        {routeAnnouncement}
+      </div>
       <ErrorBoundary>
         <Routes>
           <Route element={<MainLayout />}>
@@ -82,10 +91,7 @@ function App() {
             <Route path='/privacy' element={<Privacy />} />
             <Route path='/security' element={<Security />} />
             <Route path='/freedom' element={<Freedom />} />
-            <Route
-              path='/hosting'
-              element={<Navigate to='/partner' replace />}
-            />
+            {/* '/hosting' 已在平台層做 301 轉址，移除此應用層轉導 */}
             <Route path='/rules' element={<CommunityRules />} />
             <Route path='/contact' element={<Contact />} />
             <Route path='/join' element={<Join />} />

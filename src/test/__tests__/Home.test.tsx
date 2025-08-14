@@ -42,8 +42,9 @@ describe('Home', () => {
         (link: HTMLElement) => link.getAttribute('href') === '/security'
       )
     ).toBe(true);
+    // /slrc 已轉址至 /tutorgo
     expect(
-      links.some((link: HTMLElement) => link.getAttribute('href') === '/slrc')
+      links.some((link: HTMLElement) => link.getAttribute('href') === '/tutorgo')
     ).toBe(true);
     expect(
       links.some(

@@ -1,274 +1,126 @@
-// 安全工具函數
+/**
+ * 網站安全配置工具
+ * 提供各種安全標頭的配置和說明
+ */
 
-// CSP 內容安全政策驗證
-export const validateCSP = (cspHeader: string): boolean => {
-  const requiredDirectives = [
-    'default-src',
-    'script-src',
-    'style-src',
-    'img-src',
-    'connect-src',
-  ];
-
-  return requiredDirectives.every(directive => cspHeader.includes(directive));
-};
-
-// 生成 CSP 報告 URI
-export const generateCSPReportURI = (endpoint: string): string => {
-  return `report-uri ${endpoint}; report-to ${endpoint}`;
-};
-
-// SRI 子資源完整性檢查
-export const generateSRI = async (
-  content: string,
-  algorithm: 'sha256' | 'sha384' | 'sha512' = 'sha256'
-): Promise<string> => {
-  const encoder = new TextEncoder();
-  const data = encoder.encode(content);
-  const hashBuffer = await crypto.subtle.digest(algorithm, data);
-  const hashArray = Array.from(new Uint8Array(hashBuffer));
-  const hashHex = hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
-  return `${algorithm}-${hashHex}`;
-};
-
-// 驗證 SRI hash
-export const verifySRI = async (
-  content: string,
-  sriHash: string
-): Promise<boolean> => {
-  try {
-    const expectedHash = await generateSRI(content);
-    return expectedHash === sriHash;
-  } catch (error) {
-    console.error('SRI 驗證失敗:', error);
-    return false;
-  }
-};
-
-// 為外部資源生成 SRI 屬性
-export const generateSRIForExternalResource = async (
-  url: string
-): Promise<string> => {
-  try {
-    const response = await fetch(url);
-    const content = await response.text();
-    return await generateSRI(content);
-  } catch (error) {
-    console.error('生成外部資源 SRI 失敗:', error);
-    return '';
-  }
-};
-
-// XSS 防護 - 清理 HTML 內容
-export const sanitizeHTML = (html: string): string => {
-  const div = document.createElement('div');
-  div.textContent = html;
-  return div.innerHTML;
-};
-
-// 更嚴格的 HTML 清理
-export const sanitizeHTMLStrict = (html: string): string => {
-  // 移除所有 script 標籤
-  html = html.replace(
-    /<script\b[^<]*(?:(?!<\/script>)<[^<]*)*<\/script>/gi,
-    ''
-  );
-  // 移除所有事件處理器
-  html = html.replace(/\s*on\w+\s*=\s*["'][^"']*["']/gi, '');
-  // 移除 javascript: 協議
-  html = html.replace(/javascript:/gi, '');
-  // 移除 data: 協議（除了圖片）
-  html = html.replace(/data:text\/html/gi, '');
-  return html;
-};
-
-// CSRF Token 生成
-export const generateCSRFToken = (): string => {
-  const array = new Uint8Array(32);
-  crypto.getRandomValues(array);
-  return Array.from(array, byte => byte.toString(16).padStart(2, '0')).join('');
-};
-
-// 安全標頭檢查
-export const checkSecurityHeaders = async (
-  url: string
-): Promise<Record<string, string>> => {
-  try {
-    const response = await fetch(url, { method: 'HEAD' });
-    const headers = response.headers;
-
-    return {
-      'Content-Security-Policy':
-        headers.get('Content-Security-Policy') || '未設定',
-      'X-Frame-Options': headers.get('X-Frame-Options') || '未設定',
-      'X-Content-Type-Options':
-        headers.get('X-Content-Type-Options') || '未設定',
-      'X-XSS-Protection': headers.get('X-XSS-Protection') || '未設定',
-      'Referrer-Policy': headers.get('Referrer-Policy') || '未設定',
-      'Strict-Transport-Security':
-        headers.get('Strict-Transport-Security') || '未設定',
-      'Permissions-Policy': headers.get('Permissions-Policy') || '未設定',
-    };
-  } catch (error) {
-    console.error('安全標頭檢查失敗:', error);
-    return {};
-  }
-};
-
-// 密碼強度檢查
-export const checkPasswordStrength = (
-  password: string
-): {
-  score: number;
-  feedback: string[];
-} => {
-  const feedback: string[] = [];
-  let score = 0;
-
-  // 長度檢查
-  if (password.length >= 8) {
-    score += 1;
-  } else {
-    feedback.push('密碼長度至少需要 8 個字元');
-  }
-
-  // 包含數字
-  if (/\d/.test(password)) {
-    score += 1;
-  } else {
-    feedback.push('密碼需要包含數字');
-  }
-
-  // 包含小寫字母
-  if (/[a-z]/.test(password)) {
-    score += 1;
-  } else {
-    feedback.push('密碼需要包含小寫字母');
-  }
-
-  // 包含大寫字母
-  if (/[A-Z]/.test(password)) {
-    score += 1;
-  } else {
-    feedback.push('密碼需要包含大寫字母');
-  }
-
-  // 包含特殊字元
-  if (/[!@#$%^&*(),.?":{}|<>]/.test(password)) {
-    score += 1;
-  } else {
-    feedback.push('密碼需要包含特殊字元');
-  }
-
-  return { score, feedback };
-};
-
-// 輸入驗證
-export const validateInput = {
-  email: (email: string): boolean => {
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    return emailRegex.test(email);
-  },
-
-  phone: (phone: string): boolean => {
-    const sanitized = phone.replace(/\s/g, '');
-    const phoneRegex = /^[+]?\d{7,15}$/;
-    return phoneRegex.test(sanitized);
-  },
-
-  url: (url: string): boolean => {
-    try {
-      new URL(url);
-      return true;
-    } catch {
-      return false;
-    }
-  },
-
-  sanitizeString: (str: string): string => {
-    return str.replace(/[<>]/g, '');
-  },
-};
-
-// 安全隨機字串生成
-export const generateSecureRandomString = (length: number = 32): string => {
-  const charset =
-    'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-  let result = '';
-  const array = new Uint8Array(length);
-  crypto.getRandomValues(array);
-
-  for (let i = 0; i < length; i++) {
-    result += charset[array[i] % charset.length];
-  }
-
-  return result;
-};
-
-// 安全雜湊函數
-export const hashString = async (
-  str: string,
-  algorithm: 'SHA-256' | 'SHA-384' | 'SHA-512' = 'SHA-256'
-): Promise<string> => {
-  const encoder = new TextEncoder();
-  const data = encoder.encode(str);
-  const hashBuffer = await crypto.subtle.digest(algorithm, data);
-  const hashArray = Array.from(new Uint8Array(hashBuffer));
-  return hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
-};
-
-// 生成安全的 UUID
-export const generateSecureUUID = (): string => {
-  const array = new Uint8Array(16);
-  crypto.getRandomValues(array);
-
-  // 設置版本 (4) 和變體位
-  array[6] = (array[6] & 0x0f) | 0x40;
-  array[8] = (array[8] & 0x3f) | 0x80;
-
-  const hex = Array.from(array, byte =>
-    byte.toString(16).padStart(2, '0')
-  ).join('');
-  return `${hex.slice(0, 8)}-${hex.slice(8, 12)}-${hex.slice(12, 16)}-${hex.slice(16, 20)}-${hex.slice(20, 32)}`;
-};
-
-// 檢查是否為安全上下文
-export const isSecureContext = (): boolean => {
-  return typeof window !== 'undefined' && window.isSecureContext;
-};
-
-// 檢查 HTTPS
-export const isHTTPS = (): boolean => {
-  return typeof window !== 'undefined' && window.location.protocol === 'https:';
-};
-
-// 生成安全的 CSP 報告
-interface CSPViolationReport {
-  documentURI?: string;
-  referrer?: string;
-  violatedDirective?: string;
-  originalPolicy?: string;
-  blockedURI?: string;
-  sourceFile?: string;
-  lineNumber?: number;
-  columnNumber?: number;
-  statusCode?: number;
+export interface SecurityHeaders {
+  'X-Content-Type-Options': string;
+  'X-Frame-Options': string;
+  'X-XSS-Protection': string;
+  'Referrer-Policy': string;
+  'Permissions-Policy': string;
+  'Strict-Transport-Security': string;
+  'Content-Security-Policy': string;
 }
 
-export const generateCSPViolationReport = (
-  violation: CSPViolationReport
-): string => {
-  return JSON.stringify({
-    'csp-report': {
-      'document-uri': violation.documentURI ?? '',
-      referrer: violation.referrer ?? '',
-      'violated-directive': violation.violatedDirective ?? '',
-      'original-policy': violation.originalPolicy ?? '',
-      'blocked-uri': violation.blockedURI ?? '',
-      'source-file': violation.sourceFile ?? '',
-      'line-number': violation.lineNumber ?? 0,
-      'column-number': violation.columnNumber ?? 0,
-      'status-code': violation.statusCode ?? 0,
-    },
-  });
+/**
+ * 安全標頭配置說明
+ */
+export const SECURITY_HEADERS_EXPLANATION = {
+  'X-Content-Type-Options': {
+    value: 'nosniff',
+    description: '防止瀏覽器進行 MIME 類型嗅探，強制使用伺服器指定的 Content-Type',
+    protection: '防止 MIME 類型混淆攻擊'
+  },
+  'X-Frame-Options': {
+    value: 'DENY',
+    description: '完全禁止網站被嵌入到 iframe 中',
+    protection: '防止點擊劫持攻擊'
+  },
+  'X-XSS-Protection': {
+    value: '1; mode=block',
+    description: '啟用瀏覽器內建的 XSS 過濾器，並在檢測到攻擊時阻止頁面載入',
+    protection: '提供額外的 XSS 防護層'
+  },
+  'Referrer-Policy': {
+    value: 'strict-origin-when-cross-origin',
+    description: '控制引用來源資訊的傳送策略，平衡隱私和功能',
+    protection: '防止敏感資訊洩露'
+  },
+  'Permissions-Policy': {
+    value: 'camera=(), microphone=(), geolocation=(), payment=(), usb=(), magnetometer=(), gyroscope=(), accelerometer=()',
+    description: '限制瀏覽器功能的權限，禁用可能被濫用的 API',
+    protection: '防止惡意網站濫用瀏覽器功能'
+  },
+  'Strict-Transport-Security': {
+    value: 'max-age=31536000; includeSubDomains; preload',
+    description: '強制使用 HTTPS 連接，有效期一年，包含子域名，支援預載入列表',
+    protection: '防止中間人攻擊和協議降級'
+  },
+  'Content-Security-Policy': {
+    value: 'default-src \'self\'; script-src \'self\' \'unsafe-inline\' \'unsafe-eval\' https://js.sentry-cdn.com https://browser.sentry-cdn.com; style-src \'self\' \'unsafe-inline\' https://fonts.googleapis.com; font-src \'self\' https://fonts.gstatic.com; img-src \'self\' data: https:; connect-src \'self\' https://o450000000000000.ingest.sentry.io; frame-ancestors \'none\'; base-uri \'self\'; form-action \'self\'; object-src \'none\'; upgrade-insecure-requests',
+    description: '內容安全政策，控制資源載入來源，防止 XSS 和注入攻擊',
+    protection: '防止惡意腳本執行和資源載入'
+  }
+};
+
+/**
+ * 生成 CSP 報告 URI（可選）
+ */
+export const generateCSPReportUri = (reportUri: string) => {
+  return `report-uri ${reportUri}; report-to csp-endpoint`;
+};
+
+/**
+ * 安全檢查函數
+ */
+export const validateSecurityConfig = (): string[] => {
+  const warnings: string[] = [];
+  
+  // 檢查是否使用 HTTPS
+  if (typeof window !== 'undefined' && window.location.protocol !== 'https:') {
+    warnings.push('建議在生產環境中使用 HTTPS');
+  }
+  
+  // 檢查 CSP 配置
+  const csp = SECURITY_HEADERS_EXPLANATION['Content-Security-Policy'].value;
+  if (csp.includes("'unsafe-inline'") || csp.includes("'unsafe-eval'")) {
+    warnings.push('CSP 中使用了 unsafe-inline 和 unsafe-eval，建議在生產環境中移除');
+  }
+  
+  return warnings;
+};
+
+/**
+ * 安全標頭測試函數
+ */
+export const testSecurityHeaders = async (): Promise<Record<string, string>> => {
+  try {
+    await fetch(window.location.origin, {
+      method: 'HEAD',
+      mode: 'no-cors'
+    });
+    
+    // 注意：由於 CORS 限制，實際的標頭檢查需要在伺服器端進行
+    // 這裡提供一個基本的檢查框架
+    return {
+      'X-Content-Type-Options': '無法檢查（CORS 限制）',
+      'X-Frame-Options': '無法檢查（CORS 限制）',
+      'X-XSS-Protection': '無法檢查（CORS 限制）',
+      'Referrer-Policy': '無法檢查（CORS 限制）',
+      'Permissions-Policy': '無法檢查（CORS 限制）',
+      'Strict-Transport-Security': '無法檢查（CORS 限制）',
+      'Content-Security-Policy': '無法檢查（CORS 限制）'
+    };
+  } catch {
+    return {
+      error: '無法測試安全標頭'
+    };
+  }
+};
+
+/**
+ * 安全建議
+ */
+export const getSecurityRecommendations = () => {
+  return [
+    '定期更新依賴套件以修補安全漏洞',
+    '監控安全標頭是否正確設置',
+    '考慮實施 CSP 報告機制',
+    '定期進行安全掃描和滲透測試',
+    '實施速率限制防止暴力攻擊',
+    '啟用日誌記錄和監控',
+    '定期備份重要數據',
+    '實施多因素認證（如果適用）'
+  ];
 };

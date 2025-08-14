@@ -1,4 +1,6 @@
-import { motion } from 'framer-motion';
+import { motion, useReducedMotion } from 'framer-motion';
+import { inViewMotion } from 'src/utils/motion';
+
 import {
   Newspaper,
   Megaphone,
@@ -9,58 +11,39 @@ import {
 } from 'lucide-react';
 
 const Updates = () => {
+  const shouldReduceMotion = useReducedMotion();
   return (
     <div className='min-h-screen pb-24'>
       {/* Hero Section */}
       <motion.section
-        initial={{ opacity: 0, y: 20 }}
+        initial={{ opacity: 0, y: shouldReduceMotion ? 0 : 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, ease: [0.33, 1, 0.68, 1] }}
         className='section-hero flex flex-col items-center justify-center text-center px-4 relative overflow-hidden'
       >
         <motion.h1
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: shouldReduceMotion ? 0 : 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, ease: [0.33, 1, 0.68, 1] }}
-          className='text-4xl md:text-6xl font-bold mb-4 text-gray-800'
+          className='hero-title mb-4 text-gray-800'
         >
           HYJdevelop 最新消息
         </motion.h1>
         <motion.p
-          initial={{ opacity: 0, y: 16 }}
+          initial={{ opacity: 0, y: shouldReduceMotion ? 0 : 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.1 }}
-          className='text-base md:text-lg text-gray-700 max-w-2xl mx-auto mb-2'
+          className='hero-subtitle max-w-2xl mx-auto mb-2'
         >
           關注我們的最新動態，了解社群發展和重要公告。
         </motion.p>
-        <motion.div
-          initial={{ opacity: 0, y: 16 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.2 }}
-          className='animate-bounce absolute bottom-12 mid transform -translate-x-1/2'
-        >
-          <svg
-            className='w-8 h-8 text-gray-400'
-            fill='none'
-            strokeLinecap='round'
-            strokeLinejoin='round'
-            strokeWidth='2'
-            viewBox='0 0 22 22'
-            stroke='currentColor'
-          >
-            <path d='M19 14l-7 7m0 0l-7-7m7 7V3'></path>
-          </svg>
-        </motion.div>
+
       </motion.section>
 
       <div className='max-w-4xl mx-auto'>
         {/* 最新公告 */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
+          {...inViewMotion(shouldReduceMotion, { duration: 0.6, amount: 0.3 })}
           className='mb-12'
         >
           <h2 className='text-2xl font-bold mb-6 flex items-center'>
@@ -69,10 +52,7 @@ const Updates = () => {
           </h2>
           <div className='space-y-6'>
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.1 }}
-              viewport={{ once: true }}
+              {...inViewMotion(shouldReduceMotion, { duration: 0.5, delay: 0.1 })}
               className='bg-white p-6 rounded-lg shadow-sm border border-gray-100'
             >
               <div className='flex justify-between items-start mb-4'>
@@ -94,10 +74,7 @@ const Updates = () => {
             </motion.div>
 
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.2 }}
-              viewport={{ once: true }}
+              {...inViewMotion(shouldReduceMotion, { duration: 0.5, delay: 0.2 })}
               className='bg-white p-6 rounded-lg shadow-sm border border-gray-100'
             >
               <div className='flex justify-between items-start mb-4'>
@@ -119,10 +96,7 @@ const Updates = () => {
             </motion.div>
 
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.3 }}
-              viewport={{ once: true }}
+              {...inViewMotion(shouldReduceMotion, { duration: 0.5, delay: 0.3 })}
               className='bg-white p-6 rounded-lg shadow-sm border border-gray-100'
             >
               <div className='flex justify-between items-start mb-4'>
@@ -147,10 +121,7 @@ const Updates = () => {
 
         {/* 最新消息 */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
+          {...inViewMotion(shouldReduceMotion, { duration: 0.6, amount: 0.3 })}
           className='mb-12'
         >
           <h2 className='text-2xl font-bold mb-6 flex items-center'>
@@ -159,10 +130,7 @@ const Updates = () => {
           </h2>
           <div className='space-y-6'>
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.1 }}
-              viewport={{ once: true }}
+              {...inViewMotion(shouldReduceMotion, { duration: 0.5, delay: 0.1 })}
               className='bg-white p-6 rounded-lg shadow-sm border border-gray-100'
             >
               <div className='flex justify-between items-start mb-4'>
@@ -182,10 +150,7 @@ const Updates = () => {
             </motion.div>
 
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.2 }}
-              viewport={{ once: true }}
+              {...inViewMotion(shouldReduceMotion, { duration: 0.5, delay: 0.2 })}
               className='bg-white p-6 rounded-lg shadow-sm border border-gray-100'
             >
               <div className='flex justify-between items-start mb-4'>
@@ -213,10 +178,7 @@ const Updates = () => {
             </motion.div>
 
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.3 }}
-              viewport={{ once: true }}
+              {...inViewMotion(shouldReduceMotion, { duration: 0.5, delay: 0.3 })}
               className='bg-white p-6 rounded-lg shadow-sm border border-gray-100'
             >
               <div className='flex justify-between items-start mb-4'>
@@ -237,10 +199,7 @@ const Updates = () => {
 
         {/* 技術更新 */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
+          {...inViewMotion(shouldReduceMotion, { duration: 0.6, amount: 0.3 })}
           className='mb-12'
         >
           <h2 className='text-2xl font-bold mb-6 flex items-center'>
@@ -249,10 +208,7 @@ const Updates = () => {
           </h2>
           <div className='space-y-6'>
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.1 }}
-              viewport={{ once: true }}
+              {...inViewMotion(shouldReduceMotion, { duration: 0.5, delay: 0.1 })}
               className='bg-white p-6 rounded-lg shadow-sm border border-gray-100'
             >
               <div className='flex justify-between items-start mb-4'>
@@ -266,10 +222,7 @@ const Updates = () => {
             </motion.div>
 
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.2 }}
-              viewport={{ once: true }}
+              {...inViewMotion(shouldReduceMotion, { duration: 0.5, delay: 0.2 })}
               className='bg-white p-6 rounded-lg shadow-sm border border-gray-100'
             >
               <div className='flex justify-between items-start mb-4'>
@@ -285,10 +238,7 @@ const Updates = () => {
 
         {/* 追蹤我們 */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
+          {...inViewMotion(!!shouldReduceMotion, { duration: 0.6 })}
           className='bg-gradient-to-r from-blue-50 to-indigo-50 p-8 rounded-lg border border-blue-100 text-center'
         >
           <h2 className='text-2xl font-bold mb-4 text-gray-800'>

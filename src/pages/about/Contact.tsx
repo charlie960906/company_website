@@ -6,31 +6,32 @@ import {
   Instagram,
   MessageCircle as Threads,
 } from 'lucide-react';
+import { motion, useReducedMotion } from 'framer-motion';
+
 
 const Contact = () => {
+  const shouldReduceMotion = useReducedMotion();
   return (
     <div className='min-h-screen pb-24'>
       {/* Hero Section */}
       <section className='min-h-screen max-h-screen flex flex-col items-center justify-center bg-gradient-to-b from-blue-50 to-white text-center px-4 relative py-12 overflow-hidden'>
-        <h1 className='text-5xl md:text-7xl font-bold mb-8 text-gray-800'>
+        <motion.h1
+          initial={{ opacity: 0, y: shouldReduceMotion ? 0 : 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, ease: [0.33, 1, 0.68, 1] }}
+          className='hero-title mb-8 text-gray-800'
+        >
           聯絡我們
-        </h1>
-        <p className='text-gray-700 max-w-2xl mx-auto mb-12'>
+        </motion.h1>
+        <motion.p
+          initial={{ opacity: 0, y: shouldReduceMotion ? 0 : 16 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.1 }}
+          className='hero-subtitle max-w-2xl mx-auto mb-12'
+        >
           有任何問題或建議，歡迎隨時與我們聯繫。 我們會盡快回覆您的訊息。
-        </p>
-        <div className='animate-bounce absolute bottom-12 mid transform -translate-x-1/2 hidden sm:block'>
-          <svg
-            className='w-8 h-8 text-gray-400'
-            fill='none'
-            strokeLinecap='round'
-            strokeLinejoin='round'
-            strokeWidth='2'
-            viewBox='0 0 22 22'
-            stroke='currentColor'
-          >
-            <path d='M19 14l-7 7m0 0l-7-7m7 7V3'></path>
-          </svg>
-        </div>
+        </motion.p>
+
       </section>
 
       <div className='max-w-4xl mx-auto mt-24 px-4'>

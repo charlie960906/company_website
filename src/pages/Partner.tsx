@@ -6,44 +6,64 @@ import {
   FileText,
   Globe,
 } from 'lucide-react';
+import { motion, useReducedMotion } from 'framer-motion';
+
 
 const Partner = () => {
   return (
     <div className='min-h-screen pb-24'>
       {/* Hero Section */}
       <section className='section-hero flex flex-col items-center justify-center text-center px-4 relative overflow-hidden'>
-        <h1 className='text-5xl md:text-7xl font-bold mb-8 text-gray-800'>
+        <motion.h1
+          initial={{ opacity: 0, y: (useReducedMotion() ? 0 : 20) }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, ease: [0.33, 1, 0.68, 1] }}
+          className='hero-title mb-8 text-gray-800'
+        >
           成為我們的合作夥伴
-        </h1>
-        <h2 className='text-5xl md:text-7xl font-bold mb-8 text-gray-800'>
+        </motion.h1>
+        <motion.h2
+          initial={{ opacity: 0, y: (useReducedMotion() ? 0 : 20) }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, ease: [0.33, 1, 0.68, 1], delay: 0.05 }}
+          className='hero-title mb-8 text-gray-800'
+        >
           To Be Our Cooperator
-        </h2>
-        <p className='text-gray-700 max-w-2xl mx-auto mb-1 text-balance'>
+        </motion.h2>
+        <motion.p
+          initial={{ opacity: 0, y: (useReducedMotion() ? 0 : 16) }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          className='hero-subtitle max-w-2xl mx-auto mb-1 text-balance'
+        >
           HYJdevelop 是一間科技公司的母公司，聚焦數位產品與服務整合。
-        </p>
-        <p className='text-gray-700 max-w-2xl mx-auto mb-1 text-balance'>
+        </motion.p>
+        <motion.p
+          initial={{ opacity: 0, y: (useReducedMotion() ? 0 : 16) }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.05 }}
+          className='hero-subtitle max-w-2xl mx-auto mb-1 text-balance'
+        >
           我們的業務包含家教媒合
           App（規劃中）、網站製作、以及與教育/民間團體的合作專案。
-        </p>
-        <p className='text-gray-700 max-w-2xl mx-auto mb-1'>
+        </motion.p>
+        <motion.p
+          initial={{ opacity: 0, y: (useReducedMotion() ? 0 : 16) }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.1 }}
+          className='hero-subtitle max-w-2xl mx-auto mb-1'
+        >
           我們鼓勵學生自治團體跳脫思想框架、發掘潛在的可能性
-        </p>
-        <p className='text-gray-700 max-w-2xl mx-auto mb-1'>
+        </motion.p>
+        <motion.p
+          initial={{ opacity: 0, y: (useReducedMotion() ? 0 : 16) }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.15 }}
+          className='hero-subtitle max-w-2xl mx-auto mb-1'
+        >
           並幫助它們建構官方網頁，使其能透過更多的管道來傳播自己的理念。
-        </p>
-        <div className='animate-bounce absolute bottom-12 mid transform -translate-x-1/2'>
-          <svg
-            className='w-8 h-8 text-gray-400'
-            fill='none'
-            strokeLinecap='round'
-            strokeLinejoin='round'
-            strokeWidth='2'
-            viewBox='0 0 22 22'
-            stroke='currentColor'
-          >
-            <path d='M19 14l-7 7m0 0l-7-7m7 7V3'></path>
-          </svg>
-        </div>
+        </motion.p>
+
       </section>
 
       <div className='max-w-4xl mx-auto'>

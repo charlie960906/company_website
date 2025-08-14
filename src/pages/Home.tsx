@@ -8,11 +8,14 @@ import {
   Rocket,
   ShieldCheck,
 } from 'lucide-react';
+
 import { Link } from 'react-router-dom';
-import { motion } from 'framer-motion';
+import { motion, useReducedMotion } from 'framer-motion';
+import { inViewMotion } from 'src/utils/motion';
 import HistoryTimeline from 'src/components/HistoryTimeline';
 
 const Home = () => {
+  const shouldReduceMotion = useReducedMotion();
   return (
     <div className='min-h-screen'>
       {/* Hero Section */}
@@ -21,10 +24,10 @@ const Home = () => {
         <div className='pointer-events-none absolute -bottom-40 -left-32 w-96 h-96 bg-yellow-100 rounded-full blur-3xl opacity-60'></div>
 
         <motion.h1
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: shouldReduceMotion ? 0 : 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, ease: [0.33, 1, 0.68, 1] }}
-          className='text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-3 px-4 text-balance'
+          className='hero-title mb-3 px-4 text-balance'
         >
           我們致力於科技開發
           <div className='mt-4 space-x-2 sm:space-x-4 md:space-x-10'>
@@ -35,52 +38,37 @@ const Home = () => {
         </motion.h1>
 
         <motion.p
-          initial={{ opacity: 0, y: 16 }}
+          initial={{ opacity: 0, y: shouldReduceMotion ? 0 : 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.1 }}
-          className='text-sm sm:text-base md:text-lg text-gray-800 max-w-xl mx-auto mb-0 px-4 text-balance'
+          className='body-text text-gray-800 max-w-xl mx-auto mb-0 px-4 text-balance'
         >
           我們的產品將各地的人與人聯繫在一起
         </motion.p>
         <motion.p
-          initial={{ opacity: 0, y: 16 }}
+          initial={{ opacity: 0, y: shouldReduceMotion ? 0 : 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.2 }}
-          className='text-sm sm:text-base md:text-lg text-gray-800 max-w-xl mx-auto mb-0 px-4 text-balance'
+          className='body-text text-gray-800 max-w-xl mx-auto mb-0 px-4 text-balance'
         >
           為大家創造機會並發出聲音
         </motion.p>
         <motion.p
-          initial={{ opacity: 0, y: 16 }}
+          initial={{ opacity: 0, y: shouldReduceMotion ? 0 : 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.3 }}
-          className='text-sm sm:text-base md:text-lg text-gray-800 max-w-xl mx-auto mb-0 px-4 text-balance'
+          className='body-text text-gray-800 max-w-xl mx-auto mb-0 px-4 text-balance'
         >
           我們正在努力，建立一個安全、自由、開放的社群
         </motion.p>
-        <div className='animate-bounce absolute bottom-4 mid transform -translate-x-1/2'>
-          <svg
-            className='w-8 h-8 text-gray-400'
-            fill='none'
-            strokeLinecap='round'
-            strokeLinejoin='round'
-            strokeWidth='2'
-            viewBox='0 0 22 22'
-            stroke='currentColor'
-          >
-            <path d='M19 14l-7 7m0 0l-7-7m7 7V3'></path>
-          </svg>
-        </div>
+
       </section>
 
       {/* Mission & Tech Section */}
       <section className='section-screen px-4 flex items-center mb-12 md:mb-20'>
         <div className='max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 items-center'>
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.3 }}
-            transition={{ duration: 0.5 }}
+            {...inViewMotion(shouldReduceMotion, { duration: 0.5 })}
           >
             <h2 className='text-xl sm:text-2xl md:text-3xl font-bold mb-4'>
               我們的使命
@@ -105,13 +93,10 @@ const Home = () => {
             </div>
           </motion.div>
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.3 }}
-            transition={{ duration: 0.5, delay: 0.05 }}
+            {...inViewMotion(shouldReduceMotion, { duration: 0.5, delay: 0.05 })}
             className='rounded-2xl bg-white/70 backdrop-blur p-6 shadow-sm'
           >
-            <h3 className='text-lg sm:text-xl font-bold mb-4'>
+            <h3 className='text-lg sm:text-xl font-bold mb-4 whitespace-nowrap'>
               以及可實現此未來的技術
             </h3>
             <ul className='space-y-3 text-gray-700'>
@@ -142,60 +127,48 @@ const Home = () => {
       <section className='section-screen px-4 flex items-center mb-12 md:mb-20'>
         <div className='max-w-6xl mx-auto'>
           <motion.h2
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.3 }}
-            transition={{ duration: 0.5 }}
+            {...inViewMotion(shouldReduceMotion, { duration: 0.5 })}
             className='text-xl sm:text-2xl md:text-3xl font-bold mb-8 text-center'
           >
             我們的創新提供用戶交流聯繫的新方法
           </motion.h2>
           <div className='grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-6 sm:gap-8'>
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.3 }}
-              transition={{ duration: 0.45 }}
+              {...inViewMotion(shouldReduceMotion, { duration: 0.45 })}
               whileHover={{ y: -6 }}
               className='rounded-2xl bg-white/70 backdrop-blur p-6 shadow-sm hover:shadow-lg'
             >
               <div className='w-12 h-12 rounded-xl bg-blue-100 flex items-center justify-center mb-4'>
                 <Bot className='w-6 h-6 text-blue-600' />
               </div>
-              <h3 className='font-bold mb-2'>智慧助理</h3>
-              <p className='text-sm text-gray-600'>
+              <h3 className='font-bold mb-2 whitespace-nowrap'>智慧助理</h3>
+              <p className='text-sm text-gray-600 whitespace-normal break-words'>
                 以 AI 協助社群的管理、學習與服務體驗。
               </p>
             </motion.div>
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.3 }}
-              transition={{ duration: 0.45, delay: 0.05 }}
+              {...inViewMotion(shouldReduceMotion, { duration: 0.45, delay: 0.05 })}
               whileHover={{ y: -6 }}
               className='rounded-2xl bg-white/70 backdrop-blur p-6 shadow-sm hover:shadow-lg'
             >
               <div className='w-12 h-12 rounded-xl bg-blue-100 flex items-center justify-center mb-4'>
                 <Cpu className='w-6 h-6 text-blue-600' />
               </div>
-              <h3 className='font-bold mb-2'>資料與系統</h3>
-              <p className='text-sm text-gray-600'>
+              <h3 className='font-bold mb-2 whitespace-nowrap'>資料與系統</h3>
+              <p className='text-sm text-gray-600 whitespace-normal break-words'>
                 以可靠的資料存取與 API，提升內容分享效率。
               </p>
             </motion.div>
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.3 }}
-              transition={{ duration: 0.45, delay: 0.1 }}
+              {...inViewMotion(shouldReduceMotion, { duration: 0.45, delay: 0.1 })}
               whileHover={{ y: -6 }}
               className='rounded-2xl bg-white/70 backdrop-blur p-6 shadow-sm hover:shadow-lg'
             >
               <div className='w-12 h-12 rounded-xl bg-blue-100 flex items-center justify-center mb-4'>
                 <Rocket className='w-6 h-6 text-blue-600' />
               </div>
-              <h3 className='font-bold mb-2'>快速迭代</h3>
-              <p className='text-sm text-gray-600'>
+              <h3 className='font-bold mb-2 whitespace-nowrap'>快速迭代</h3>
+              <p className='text-sm text-gray-600 whitespace-normal break-words'>
                 持續優化產品體驗，讓交流更自然順暢。
               </p>
             </motion.div>
@@ -207,19 +180,13 @@ const Home = () => {
       <section className='section-screen px-4 flex items-center mb-12 md:mb-20'>
         <div className='max-w-6x1 m-auto'>
           <motion.h2
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.3 }}
-            transition={{ duration: 0.5 }}
+            {...inViewMotion(shouldReduceMotion, { duration: 0.5 })}
             className='text-xl sm:text-2xl md:text-3xl font-bold mb-8 text-center'
           >
             我們也致力於協助保護所有用戶的安全  
           </motion.h2>
           <motion.h2
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.3 }}
-            transition={{ duration: 0.5 }}
+            {...inViewMotion(shouldReduceMotion, { duration: 0.5 })}
             className='text-xl sm:text-2xl md:text-3xl font-bold mb-8 text-center'
           >
           並發揮正向影響力   
@@ -229,8 +196,8 @@ const Home = () => {
               <div className='w-12 h-12 rounded-xl bg-green-100 flex items-center justify-center mb-4'>
                 <Shield className='w-6 h-6 text-green-600' />
               </div>
-              <h3 className='font-bold mb-2'>網路安全</h3>
-              <p className='text-sm text-gray-600 mb-4'>
+              <h3 className='font-bold mb-2 whitespace-nowrap'>網路安全</h3>
+              <p className='text-sm text-gray-600 mb-4 whitespace-normal break-words'>
                 採用業界最先進的安全技術保護您的資料。
               </p>
               <Link
@@ -244,8 +211,8 @@ const Home = () => {
               <div className='w-12 h-12 rounded-xl bg-green-100 flex items-center justify-center mb-4'>
                 <Lock className='w-6 h-6 text-green-600' />
               </div>
-              <h3 className='font-bold mb-2'>資料與隱私</h3>
-              <p className='text-sm text-gray-600 mb-4'>
+              <h3 className='font-bold mb-2 whitespace-nowrap'>資料與隱私</h3>
+              <p className='text-sm text-gray-600 mb-4 whitespace-normal break-words'>
                 讓您掌控自己的隱私並保護個人資訊。
               </p>
               <Link to='/privacy' className='text-blue-600 hover:text-blue-700'>
@@ -256,8 +223,8 @@ const Home = () => {
               <div className='w-12 h-12 rounded-xl bg-green-100 flex items-center justify-center mb-4'>
                 <ShieldCheck className='w-6 h-6 text-green-600' />
               </div>
-              <h3 className='font-bold mb-2'>表達自由</h3>
-              <p className='text-sm text-gray-600 mb-4'>
+              <h3 className='font-bold mb-2 whitespace-nowrap'>表達自由</h3>
+              <p className='text-sm text-gray-600 mb-4 whitespace-normal break-words'>
                 保護每個人的表達自由權利，確保社群和諧。
               </p>
               <Link to='/freedom' className='text-blue-600 hover:text-blue-700'>
@@ -271,13 +238,10 @@ const Home = () => {
       {/* Features Section */}
       <section className='py-12 md:py-20 px-4 mb-12 md:mb-20'>
         <div className='max-w-6xl mx-auto w-full'>
-          <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-12'>
+          <div className='grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12'>
             {/* Web Production */}
             <motion.div
-              initial={{ opacity: 0, y: 24 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.3 }}
-              transition={{ duration: 0.5 }}
+              {...inViewMotion(!!shouldReduceMotion, { duration: 0.5 })}
               whileHover={{ y: -6 }}
               className='text-center p-6 flex flex-col h-full justify-between rounded-2xl bg-white/60 backdrop-blur shadow-sm hover:shadow-lg transition-shadow'
             >
@@ -285,8 +249,8 @@ const Home = () => {
                 <div className='bg-gradient-to-br from-blue-100 to-blue-50 p-6 rounded-2xl w-20 h-20 flex items-center justify-center mx-auto mb-6'>
                   <Server className='w-10 h-10 text-blue-600' />
                 </div>
-                <h3 className='text-xl md:text-2xl font-bold mb-4'>網站製作</h3>
-                <p className='text-sm md:text-base text-gray-600 flex-1'>
+              <h3 className='text-xl md:text-2xl font-bold mb-4 whitespace-nowrap'>網站製作</h3>
+              <p className='text-sm md:text-base text-gray-600 flex-1 whitespace-normal break-words'>
                   提供現代化與行動優先的網站設計、SEO
                   與維運，協助團體與企業建立可信賴的線上門面。
                 </p>
@@ -301,10 +265,7 @@ const Home = () => {
 
             {/* Security */}
             <motion.div
-              initial={{ opacity: 0, y: 24 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.3 }}
-              transition={{ duration: 0.5, delay: 0.05 }}
+              {...inViewMotion(!!shouldReduceMotion, { duration: 0.5, delay: 0.05 })}
               whileHover={{ y: -6 }}
               className='text-center p-6 flex flex-col h-full justify-between rounded-2xl bg-white/60 backdrop-blur shadow-sm hover:shadow-lg transition-shadow'
             >
@@ -312,8 +273,8 @@ const Home = () => {
                 <div className='bg-gradient-to-br from-green-100 to-green-50 p-6 rounded-2xl w-20 h-20 flex items-center justify-center mx-auto mb-6'>
                   <Shield className='w-10 h-10 text-green-600' />
                 </div>
-                <h3 className='text-xl md:text-2xl font-bold mb-4'>Tutor Go</h3>
-                <p className='text-sm md:text-base text-gray-600 flex-1'>
+                <h3 className='text-xl md:text-2xl font-bold mb-4 whitespace-nowrap'>Tutor Go</h3>
+                <p className='text-sm md:text-base text-gray-600 flex-1 whitespace-normal break-words'>
                   家教媒合 App（規劃中）
                 </p>
               </div>
@@ -327,10 +288,7 @@ const Home = () => {
 
             {/* Learning */}
             <motion.div
-              initial={{ opacity: 0, y: 24 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.3 }}
-              transition={{ duration: 0.5, delay: 0.1 }}
+              {...inViewMotion(!!shouldReduceMotion, { duration: 0.5, delay: 0.1 })}
               whileHover={{ y: -6 }}
               className='text-center p-6 flex flex-col h-full justify-between rounded-2xl bg-white/60 backdrop-blur shadow-sm hover:shadow-lg transition-shadow'
             >
@@ -338,10 +296,10 @@ const Home = () => {
                 <div className='bg-gradient-to-br from-purple-100 to-purple-50 p-6 rounded-2xl w-20 h-20 flex items-center justify-center mx-auto mb-6'>
                   <Users className='w-10 h-10 text-purple-600' />
                 </div>
-                <h3 className='text-xl md:text-2xl font-bold mb-4'>
+                <h3 className='text-xl md:text-2xl font-bold mb-4 whitespace-nowrap'>
                   為學習做準備
                 </h3>
-                <p className='text-sm md:text-base text-gray-600 flex-1'>
+                <p className='text-sm md:text-base text-gray-600 flex-1 whitespace-normal break-words'>
                   我們也致力於學習，提供資源，並鼓勵各位共同討論學習。
                 </p>
               </div>
@@ -360,10 +318,7 @@ const Home = () => {
       <section className='section-screen flex items-center mb-12 md:mb-20'>
         <div className='max-w-6xl mx-auto px-4 text-center'>
           <motion.div
-            initial={{ opacity: 0, y: 24 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.3 }}
-            transition={{ duration: 0.5 }}
+            {...inViewMotion(!!shouldReduceMotion, { duration: 0.5 })}
             className='bg-white/80 backdrop-blur p-8 md:p-10 rounded-2xl shadow-lg max-w-3xl mx-auto border border-blue-50'
           >
             <h2 className='text-2xl sm:text-3xl md:text-4xl font-extrabold mb-6 tracking-tight text-gray-900'>
@@ -393,19 +348,13 @@ const Home = () => {
         <div className='pointer-events-none absolute inset-y-12 right-2 w-1 rounded-full side-shimmer opacity-70 hidden sm:block'></div>
         <div className='max-w-6xl mx-auto px-4 text-center relative'>
           <motion.h3
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.3 }}
-            transition={{ duration: 0.5 }}
+            {...inViewMotion(!!shouldReduceMotion, { duration: 0.5 })}
             className='text-xl sm:text-2xl md:text-3xl font-extrabold mb-2 tracking-tight text-gray-900'
           >
             關注更多有關
           </motion.h3>
           <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.3 }}
-            transition={{ duration: 0.5, delay: 0.05 }}
+            {...inViewMotion(!!shouldReduceMotion, { duration: 0.5, delay: 0.05 })}
             className='brand-gradient-soft font-extrabold text-3xl sm:text-4xl md:text-5xl mb-8'
           >
             HYJdevelop的更新

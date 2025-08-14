@@ -15,6 +15,12 @@
                  radial-gradient(1000px 700px at 90% 80%, rgba(99,102,241,0.05), transparent 60%);
 }
 
+@layer base {
+  html {
+    font-size: clamp(12px, 1.2vw + 8px, 16px);
+  }
+}
+
 /* 禁止整頁水平滾動，避免任何子元素造成的橫向捲動 */
 html, body, #root {
   overflow-x: hidden;
@@ -54,7 +60,6 @@ html, body, #root {
   }
   .section-screen {
     min-height: calc(100vh - var(--header-h));
-    max-height: calc(100vh - var(--header-h));
     transition: opacity 300ms ease;
   }
   /* 文字排版優化：避免小螢幕溢出、過長單字換行 */
@@ -64,6 +69,67 @@ html, body, #root {
   .break-anywhere {
     overflow-wrap: anywhere;
     word-break: break-word;
+  }
+  .no-wrap {
+    white-space: nowrap;
+  }
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+  .skip-link {
+    position: fixed;
+    top: 8px;
+    left: 8px;
+    z-index: 100;
+    transform: translateY(-200%);
+    background: #1d4ed8;
+    color: #fff;
+    padding: 8px 12px;
+    border-radius: 8px;
+  }
+  .skip-link:focus {
+    transform: translateY(0);
+    outline: 3px solid #facc15;
+    outline-offset: 2px;
+  }
+}
+
+/* 全站可見的焦點樣式（僅鍵盤導航時顯示） */
+a:focus-visible,
+button:focus-visible,
+[role='button']:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 3px solid #2563eb;
+  outline-offset: 2px;
+  border-radius: 6px;
+}
+
+/* 全站排版元件化（統一字級樣式） */
+@layer components {
+  .hero-title {
+    @apply text-5xl md:text-7xl font-bold whitespace-nowrap;
+  }
+  .hero-subtitle {
+    @apply text-lg md:text-xl text-gray-700;
+  }
+  .section-title {
+    @apply text-3xl md:text-4xl font-bold whitespace-nowrap;
+  }
+  .card-title {
+    @apply text-xl md:text-2xl font-bold whitespace-nowrap;
+  }
+  .body-text {
+    @apply text-base md:text-lg text-gray-700 break-words;
   }
 }
 
@@ -180,7 +246,6 @@ html, body, #root {
   .section-screen {
     /* 手機也維持一屏高度，使用 svh 適配行動瀏覽器工具列 */
     min-height: calc(100svh - var(--header-h)) !important;
-    max-height: calc(100svh - var(--header-h)) !important;
   }
 }
 

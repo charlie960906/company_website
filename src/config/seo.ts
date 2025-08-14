@@ -45,10 +45,7 @@ export const ROUTE_META: Record<string, RouteMeta> = {
     description:
       'HYJdevelop 致力於保護每個人的表達自由權利，同時確保社群環境的安全與和諧。',
   },
-  '/hosting': {
-    title: 'HYJdevelop - 網站製作與合作',
-    description: 'HYJdevelop 提供網站製作與教育/民間團體合作服務。',
-  },
+  // '/hosting' 已永久轉址至 /partner
   '/rules': {
     title: 'HYJdevelop - 社群守則',
     description: '查看 HYJdevelop 的社群守則，維護健康的社群環境。',

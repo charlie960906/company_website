@@ -436,6 +436,15 @@ const HistoryTimeline = () => {
                           : 'z-0'
                       }`}
                       onClick={() => animateToIndex(idx)}
+                      onKeyDown={(e) => {
+                        if (e.key === 'Enter' || e.key === ' ') {
+                          e.preventDefault();
+                          animateToIndex(idx);
+                        }
+                      }}
+                      tabIndex={0}
+                      role='button'
+                      aria-label={`查看 ${event.title} 的詳細資訊`}
                     >
                       <div
                         className={`w-full h-24 sm:h-32 md:h-36 rounded-xl mb-4 sm:mb-5 bg-gradient-to-br ${
@@ -487,11 +496,25 @@ const HistoryTimeline = () => {
       {/* 完整事件時間線 */}
       <div className='w-full max-w-full sm:max-w-7xl mx-auto'>
         <div className='relative'>
-          <div
-            ref={timelineRef}
-            className='w-full h-2 bg-gray-200 rounded-full cursor-pointer relative'
-            onClick={handleTimelineClick}
-          >
+                      <div
+              ref={timelineRef}
+              className='w-full h-2 bg-gray-200 rounded-full cursor-pointer relative'
+              onClick={handleTimelineClick}
+              onKeyDown={(e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                  e.preventDefault();
+                  // 創建一個模擬的滑鼠事件
+                  const mockEvent = { stopPropagation: () => {} } as React.MouseEvent;
+                  handleTimelineClick(mockEvent);
+                }
+              }}
+              tabIndex={0}
+              role='slider'
+              aria-label='時間軸進度控制'
+              aria-valuemin={0}
+              aria-valuemax={100}
+              aria-valuenow={progressPosition * 100}
+            >
             <div
               className='absolute top-0 left-0 h-full bg-blue-600 rounded-full'
               style={{ width: `${progressPosition * 100}%` }}
@@ -511,6 +534,16 @@ const HistoryTimeline = () => {
                     e.stopPropagation();
                     animateToIndex(idx);
                   }}
+                  onKeyDown={(e) => {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                      e.preventDefault();
+                      e.stopPropagation();
+                      animateToIndex(idx);
+                    }
+                  }}
+                  tabIndex={0}
+                  role='button'
+                  aria-label={`跳轉到 ${sortedEvents[idx].title}`}
                 />
               );
             })}
@@ -524,6 +557,23 @@ const HistoryTimeline = () => {
               style={{ left: `${knobPosition * 100}%` }}
               onMouseDown={handleMouseDown}
               onTouchStart={handleTouchStart}
+              onKeyDown={(e) => {
+                if (e.key === 'ArrowLeft') {
+                  e.preventDefault();
+                  const newIndex = Math.max(0, currentIndex - 1);
+                  animateToIndex(newIndex);
+                } else if (e.key === 'ArrowRight') {
+                  e.preventDefault();
+                  const newIndex = Math.min(sortedEvents.length - 1, currentIndex + 1);
+                  animateToIndex(newIndex);
+                }
+              }}
+              tabIndex={0}
+              role='slider'
+              aria-label='拖拽控制點，使用方向鍵控制'
+              aria-valuemin={0}
+              aria-valuemax={sortedEvents.length - 1}
+              aria-valuenow={currentIndex}
             >
               <div className='absolute inset-0.5 sm:inset-1 bg-white rounded-full flex items-center justify-center'>
                 <div className='w-1.5 h-1.5 sm:w-2 sm:h-2 bg-blue-600 rounded-full' />

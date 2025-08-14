@@ -8,60 +8,48 @@ import {
   Globe,
   Lock,
 } from 'lucide-react';
-import { motion } from 'framer-motion';
+import { motion, useReducedMotion } from 'framer-motion';
+import { inViewMotion } from 'src/utils/motion';
+
 
 const Freedom = () => {
+  const shouldReduceMotion = useReducedMotion();
   return (
     <div className='min-h-screen pb-24'>
       {/* Hero Section */}
       <section className='min-h-screen max-h-screen flex flex-col items-center justify-center bg-gradient-to-b from-green-50 to-white text-center px-4 relative py-12 overflow-hidden'>
         <motion.h1
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: shouldReduceMotion ? 0 : 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, ease: [0.33, 1, 0.68, 1] }}
-          className='text-5xl md:text-7xl font-bold mb-8 text-gray-800'
+          className='hero-title mb-8 text-gray-800'
         >
           表達自由與社群保護
         </motion.h1>
         <motion.p
-          initial={{ opacity: 0, y: 16 }}
+          initial={{ opacity: 0, y: shouldReduceMotion ? 0 : 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.1 }}
-          className='text-lg text-gray-700 max-w-3xl mx-auto mb-4'
+          className='hero-subtitle max-w-3xl mx-auto mb-4'
         >
           我們致力於保護每個人的表達自由權利，同時確保社群環境的安全與和諧。
         </motion.p>
         <motion.p
-          initial={{ opacity: 0, y: 16 }}
+          initial={{ opacity: 0, y: shouldReduceMotion ? 0 : 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.2 }}
-          className='text-lg text-gray-700 max-w-3xl mx-auto'
+          className='hero-subtitle max-w-3xl mx-auto'
         >
           在數位時代，表達自由是民主社會的基石，我們將持續努力為用戶提供安全、包容且富有活力的交流平台。
         </motion.p>
-        <div className='animate-bounce absolute bottom-12 mid transform -translate-x-1/2'>
-          <svg
-            className='w-8 h-8 text-gray-400'
-            fill='none'
-            strokeLinecap='round'
-            strokeLinejoin='round'
-            strokeWidth='2'
-            viewBox='0 0 22 22'
-            stroke='currentColor'
-          >
-            <path d='M19 14l-7 7m0 0l-7-7m7 7V3'></path>
-          </svg>
-        </div>
+
       </section>
 
       <div className='max-w-6xl mx-auto px-4'>
         <div className='space-y-12'>
           {/* 表達自由的定義與重要性 */}
           <motion.section
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.3 }}
-            transition={{ duration: 0.5 }}
+            {...inViewMotion(shouldReduceMotion, { duration: 0.5, amount: 0.3 })}
             className='bg-white p-8 rounded-lg shadow-sm'
           >
             <div className='flex items-center mb-6'>
@@ -163,10 +151,7 @@ const Freedom = () => {
 
           {/* 我們的表達自由保護措施 */}
           <motion.section
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.3 }}
-            transition={{ duration: 0.5, delay: 0.1 }}
+            {...inViewMotion(shouldReduceMotion, { duration: 0.5, delay: 0.1, amount: 0.3 })}
             className='bg-white p-8 rounded-lg shadow-sm'
           >
             <div className='flex items-center mb-6'>
@@ -218,10 +203,7 @@ const Freedom = () => {
 
           {/* 內容審核原則 */}
           <motion.section
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.3 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
+            {...inViewMotion(shouldReduceMotion, { duration: 0.5, delay: 0.2, amount: 0.3 })}
             className='bg-white p-8 rounded-lg shadow-sm'
           >
             <div className='flex items-center mb-6'>
@@ -323,10 +305,7 @@ const Freedom = () => {
 
           {/* 禁止內容類型 */}
           <motion.section
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.3 }}
-            transition={{ duration: 0.5, delay: 0.3 }}
+            {...inViewMotion(shouldReduceMotion, { duration: 0.5, delay: 0.3, amount: 0.3 })}
             className='bg-white p-8 rounded-lg shadow-sm'
           >
             <div className='flex items-center mb-6'>
@@ -390,10 +369,7 @@ const Freedom = () => {
 
           {/* 申訴與救濟機制 */}
           <motion.section
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.3 }}
-            transition={{ duration: 0.5, delay: 0.4 }}
+            {...inViewMotion(shouldReduceMotion, { duration: 0.5, delay: 0.4, amount: 0.3 })}
             className='bg-white p-8 rounded-lg shadow-sm'
           >
             <div className='flex items-center mb-6'>
@@ -503,10 +479,7 @@ const Freedom = () => {
 
           {/* 國際合作與標準 */}
           <motion.section
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.3 }}
-            transition={{ duration: 0.5, delay: 0.5 }}
+            {...inViewMotion(shouldReduceMotion, { duration: 0.5, delay: 0.5, amount: 0.3 })}
             className='bg-white p-8 rounded-lg shadow-sm'
           >
             <div className='flex items-center mb-6'>
@@ -609,10 +582,7 @@ const Freedom = () => {
 
         {/* 聯絡資訊 */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.3 }}
-          transition={{ duration: 0.5, delay: 0.6 }}
+          {...inViewMotion(shouldReduceMotion, { duration: 0.5, delay: 0.6, amount: 0.3 })}
           className='mt-12 bg-green-50 p-8 rounded-lg'
         >
           <h3 className='text-2xl font-bold text-green-800 mb-6'>

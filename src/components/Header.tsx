@@ -159,8 +159,8 @@ const Header: React.FC = () => {
   }, []);
 
   return (
-    <header className='bg-white/80 backdrop-blur-md fixed w-full top-0 z-50 shadow-sm mobile-header'>
-      <nav className='container mx-auto px-4 py-3'>
+    <header className='bg-white/80 backdrop-blur-md fixed w-full top-0 z-50 shadow-sm mobile-header' role='banner'>
+      <nav className='container mx-auto px-4 py-3' aria-label='主要導覽'>
         <div className='flex items-center justify-between'>
           <Link
             to='/'
@@ -184,6 +184,12 @@ const Header: React.FC = () => {
                   className='relative'
                   onMouseEnter={() => handleDropdownEnter(item.label)}
                   onMouseLeave={handleDropdownLeave}
+                  onFocus={() => handleDropdownEnter(item.label)}
+                  onBlur={handleDropdownLeave}
+                  tabIndex={0}
+                  role='button'
+                  aria-haspopup='true'
+                  aria-expanded={activeDropdown === item.label}
                 >
                   <button className='flex items-center hover:text-blue-600 py-2'>
                     {item.label}
@@ -230,7 +236,9 @@ const Header: React.FC = () => {
               setIsMenuOpen(prev => !prev);
               if (isMenuOpen) closeMenu();
             }}
-            aria-label='Toggle Menu'
+            aria-label='開啟或關閉選單'
+            aria-expanded={isMenuOpen}
+            aria-controls='mobile-menu'
           >
             <Menu className='h-6 w-6' />
           </button>
@@ -240,6 +248,7 @@ const Header: React.FC = () => {
         <AnimatePresence>
           {isMenuOpen && (
             <motion.div
+              id='mobile-menu'
               className='md:hidden py-4 w-full overflow-hidden bg-white/95 backdrop-blur-sm border-t border-gray-200 absolute top-full left-0 z-50'
               style={{ willChange: 'transform, opacity' }}
             >
