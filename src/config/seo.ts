@@ -12,7 +12,7 @@ export const ROUTE_META: Record<string, RouteMeta> = {
   '/': {
     title: 'HYJdevelop - 創新科技與社群平台',
     description:
-      '我們的產品將各地的人與人聯繫在一起，為大家創造機會並發出聲音，我們正在努力，建立一個安全、自由、開放的社群',
+      '我們的產品將各地的人與人聯繫在一起，為大家創造機會，我們正在努力，建立一個安全、自由、開放的平台',
   },
   '/service': {
     title: 'HYJdevelop - 服務條款',
@@ -68,6 +68,6 @@ export const ROUTE_META: Record<string, RouteMeta> = {
   },
   '/tutorgo': {
     title: 'HYJdevelop - Tutor Go 家教媒合（規劃中）',
-    description: 'Tutor Go 為 SLRC 的未來版本，打造安全、透明的家教媒合平台。',
+    description: 'Tutor Go 為 SLRC 的取代版本，打造安全、透明的家教媒合平台。',
   },
 };

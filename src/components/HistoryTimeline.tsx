@@ -13,63 +13,65 @@ const HistoryTimeline = () => {
   const allEvents: TimelineEvent[] = useMemo(
     () => [
       {
-        date: '2022-04-08',
-        title: '因為疫情線上上課開始接觸 Discord',
-        year: 2022,
-      },
-      {
         date: '2022-07-10',
         title: '建立 Discord「會考討論群」，僅開放部分朋友加入',
         year: 2022,
       },
       {
-        date: '2023-01-01',
-        title: 'HYJdevelop 新一年的願景',
-        description:
-          '1. 社群超過 300 人 2. 合作夥伴越來越多 3. 服務品質越來越好',
-        year: 2023,
-      },
-      {
-        date: '2023-01-20',
-        title:
-          '擁有 2TB 儲存空間，將資料從 Discord 移到資料庫上，並開始使用分享連結',
-        year: 2023,
-      },
-      {
-        date: '2023-04-13',
-        title: '使用 Google Site 建立個人網頁',
-        year: 2023,
-      },
-      {
         date: '2023-04-16',
-        title:
-          '黃宥鈞在 11:04 決定並創立 HYJdevelop，並第一次將名稱放在個人網頁上',
+        title:'黃宥鈞創立HYJdevelop',
         year: 2023,
       },
-      { date: '2023-04-17', title: 'HYJdevelop 官網開始設計', year: 2023 },
-      { date: '2023-05-02', title: '黃宥鈞的個人網頁正式上線', year: 2023 },
+      { 
+        date: '2023-04-17',
+        title: 'HYJdevelop 官網開始設計(Google site)',
+        year: 2023
+      },
       {
         date: '2023-05-10',
         title: '將「會考討論群」的加入連結放在個人網頁中，對外開放',
         year: 2023,
       },
-      { date: '2023-06-09', title: '開始進行 Discord 群組改造', year: 2023 },
+      {
+        date: '2023-06-09',
+        title: '開始進行 Discord 群組改造',
+        year: 2023
+      },
       {
         date: '2023-07-11',
-        title: '提出學生學習資源社群 SLRC（後續演進為 Tutor Go）',
+        title: '提出學生學習資源社群 SLRC（後續延伸為Tutor Go）',
         year: 2023,
       },
-      { date: '2023-08-14', title: '進行 SLRC 社群內測', year: 2023 },
-      { date: '2023-09-20', title: 'SLRC 視覺標誌產生', year: 2023 },
+      {
+        date: '2023-08-14',
+        title: '進行 SLRC 社群內測',
+        year: 2023
+      },
+      { date: '2023-09-20',
+        title: 'SLRC 視覺標誌產生',
+        year: 2023 },
       {
         date: '2023-11-01',
         title: '學生學習資源社群 SLRC 正式對外開放加入',
         year: 2023,
       },
-      { date: '2023-12-01', title: 'SLRC 粉專和 IG 上線', year: 2023 },
-      { date: '2023-12-03', title: 'HYJdevelop IG 上線', year: 2023 },
-      { date: '2023-12-15', title: 'SLRC 官網上線', year: 2023 },
-      { date: '2023-12-23', title: 'HYJdevelop 官網上線', year: 2023 },
+      { date: '2023-12-01',
+        title: 'SLRC 粉專和 IG 上線',
+        year: 2023
+      },
+      { date: '2023-12-03',
+        title: 'HYJdevelop IG 上線',
+        year: 2023 },
+      {
+        date: '2023-12-15',
+        title: 'SLRC 官網上線(Google site)',
+        year: 2023
+      },
+      { 
+        date: '2023-12-23',
+        title: 'HYJdevelop 官網上線', 
+        year: 2023 
+      },
       {
         date: '2023-12-27',
         title: 'SLRC 成員超過 50 人',
@@ -77,12 +79,15 @@ const HistoryTimeline = () => {
         year: 2023,
       },
       {
-        date: '2024-01-01',
-        title: '使用 HTML 開發 HYJdevelop 網頁',
-        description: '預計 2026 年第二季上線',
+        date: '2024-02-16',
+        title: '使用 React 開發 HYJdevelop 網頁',
+        description: '預計2025第三季上線',
         year: 2024,
       },
-      { date: '2024-02-29', title: 'HYJdevelop 粉專上線', year: 2024 },
+      { date: '2024-02-29', 
+        title: 'HYJdevelop 粉專上線',
+         year: 2024
+      },
       {
         date: '2024-05-15',
         title: 'HYJdevelop 網頁與 SLRC 網頁合併',
@@ -94,29 +99,17 @@ const HistoryTimeline = () => {
         year: 2024,
       },
       {
-        date: '2025-02-20',
-        title: '推出 Tutor Go 產品頁（規劃中）',
-        description: 'Tutor Go 為 SLRC 的未來版本，聚焦於家教媒合',
+        date: '2025-03-20',
+        title: 'HYJdevelop React版官方網站上線',
+        description: '使用React製作的 HYJdevelop 官方網頁上線取代 Goolge site 版本',
         year: 2025,
       },
       {
-        date: '2025-02-25',
-        title: '全站 RWD 與 404 動畫優化',
-        description: '首頁、政策頁、404 加入統一動畫與自適應調整',
+        date: '2025-08-10',
+        title: 'Tutor Go計畫',
+        description: 'Tutor Go 為 SLRC 的取代版本，聚焦於家教媒合',
         year: 2025,
-      },
-      {
-        date: '2025-03-10',
-        title: '導航與內容精簡',
-        description: '移除論壇與商城、導覽列改為 Tutor Go 為主',
-        year: 2025,
-      },
-      {
-        date: '2025-03-15',
-        title: '服務條款內容整合',
-        description: '整合 service 與 service-terms，品牌使用準則聚焦授權規範',
-        year: 2025,
-      },
+      }
     ],
     []
   );
@@ -148,7 +141,7 @@ const HistoryTimeline = () => {
   );
   const years = useMemo(() => sortedEvents.map(e => e.year), [sortedEvents]);
   const minTime = useMemo(() => Math.min(...eventTimes), [eventTimes]);
-  const endYear = useMemo(() => Math.max(2025, ...years), [years]);
+  const endYear = useMemo(() => Math.max(2026, ...years), [years]);
   const maxTime = useMemo(() => new Date(endYear, 11, 31).getTime(), [endYear]);
   const clamp01 = (x: number) => Math.max(0, Math.min(1, x));
   const positionFromTime = (t: number) =>
