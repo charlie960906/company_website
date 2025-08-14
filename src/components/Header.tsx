@@ -32,19 +32,11 @@ const Header: React.FC = () => {
   // 定義選單項目
   const menuItems: DropdownMenuItem[] = [
     { to: '/', label: '首頁' },
-    { to: '/shop', label: '線上商城' },
-    {
-      label: '我們的社群',
-      dropdown: [
-        { to: '/slrc', label: 'SLRC' },
-        { to: '/forum', label: '論壇' },
-        { to: '/rules', label: '社群守則' },
-      ],
-    },
+    { to: '/tutorgo', label: 'Tutor Go' },
+    // 移除『我們的社群』下拉
     {
       label: '認識我們',
       dropdown: [
-        { to: '/about', label: '社群發展' },
         { to: '/contact', label: '聯絡我們' },
         { to: '/join', label: '加入我們' },
         { to: '/admin', label: '我們的主管' },
@@ -167,7 +159,7 @@ const Header: React.FC = () => {
   }, []);
 
   return (
-    <header className='bg-white/80 backdrop-blur-md fixed w-full top-0 z-50 shadow-sm'>
+    <header className='bg-white/80 backdrop-blur-md fixed w-full top-0 z-50 shadow-sm mobile-header'>
       <nav className='container mx-auto px-4 py-3'>
         <div className='flex items-center justify-between'>
           <Link
@@ -175,7 +167,11 @@ const Header: React.FC = () => {
             className='flex items-center space-x-2'
             onClick={closeMenu}
           >
-            <img src='/logo.png' alt='HYJdevelop 標誌' className='h-10' />
+            <img
+              src='/logo.png'
+              alt='HYJdevelop 標誌'
+              className='h-8 md:h-10 high-dpi'
+            />
             <span className='text-xl font-bold'>HYJdevelop</span>
           </Link>
 
@@ -244,8 +240,8 @@ const Header: React.FC = () => {
         <AnimatePresence>
           {isMenuOpen && (
             <motion.div
-              className='md:hidden py-4 w-full overflow-hidden bg-white/95 backdrop-blur-sm border-t border-gray-200'
-              style={{ top: 0, right: 0, willChange: 'transform, opacity' }}
+              className='md:hidden py-4 w-full overflow-hidden bg-white/95 backdrop-blur-sm border-t border-gray-200 absolute top-full left-0 z-50'
+              style={{ willChange: 'transform, opacity' }}
             >
               <motion.div
                 variants={containerVariants}

@@ -1,11 +1,11 @@
-import { Facebook, Instagram, Disc as Discord } from 'lucide-react';
+import { Facebook, Instagram } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 const Footer = () => {
   return (
     <footer className='bg-white/80 backdrop-blur-sm text-gray-800 border-t'>
-      <div className='container mx-auto px-4 py-8'>
-        <div className='text-center mb-8'>
+      <div className='container mx-auto px-4 py-6'>
+        <div className='text-center mb-6'>
           <p>
             網站出錯了？{' '}
             <a
@@ -17,14 +17,16 @@ const Footer = () => {
           </p>
         </div>
 
-        <div className='grid grid-cols-1 md:grid-cols-4 gap-8'>
-          <div>
-            <h3 className='font-bold mb-4'>支援</h3>
-            <ul className='space-y-2'>
+        {/* 四欄排版（手機1欄 / 平板2欄 / 桌面4欄），置中對齊 */}
+        <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 md:gap-6 lg:gap-8 text-center justify-items-center'>
+          {/* 支援 */}
+          <div className='w-full'>
+            <h3 className='font-bold mb-3'>支援</h3>
+            <ul className='space-y-1'>
               <li>
                 <Link
                   to='/service'
-                  className='text-gray-800 hover:text-blue-600'
+                  className='inline-block py-1 sm:py-2 text-gray-800 hover:text-blue-600'
                 >
                   服務條款
                 </Link>
@@ -32,25 +34,30 @@ const Footer = () => {
               <li>
                 <Link
                   to='/database'
-                  className='text-gray-800 hover:text-blue-600'
+                  className='inline-block py-1 sm:py-2 text-gray-800 hover:text-blue-600'
                 >
                   媒體庫
                 </Link>
               </li>
               <li>
-                <Link to='/terms' className='text-gray-800 hover:text-blue-600'>
+                <Link
+                  to='/terms'
+                  className='inline-block py-1 sm:py-2 text-gray-800 hover:text-blue-600'
+                >
                   品牌使用準則
                 </Link>
               </li>
             </ul>
           </div>
-          <div>
-            <h3 className='font-bold mb-4'>安全和隱私</h3>
-            <ul className='space-y-2'>
+
+          {/* 安全和隱私 */}
+          <div className='w-full'>
+            <h3 className='font-bold mb-3'>安全和隱私</h3>
+            <ul className='space-y-1'>
               <li>
                 <Link
                   to='/privacy'
-                  className='text-gray-800 hover:text-blue-600'
+                  className='inline-block py-1 sm:py-2 text-gray-800 hover:text-blue-600'
                 >
                   資料和隱私
                 </Link>
@@ -58,72 +65,78 @@ const Footer = () => {
               <li>
                 <Link
                   to='/security'
-                  className='text-gray-800 hover:text-blue-600'
+                  className='inline-block py-1 sm:py-2 text-gray-800 hover:text-blue-600'
                 >
-                  安全和表達自由
+                  網路安全
                 </Link>
               </li>
               <li>
                 <Link
-                  to='/hosting'
-                  className='text-gray-800 hover:text-blue-600'
+                  to='/freedom'
+                  className='inline-block py-1 sm:py-2 text-gray-800 hover:text-blue-600'
                 >
-                  雲端服務
+                  表達自由
                 </Link>
               </li>
             </ul>
           </div>
-          <div>
-            <h3 className='font-bold mb-4'>我們的社群</h3>
-            <ul className='space-y-2'>
+
+          {/* 產品與服務 */}
+          <div className='w-full'>
+            <h3 className='font-bold mb-3'>產品與服務</h3>
+            <ul className='space-y-1'>
               <li>
-                <Link to='/slrc' className='text-gray-800 hover:text-blue-600'>
-                  SLRC
-                </Link>
-              </li>
-              <li>
-                <Link to='/forum' className='text-gray-800 hover:text-blue-600'>
-                  論壇
-                </Link>
-              </li>
-              <li>
-                <Link to='/rules' className='text-gray-800 hover:text-blue-600'>
-                  社群守則
+                <Link
+                  to='/tutorgo'
+                  className='inline-block py-1 sm:py-2 text-gray-800 hover:text-blue-600'
+                >
+                  Tutor Go
                 </Link>
               </li>
               <li>
                 <Link
                   to='/partner'
-                  className='text-gray-800 hover:text-blue-600'
+                  className='inline-block py-1 sm:py-2 text-gray-800 hover:text-blue-600'
                 >
                   成為合作夥伴
                 </Link>
               </li>
             </ul>
           </div>
-          <div>
-            <h3 className='font-bold mb-4'>關於我們</h3>
-            <ul className='space-y-2'>
+
+          {/* 關於 */}
+          <div className='w-full'>
+            <h3 className='font-bold mb-3'>關於</h3>
+            <ul className='space-y-1'>
               <li>
-                <Link to='/about' className='text-gray-800 hover:text-blue-600'>
+                <Link
+                  to='/#history'
+                  className='inline-block py-1 sm:py-2 text-gray-800 hover:text-blue-600'
+                >
                   社群發展
                 </Link>
               </li>
               <li>
                 <Link
                   to='/contact'
-                  className='text-gray-800 hover:text-blue-600'
+                  className='inline-block py-1 sm:py-2 text-gray-800 hover:text-blue-600'
                 >
                   聯絡我們
                 </Link>
               </li>
               <li>
-                <Link to='/join' className='text-gray-800 hover:text-blue-600'>
+                <Link
+                  to='/join'
+                  className='inline-block py-1 sm:py-2 text-gray-800 hover:text-blue-600'
+                >
                   加入我們
                 </Link>
               </li>
               <li>
-                <Link to='/admin' className='text-gray-800 hover:text-blue-600'>
+                <Link
+                  to='/admin'
+                  className='inline-block py-1 sm:py-2 text-gray-800 hover:text-blue-600'
+                >
                   我們的主管
                 </Link>
               </li>
@@ -131,8 +144,8 @@ const Footer = () => {
           </div>
         </div>
 
-        <div className='mt-12 text-center'>
-          <div className='mb-4'>
+        <div className='mt-10 text-center'>
+          <div className='mb-3'>
             <h4 className='text-sm font-medium mb-2'>關注我們</h4>
             <div className='flex justify-center space-x-4'>
               <a
@@ -152,15 +165,6 @@ const Footer = () => {
                 aria-label='Follow us on Instagram'
               >
                 <Instagram className='h-6 w-6' />
-              </a>
-              <a
-                href='#'
-                target='_blank'
-                rel='noopener noreferrer'
-                className='text-gray-600 hover:text-indigo-600'
-                aria-label='Join us on Discord'
-              >
-                <Discord className='h-6 w-6' />
               </a>
             </div>
           </div>

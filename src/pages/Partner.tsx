@@ -11,15 +11,19 @@ const Partner = () => {
   return (
     <div className='min-h-screen pb-24'>
       {/* Hero Section */}
-      <section className='min-h-screen max-h-screen flex flex-col items-center justify-center bg-gradient-to-b from-blue-50 to-white text-center px-4 relative py-12 overflow-hidden'>
+      <section className='section-hero flex flex-col items-center justify-center text-center px-4 relative overflow-hidden'>
         <h1 className='text-5xl md:text-7xl font-bold mb-8 text-gray-800'>
           成為我們的合作夥伴
         </h1>
         <h2 className='text-5xl md:text-7xl font-bold mb-8 text-gray-800'>
           To Be Our Cooperator
         </h2>
-        <p className='text-gray-700 max-w-2xl mx-auto mb-1'>
-          自 2024 年以來，HYJdevelop 致力於推廣學生自治發展
+        <p className='text-gray-700 max-w-2xl mx-auto mb-1 text-balance'>
+          HYJdevelop 是一間科技公司的母公司，聚焦數位產品與服務整合。
+        </p>
+        <p className='text-gray-700 max-w-2xl mx-auto mb-1 text-balance'>
+          我們的業務包含家教媒合
+          App（規劃中）、網站製作、以及與教育/民間團體的合作專案。
         </p>
         <p className='text-gray-700 max-w-2xl mx-auto mb-1'>
           我們鼓勵學生自治團體跳脫思想框架、發掘潛在的可能性
@@ -86,7 +90,7 @@ const Partner = () => {
         <div className='bg-white rounded-lg shadow-sm p-8 mb-12'>
           <div className='flex items-center mb-6'>
             <School className='w-8 h-8 text-green-600 mr-3' />
-            <h2 className='text-2xl font-bold'>學生團體支持</h2>
+            <h2 className='text-2xl font-bold'>教育/民間團體合作</h2>
           </div>
 
           <p className='text-gray-600 mb-6'>
@@ -98,9 +102,9 @@ const Partner = () => {
             <div className='bg-green-50 p-6 rounded-lg'>
               <h3 className='font-bold mb-3'>我們提供</h3>
               <ul className='space-y-2 text-gray-600'>
-                <li>• 網站建置支援</li>
-                <li>• 技術諮詢服務</li>
-                <li>• 推廣資源共享</li>
+                <li>• 網站建置與維運（含 SEO）</li>
+                <li>• App/雲端服務技術諮詢</li>
+                <li>• 共同推廣與品牌資源共享</li>
               </ul>
             </div>
             <div className='bg-green-50 p-6 rounded-lg'>

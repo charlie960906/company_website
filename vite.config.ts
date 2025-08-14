@@ -2,6 +2,7 @@ import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 import path from 'path';
 import { analyzer } from 'vite-bundle-analyzer';
+import { copyFileSync, existsSync } from 'fs';
 
 export default defineConfig({
   plugins: [
@@ -13,6 +14,16 @@ export default defineConfig({
       generateStatsFile: true,
       statsFilename: 'stats.json',
     }),
+    {
+      name: 'copy-redirects',
+      writeBundle() {
+        // 複製 _redirects 檔案到 dist 資料夾
+        if (existsSync('_redirects')) {
+          copyFileSync('_redirects', 'dist/_redirects');
+          console.log('✅ _redirects 檔案已複製到 dist 資料夾');
+        }
+      },
+    },
   ],
   resolve: {
     alias: {
@@ -34,12 +45,8 @@ export default defineConfig({
         },
       },
     },
-    minify: 'terser',
-    terserOptions: {
-      compress: {
-        drop_console: true,
-        drop_debugger: true,
-      },
+    esbuild: {
+      drop: ['console', 'debugger'],
     },
     sourcemap: false,
   },

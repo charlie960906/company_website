@@ -1,12 +1,15 @@
 import { describe, it, expect, vi } from 'vitest';
-import { render, screen } from '@testing-library/react';
+import { render } from '@testing-library/react';
 import { BrowserRouter } from 'react-router-dom';
 import App from '../../App';
 
-// Mock react-helmet
-vi.mock('react-helmet', () => ({
+// Mock react-helmet-async
+vi.mock('react-helmet-async', () => ({
   Helmet: ({ children }: { children: React.ReactNode }) => (
     <div data-testid='helmet'>{children}</div>
+  ),
+  HelmetProvider: ({ children }: { children: React.ReactNode }) => (
+    <div data-testid='helmet-provider'>{children}</div>
   ),
 }));
 
@@ -23,25 +26,24 @@ vi.mock('src/pages/Home', () => ({
   default: () => <div data-testid='home'>Home Page</div>,
 }));
 
-const renderWithRouter = (component: React.ReactElement) => {
-  return render(<BrowserRouter>{component}</BrowserRouter>);
-};
+const renderWithRouter = (component: React.ReactElement) =>
+  render(<BrowserRouter>{component}</BrowserRouter>);
 
 describe('App', () => {
   it('renders without crashing', () => {
-    renderWithRouter(<App />);
-    expect(screen.getByTestId('header')).toBeInTheDocument();
-    expect(screen.getByTestId('footer')).toBeInTheDocument();
+    const { getByTestId } = renderWithRouter(<App />);
+    expect(getByTestId('header')).toBeInTheDocument();
+    expect(getByTestId('footer')).toBeInTheDocument();
   });
 
   it('renders helmet for SEO', () => {
-    renderWithRouter(<App />);
-    expect(screen.getByTestId('helmet')).toBeInTheDocument();
+    const { getByTestId } = renderWithRouter(<App />);
+    expect(getByTestId('helmet')).toBeInTheDocument();
   });
 
   it('has main content area', () => {
-    renderWithRouter(<App />);
-    const main = screen.getByRole('main');
+    const { getByRole } = renderWithRouter(<App />);
+    const main = getByRole('main');
     expect(main).toBeInTheDocument();
   });
 });

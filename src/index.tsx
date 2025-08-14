@@ -8,6 +8,7 @@ import {
   setupGlobalErrorHandler,
   startPerformanceMonitoring,
 } from './utils/errorTracking';
+import { HelmetProvider } from 'react-helmet-async';
 
 // 初始化錯誤追蹤
 initErrorTracking();
@@ -18,10 +19,10 @@ startPerformanceMonitoring();
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <React.StrictMode>
-    <BrowserRouter basename='/'>
-      {' '}
-      {/* 设置 basename 以匹配部署路径 */}
-      <App />
-    </BrowserRouter>
+    <HelmetProvider>
+      <BrowserRouter basename='/'>
+        <App />
+      </BrowserRouter>
+    </HelmetProvider>
   </React.StrictMode>
 );
