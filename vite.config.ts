@@ -38,10 +38,29 @@ export default defineConfig({
     assetsDir: 'assets',
     rollupOptions: {
       output: {
-        manualChunks: {
-          vendor: ['react', 'react-dom'],
-          router: ['react-router-dom'],
-          ui: ['framer-motion', 'lucide-react'],
+        // Vite 8（Rolldown/Rollup）對 manualChunks 的支援以 function 為主，
+        // 這裡維持原本 vendor/router/ui 的分包策略。
+        manualChunks(id) {
+          if (!id.includes('node_modules')) return;
+
+          // router 優先（避免被 react 規則先吃掉）
+          if (
+            id.includes('react-router') ||
+            id.includes('react-router-dom') ||
+            id.includes('@remix-run/router')
+          ) {
+            return 'router';
+          }
+
+          if (id.includes('framer-motion') || id.includes('lucide-react')) {
+            return 'ui';
+          }
+
+          if (id.includes('/react/') || id.includes('/react-dom/')) {
+            return 'vendor';
+          }
+
+          return;
         },
       },
     },

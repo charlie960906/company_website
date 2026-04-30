@@ -57,13 +57,13 @@ const Updates = () => {
             >
               <div className='flex justify-between items-start mb-4'>
                 <h3 className='text-xl font-bold'>
-                  Tutor Go 家教媒合 App 正式發布
+                  TutorGo 家教媒合計畫啟動（規劃中）
                 </h3>
-                <span className='text-sm text-gray-500'>2025/01/20</span>
+                <span className='text-sm text-gray-500'>2026/04/30</span>
               </div>
               <p className='text-gray-600 mb-4'>
-                我們很高興地宣布，Tutor Go 家教媒合 App 正式發布！這是 SLRC
-                的未來版本， 提供更智能的家教媒合服務，讓學習更有效率。
+                TutorGo 將以「更透明的費用、更可靠的審核、更低摩擦的媒合流程」為核心，
+                同時服務學生/家長與老師兩端。預計 2027 年初開放內測，2027 年 3 月正式推廣（以官方公告為準）。
               </p>
               <a
                 href='/tutorgo'

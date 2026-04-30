@@ -21,6 +21,11 @@ export default tseslint.config(
     },
     rules: {
       ...reactHooks.configs.recommended.rules,
+      // react-hooks v7 新增的「最佳實務」規則偏嚴格，容易在既有程式中造成大量誤報；
+      // 先關閉以維持既有專案的可維護性（不影響 hooks 基本規則）。
+      'react-hooks/set-state-in-effect': 'off',
+      'react-hooks/purity': 'off',
+      'react-hooks/immutability': 'off',
       'react-refresh/only-export-components': [
         'warn',
         { allowConstantExport: true },

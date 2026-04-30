@@ -32,7 +32,7 @@ const Header: React.FC = () => {
   // 定義選單項目
   const menuItems: DropdownMenuItem[] = [
     { to: '/', label: '首頁' },
-    { to: '/tutorgo', label: 'Tutor Go' },
+    { to: '/tutorgo', label: 'TutorGo' },
     // 移除『我們的社群』下拉
     {
       label: '認識我們',

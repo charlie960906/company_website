@@ -273,7 +273,7 @@ const Home = () => {
                 <div className='bg-gradient-to-br from-green-100 to-green-50 p-6 rounded-2xl w-20 h-20 flex items-center justify-center mx-auto mb-6'>
                   <Shield className='w-10 h-10 text-green-600' />
                 </div>
-                <h3 className='text-xl md:text-2xl font-bold mb-4 whitespace-nowrap'>Tutor Go</h3>
+                <h3 className='text-xl md:text-2xl font-bold mb-4 whitespace-nowrap'>TutorGo</h3>
                 <p className='text-sm md:text-base text-gray-600 flex-1 whitespace-normal break-words'>
                   家教媒合 App（規劃中）
                 </p>
@@ -282,7 +282,7 @@ const Home = () => {
                 to='/tutorgo'
                 className='inline-block mt-4 text-blue-600 hover:text-blue-700'
               >
-                了解 Tutor Go
+                了解 TutorGo
               </Link>
             </motion.div>
 

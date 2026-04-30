@@ -21,7 +21,7 @@ const links = [
 ];
 
 const sitemap = new SitemapStream({ hostname });
-const writeStream = createWriteStream('./public/sitemap.xml');
+const writeStream = createWriteStream('../public/sitemap.xml');
 sitemap.pipe(writeStream);
 
 links.forEach(link => sitemap.write(link));

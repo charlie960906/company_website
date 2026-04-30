@@ -67,7 +67,8 @@ export const ROUTE_META: Record<string, RouteMeta> = {
     description: '成為 HYJdevelop 的合作夥伴，共同開創美好未來。',
   },
   '/tutorgo': {
-    title: 'HYJdevelop - Tutor Go 家教媒合（規劃中）',
-    description: 'Tutor Go 為 SLRC 的取代版本，打造安全、透明的家教媒合平台。',
+    title: 'HYJdevelop - TutorGo 家教媒合（規劃中）',
+    description:
+      'TutorGo 是面向台灣市場的家教媒合平台：低手續費、雙向評價、藍勾勾認證、時段管理，讓找老師與接家教更安心有效率。',
   },
 };

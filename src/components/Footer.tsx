@@ -1,4 +1,4 @@
-import { Facebook, Instagram } from 'lucide-react';
+import { FaFacebookF, FaInstagram } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 
 const Footer = () => {
@@ -90,7 +90,7 @@ const Footer = () => {
                   to='/tutorgo'
                   className='inline-block py-1 sm:py-2 text-gray-800 hover:text-blue-600'
                 >
-                  Tutor Go
+                  TutorGo
                 </Link>
               </li>
               <li>
@@ -152,19 +152,19 @@ const Footer = () => {
                 href='https://fb.hyjdevelop.com'
                 target='_blank'
                 rel='noopener noreferrer'
-                className='text-gray-600 hover:text-blue-600'
+                className='text-gray-600 hover:text-blue-600 transition-colors'
                 aria-label='Follow us on Facebook'
               >
-                <Facebook className='h-6 w-6' />
+                <FaFacebookF className='h-6 w-6' />
               </a>
               <a
                 href='https://ig.hyjdevelop.com'
                 target='_blank'
                 rel='noopener noreferrer'
-                className='text-gray-600 hover:text-pink-600'
+                className='text-gray-600 hover:text-pink-600 transition-colors'
                 aria-label='Follow us on Instagram'
               >
-                <Instagram className='h-6 w-6' />
+                <FaInstagram className='h-6 w-6' />
               </a>
             </div>
           </div>

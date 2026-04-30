@@ -68,7 +68,10 @@ project/
 │   └── test/             # 測試檔案
 ├── _redirects            # Netlify 轉址規則
 ├── vercel.json           # Vercel 配置
-├── generate-sitemap.js   # Sitemap 生成腳本
+├── scripts/              # 腳本檔案
+│   ├── generate-sitemap.js   # Sitemap 生成腳本
+│   └── security-check.js     # 安全檢查腳本
+├── docs/                 # 文檔檔案
 └── package.json          # 專案依賴
 ```
 
@@ -104,7 +107,7 @@ npm run preview
 1. 在 `src/pages/` 創建新的頁面組件
 2. 在 `src/App.tsx` 添加路由
 3. 在 `src/config/seo.ts` 添加 SEO 配置
-4. 更新 `generate-sitemap.js` 和 `public/sitemap.xml`
+4. 更新 `scripts/generate-sitemap.js` 和 `public/sitemap.xml`
 
 ### 新增組件
 1. 在 `src/components/` 創建組件
@@ -161,7 +164,7 @@ export const ROUTE_META = {
 1. 在部署平台配置自定義域名
 2. 更新 `env.example` 中的 `VITE_SITE_URL`
 3. 更新 `public/robots.txt` 中的 sitemap URL
-4. 更新 `generate-sitemap.js` 中的域名
+4. 更新 `scripts/generate-sitemap.js` 中的域名
 
 ## 🔒 安全措施
 
@@ -216,6 +219,13 @@ npm run test:ui
 ```
 
 ## 📚 文檔和資源
+
+### 專案文檔
+- [技術架構文檔](./docs/ARCHITECTURE.md) - 完整的技術架構說明
+- [更新日誌](./docs/CHANGELOG.md) - 版本變更記錄
+- [貢獻指南](./docs/CONTRIBUTING.md) - 開發規範和流程
+- [部署指南](./docs/DEPLOYMENT.md) - 多平台部署說明
+- [安全文檔](./docs/SECURITY.md) - 安全配置和使用指南
 
 ### 官方文檔
 - [React 文檔](https://react.dev/)

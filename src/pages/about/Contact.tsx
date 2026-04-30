@@ -2,8 +2,8 @@ import {
   Mail,
   MessageSquare,
   MapPin,
-  Facebook,
-  Instagram,
+  Globe,
+  Camera,
   MessageCircle as Threads,
 } from 'lucide-react';
 import { motion, useReducedMotion } from 'framer-motion';
@@ -73,7 +73,7 @@ const Contact = () => {
         <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 mb-12'>
           <div className='text-center p-6 bg-white rounded-lg shadow-md border border-gray-100'>
             <div className='bg-blue-100 p-4 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4'>
-              <Facebook className='w-8 h-8 text-blue-600' />
+              <Globe className='w-8 h-8 text-blue-600' />
             </div>
             <h3 className='font-bold mb-2'>Facebook</h3>
             <a
@@ -88,7 +88,7 @@ const Contact = () => {
 
           <div className='text-center p-6 bg-white rounded-lg shadow-md border border-gray-100'>
             <div className='bg-pink-100 p-4 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4'>
-              <Instagram className='w-8 h-8 text-pink-600' />
+              <Camera className='w-8 h-8 text-pink-600' />
             </div>
             <h3 className='font-bold mb-2'>Instagram</h3>
             <a

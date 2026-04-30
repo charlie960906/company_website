@@ -39,7 +39,7 @@ const HistoryTimeline = () => {
       },
       {
         date: '2023-07-11',
-        title: '提出學生學習資源社群 SLRC（後續延伸為Tutor Go）',
+        title: '提出學生學習資源社群 SLRC（後續延伸為 TutorGo）',
         year: 2023,
       },
       {
@@ -106,8 +106,8 @@ const HistoryTimeline = () => {
       },
       {
         date: '2025-08-10',
-        title: 'Tutor Go計畫',
-        description: 'Tutor Go 為 SLRC 的取代版本，聚焦於家教媒合',
+        title: 'TutorGo 計畫',
+        description: '以低摩擦媒合、雙向評價、認證與時段管理，打造更安心透明的家教媒合平台',
         year: 2025,
       }
     ],
