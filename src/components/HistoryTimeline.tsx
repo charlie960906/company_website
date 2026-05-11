@@ -5,115 +5,140 @@ interface TimelineEvent {
   date: string;
   title: string;
   description?: string;
-  year: number;
+  image?: string;
+  imageAlt?: string;
 }
 
-const HistoryTimeline = () => {
-  // 事件資料（沿用 About 頁面的內容）
-  const allEvents: TimelineEvent[] = useMemo(
-    () => [
-      {
-        date: '2022-07-10',
-        title: '建立 Discord「會考討論群」，僅開放部分朋友加入',
-        year: 2022,
-      },
-      {
-        date: '2023-04-16',
-        title:'黃宥鈞創立HYJdevelop',
-        year: 2023,
-      },
-      { 
-        date: '2023-04-17',
-        title: 'HYJdevelop 官網開始設計(Google site)',
-        year: 2023
-      },
-      {
-        date: '2023-05-10',
-        title: '將「會考討論群」的加入連結放在個人網頁中，對外開放',
-        year: 2023,
-      },
-      {
-        date: '2023-06-09',
-        title: '開始進行 Discord 群組改造',
-        year: 2023
-      },
-      {
-        date: '2023-07-11',
-        title: '提出學生學習資源社群 SLRC（後續延伸為 TutorGo）',
-        year: 2023,
-      },
-      {
-        date: '2023-08-14',
-        title: '進行 SLRC 社群內測',
-        year: 2023
-      },
-      { date: '2023-09-20',
-        title: 'SLRC 視覺標誌產生',
-        year: 2023 },
-      {
-        date: '2023-11-01',
-        title: '學生學習資源社群 SLRC 正式對外開放加入',
-        year: 2023,
-      },
-      { date: '2023-12-01',
-        title: 'SLRC 粉專和 IG 上線',
-        year: 2023
-      },
-      { date: '2023-12-03',
-        title: 'HYJdevelop IG 上線',
-        year: 2023 },
-      {
-        date: '2023-12-15',
-        title: 'SLRC 官網上線(Google site)',
-        year: 2023
-      },
-      { 
-        date: '2023-12-23',
-        title: 'HYJdevelop 官網上線', 
-        year: 2023 
-      },
-      {
-        date: '2023-12-27',
-        title: 'SLRC 成員超過 50 人',
-        description: 'IG 粉絲超過 50 人',
-        year: 2023,
-      },
-      {
-        date: '2024-02-16',
-        title: '使用 React 開發 HYJdevelop 網頁',
-        description: '預計2025第三季上線',
-        year: 2024,
-      },
-      { date: '2024-02-29', 
-        title: 'HYJdevelop 粉專上線',
-         year: 2024
-      },
-      {
-        date: '2024-05-15',
-        title: 'HYJdevelop 網頁與 SLRC 網頁合併',
-        year: 2024,
-      },
-      {
-        date: '2024-12-14',
-        title: '購買 HYJdevelop.com 為 HYJdevelop 的網域',
-        year: 2024,
-      },
-      {
-        date: '2025-03-20',
-        title: 'HYJdevelop React版官方網站上線',
-        description: '使用React製作的 HYJdevelop 官方網頁上線取代 Goolge site 版本',
-        year: 2025,
-      },
-      {
-        date: '2025-08-10',
-        title: 'TutorGo 計畫',
-        description: '以低摩擦媒合、雙向評價、認證與時段管理，打造更安心透明的家教媒合平台',
-        year: 2025,
-      }
-    ],
-    []
-  );
+type TimelineEventWithYear = TimelineEvent & { year: number };
 
+const allEvents: TimelineEvent[] = [
+  {
+    date: '2022-07-10',
+    title: '建立 Discord「會考討論群」，僅開放部分朋友加入',
+    image: '/logo.png',
+    imageAlt: '建立 Discord 會考討論群',
+  },
+  {
+    date: '2023-04-16',
+    title: '黃宥鈞創立HYJdevelop',
+    image: '/logo.png',
+    imageAlt: '黃宥鈞創立 HYJdevelop',
+  },
+  {
+    date: '2023-04-17',
+    title: 'HYJdevelop 官網開始設計(Google site)',
+    image: '/logo.png',
+    imageAlt: 'HYJdevelop 官網設計',
+  },
+  {
+    date: '2023-05-10',
+    title: '將「會考討論群」的加入連結放在個人網頁中，對外開放',
+    image: '/logo.png',
+    imageAlt: '會考討論群 開放加入',
+  },
+  {
+    date: '2023-06-09',
+    title: '開始進行 Discord 群組改造',
+    image: '/logo.png',
+    imageAlt: 'Discord 群組改造',
+  },
+  {
+    date: '2023-07-11',
+    title: '提出學生學習資源社群 SLRC（後續延伸為 TutorGo）',
+    image: '/logo.png',
+    imageAlt: 'SLRC 與 TutorGo 提案',
+  },
+  {
+    date: '2023-08-14',
+    title: '進行 SLRC 社群內測',
+    image: '/logo.png',
+    imageAlt: 'SLRC 社群內測',
+  },
+  {
+    date: '2023-09-20',
+    title: 'SLRC 視覺標誌產生',
+    image: '/logo.png',
+    imageAlt: 'SLRC 視覺標誌',
+  },
+  {
+    date: '2023-11-01',
+    title: '學生學習資源社群 SLRC 正式對外開放加入',
+    image: '/logo.png',
+    imageAlt: 'SLRC 對外開放',
+  },
+  {
+    date: '2023-12-01',
+    title: 'SLRC 粉專和 IG 上線',
+    image: '/logo.png',
+    imageAlt: 'SLRC 粉專與 IG 上線',
+  },
+  {
+    date: '2023-12-03',
+    title: 'HYJdevelop IG 上線',
+    image: '/logo.png',
+    imageAlt: 'HYJdevelop IG 上線',
+  },
+  {
+    date: '2023-12-15',
+    title: 'SLRC 官網上線(Google site)',
+    image: '/logo.png',
+    imageAlt: 'SLRC 官網上線',
+  },
+  {
+    date: '2023-12-23',
+    title: 'HYJdevelop 官網上線',
+    image: '/logo.png',
+    imageAlt: 'HYJdevelop 官網上線',
+  },
+  {
+    date: '2023-12-27',
+    title: 'SLRC 成員超過 50 人',
+    description: 'IG 粉絲超過 50 人',
+    image: '/logo.png',
+    imageAlt: 'SLRC 會員超過 50 人',
+  },
+  {
+    date: '2024-02-16',
+    title: '使用 React 開發 HYJdevelop 網頁',
+    description: '預計2025第三季上線',
+    image: '/logo.png',
+    imageAlt: 'React 開發 HYJdevelop 網頁',
+  },
+  {
+    date: '2024-02-29',
+    title: 'HYJdevelop 粉專上線',
+    image: '/logo.png',
+    imageAlt: 'HYJdevelop 粉專上線',
+  },
+  {
+    date: '2024-05-15',
+    title: 'HYJdevelop 網頁與 SLRC 網頁合併',
+    image: '/logo.png',
+    imageAlt: 'HYJdevelop 與 SLRC 網頁合併',
+  },
+  {
+    date: '2024-12-14',
+    title: '購買 HYJdevelop.com 為 HYJdevelop 的網域',
+    image: '/logo.png',
+    imageAlt: '購買 HYJdevelop.com 網域',
+  },
+  {
+    date: '2025-03-20',
+    title: 'HYJdevelop React版官方網站上線',
+    description: '使用React製作的 HYJdevelop 官方網頁上線取代 Goolge site 版本',
+    image: '/logo.png',
+    imageAlt: 'HYJdevelop React 官方網站上線',
+  },
+  {
+    date: '2025-08-10',
+    title: 'TutorGo 計畫',
+    description: '以低摩擦媒合、雙向評價、認證與時段管理，打造更安心透明的家教媒合平台',
+    image: '/logo.png',
+    imageAlt: 'TutorGo 計畫',
+  },
+];
+
+const HistoryTimeline = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [knobPosition, setKnobPosition] = useState(0);
   const [progressPosition, setProgressPosition] = useState(0);
@@ -122,13 +147,16 @@ const HistoryTimeline = () => {
 
   const timelineRef = useRef<HTMLDivElement>(null);
   const rafId = useRef<number | null>(null);
+  const dragPositionRef = useRef<number | null>(null);
 
-  const sortedEvents = useMemo(
-    () =>
-      [...allEvents].sort(
-        (a, b) => new Date(a.date).getTime() - new Date(b.date).getTime()
-      ),
-    [allEvents]
+  const sortedEvents = useMemo((): TimelineEventWithYear[] =>
+    [...allEvents]
+      .map(event => ({
+        ...event,
+        year: new Date(event.date).getFullYear(),
+      }))
+      .sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime()),
+    []
   );
 
   const parseDate = (s: string) =>
@@ -140,16 +168,46 @@ const HistoryTimeline = () => {
     [sortedEvents]
   );
   const years = useMemo(() => sortedEvents.map(e => e.year), [sortedEvents]);
-  const minTime = useMemo(() => Math.min(...eventTimes), [eventTimes]);
-  const endYear = useMemo(() => Math.max(2026, ...years), [years]);
-  const maxTime = useMemo(() => new Date(endYear, 11, 31).getTime(), [endYear]);
+  const currentYear = useMemo(() => new Date().getFullYear(), []);
+  const minEventTime = useMemo(() => Math.min(...eventTimes), [eventTimes]);
+  const maxEventTime = useMemo(() => Math.max(...eventTimes), [eventTimes]);
+  const timeSpan = useMemo(
+    () => Math.max(maxEventTime - minEventTime, 1),
+    [maxEventTime, minEventTime]
+  );
+  const timelinePadding = useMemo(
+    () => Math.max(timeSpan * 0.08, 1000 * 60 * 60 * 24 * 30),
+    [timeSpan]
+  );
+  const timelineStart = useMemo(
+    () => minEventTime - timelinePadding,
+    [minEventTime, timelinePadding]
+  );
+  const timelineEnd = useMemo(
+    () => maxEventTime + timelinePadding,
+    [maxEventTime, timelinePadding]
+  );
+  const endYear = useMemo(
+    () => Math.max(currentYear, ...years),
+    [currentYear, years]
+  );
   const clamp01 = (x: number) => Math.max(0, Math.min(1, x));
   const positionFromTime = (t: number) =>
-    clamp01((t - minTime) / (maxTime - minTime));
-  // const timeFromPosition = (p: number) => minTime + p * (maxTime - minTime);
+    clamp01((t - timelineStart) / (timelineEnd - timelineStart));
+  const yearPosition = (y: number) =>
+    clamp01(positionFromTime(new Date(y, 0, 1).getTime()));
+  // const timeFromPosition = (p: number) => timelineStart + p * (timelineEnd - timelineStart);
+
+  useEffect(() => {
+    if (!eventTimes.length) return;
+    const initialPosition = positionFromTime(eventTimes[0]);
+    setKnobPosition(initialPosition);
+    setProgressPosition(initialPosition);
+  }, [eventTimes]);
+
   const indexFromPosition = useCallback(
     (p: number) => {
-      const target = minTime + p * (maxTime - minTime);
+      const target = timelineStart + p * (timelineEnd - timelineStart);
       let nearest = 0;
       let best = Infinity;
       for (let i = 0; i < eventTimes.length; i++) {
@@ -161,7 +219,7 @@ const HistoryTimeline = () => {
       }
       return nearest;
     },
-    [eventTimes, minTime, maxTime]
+    [eventTimes, timelineStart, timelineEnd]
   );
 
   useEffect(() => {
@@ -182,10 +240,9 @@ const HistoryTimeline = () => {
     const rect = timelineRef.current?.getBoundingClientRect();
     if (!rect) return;
     const position = clamp01((e.clientX - rect.left) / rect.width);
+    dragPositionRef.current = position;
     setKnobPosition(position);
     setProgressPosition(position);
-    const idx = indexFromPosition(position);
-    setCurrentIndex(idx);
   };
 
   // Touch support for mobile devices
@@ -195,10 +252,9 @@ const HistoryTimeline = () => {
     if (!rect) return;
     const touch = e.touches[0];
     const position = clamp01((touch.clientX - rect.left) / rect.width);
+    dragPositionRef.current = position;
     setKnobPosition(position);
     setProgressPosition(position);
-    const idx = indexFromPosition(position);
-    setCurrentIndex(idx);
   };
 
   const handleMouseMove = useCallback(
@@ -208,23 +264,33 @@ const HistoryTimeline = () => {
       rafId.current = requestAnimationFrame(() => {
         const rect = timelineRef.current!.getBoundingClientRect();
         const position = clamp01((e.clientX - rect.left) / rect.width);
+        dragPositionRef.current = position;
         setKnobPosition(position);
         setProgressPosition(position);
-        const idx = indexFromPosition(position);
-        setCurrentIndex(idx);
         rafId.current = null;
       });
     },
-    [isDragging, indexFromPosition]
+    [isDragging]
   );
 
-  const handleMouseUp = useCallback(() => {
+  const finishDrag = useCallback(() => {
+    if (dragPositionRef.current === null) {
+      setIsDragging(false);
+      return;
+    }
+    const idx = indexFromPosition(dragPositionRef.current);
+    animateToIndex(idx);
+    dragPositionRef.current = null;
     setIsDragging(false);
+  }, [indexFromPosition]);
+
+  const handleMouseUp = useCallback(() => {
     if (rafId.current) {
       cancelAnimationFrame(rafId.current);
       rafId.current = null;
     }
-  }, []);
+    finishDrag();
+  }, [finishDrag]);
 
   const handleTouchMove = useCallback(
     (e: TouchEvent) => {
@@ -234,23 +300,22 @@ const HistoryTimeline = () => {
       rafId.current = requestAnimationFrame(() => {
         const rect = timelineRef.current!.getBoundingClientRect();
         const position = clamp01((touch.clientX - rect.left) / rect.width);
+        dragPositionRef.current = position;
         setKnobPosition(position);
         setProgressPosition(position);
-        const idx = indexFromPosition(position);
-        setCurrentIndex(idx);
         rafId.current = null;
       });
     },
-    [isDragging, indexFromPosition]
+    [isDragging]
   );
 
   const handleTouchEnd = useCallback(() => {
-    setIsDragging(false);
     if (rafId.current) {
       cancelAnimationFrame(rafId.current);
       rafId.current = null;
     }
-  }, []);
+    finishDrag();
+  }, [finishDrag]);
 
   const handleTimelineClick = (e: React.MouseEvent) => {
     const rect = timelineRef.current?.getBoundingClientRect();
@@ -378,15 +443,8 @@ const HistoryTimeline = () => {
     { length: endYearLabel - startYear + 1 },
     (_, i) => startYear + i
   );
-  const yearStartIndexMap: Record<number, number> = {};
-  for (let i = 0; i < sortedEvents.length; i++) {
-    const y = sortedEvents[i].year;
-    if (!(y in yearStartIndexMap)) yearStartIndexMap[y] = i;
-  }
   const isYearActive = (y: number) => {
-    const idx = yearStartIndexMap[y];
-    if (idx === undefined) return false;
-    const pos = positionFromTime(eventTimes[idx]);
+    const pos = yearPosition(y);
     return progressPosition + 0.0001 >= pos;
   };
 
@@ -440,21 +498,25 @@ const HistoryTimeline = () => {
                       aria-label={`查看 ${event.title} 的詳細資訊`}
                     >
                       <div
-                        className={`w-full h-24 sm:h-32 md:h-36 rounded-xl mb-4 sm:mb-5 bg-gradient-to-br ${
-                          idx % 3 === 0
-                            ? 'from-blue-500 to-purple-600'
-                            : idx % 3 === 1
-                              ? 'from-pink-500 to-orange-500'
-                              : 'from-green-500 to-blue-600'
-                        } flex items-center justify-center`}
+                        className={`w-full h-24 sm:h-32 md:h-36 rounded-xl mb-4 sm:mb-5 overflow-hidden ${
+                          event.image
+                            ? 'bg-gray-100'
+                            : idx % 3 === 0
+                              ? 'bg-gradient-to-br from-blue-500 to-purple-600'
+                              : idx % 3 === 1
+                                ? 'bg-gradient-to-br from-pink-500 to-orange-500'
+                                : 'bg-gradient-to-br from-green-500 to-blue-600'
+                        }`}
                       >
-                        <div className='bg-white/20 backdrop-blur-sm rounded-full p-3 sm:p-4'>
+                        {event.image ? (
                           <img
-                            src='/logo.png'
-                            alt={event.title}
-                            className='w-12 h-12 sm:w-14 sm:h-14 object-contain'
+                            src={event.image}
+                            alt={event.imageAlt ?? event.title}
+                            className='w-full h-full object-cover'
                           />
-                        </div>
+                        ) : (
+                          <div className='w-full h-full' />
+                        )}
                       </div>
                       <div className='space-y-3'>
                         <h3 className='text-base sm:text-lg font-bold text-gray-900 leading-tight break-anywhere'>
@@ -488,8 +550,8 @@ const HistoryTimeline = () => {
 
       {/* 完整事件時間線 */}
       <div className='w-full max-w-full sm:max-w-7xl mx-auto'>
-        <div className='relative'>
-                      <div
+        <div className='relative px-4 sm:px-6'>
+          <div
               ref={timelineRef}
               className='w-full h-2 bg-gray-200 rounded-full cursor-pointer relative'
               onClick={handleTimelineClick}
@@ -574,15 +636,21 @@ const HistoryTimeline = () => {
             </div>
           </div>
 
-          <div className='flex justify-between items-center mt-4 sm:mt-6 px-1'>
-            {yearLabels.map(y => (
-              <div
-                key={y}
-                className={`text-base sm:text-lg font-bold ${isYearActive(y) ? 'text-blue-600' : 'text-gray-900'}`}
-              >
-                {y}
-              </div>
-            ))}
+          <div className='relative mt-4 sm:mt-6 h-8'>
+            {yearLabels.map((y, index) => {
+              const isFirst = index === 0;
+              const isLast = index === yearLabels.length - 1;
+              const left = yearPosition(y) * 100;
+              return (
+                <div
+                  key={y}
+                  className={`absolute top-0 text-base sm:text-lg font-bold ${isYearActive(y) ? 'text-blue-600' : 'text-gray-900'} ${isFirst ? 'translate-x-0' : isLast ? 'translate-x-[-100%]' : '-translate-x-1/2'}`}
+                  style={{ left: `${left}%` }}
+                >
+                  {y}
+                </div>
+              );
+            })}
           </div>
         </div>
       </div>

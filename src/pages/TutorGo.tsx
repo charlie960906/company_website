@@ -12,6 +12,11 @@ import {
   CalendarClock,
   MapPin,
   Wallet,
+  Award,
+  CheckCircle,
+  Clock,
+  Globe,
+  Smartphone,
 } from 'lucide-react';
 
 const TutorGo = () => {
@@ -52,7 +57,175 @@ const TutorGo = () => {
         >
           預計 2027 年初開放內測，2027 年 3 月正式推廣（實際以官方公告為準）。
         </motion.p>
+      </section>
 
+      {/* 產品概述 */}
+      <section className='max-w-5xl mx-auto px-4 py-16'>
+        <motion.h2
+          {...inViewMotion(shouldReduceMotion, { duration: 0.5, amount: 0.3 })}
+          className='text-3xl md:text-4xl font-bold mb-10 text-center'
+        >
+          產品概述
+        </motion.h2>
+        <motion.div
+          {...inViewMotion(shouldReduceMotion, { duration: 0.5, amount: 0.3 })}
+          className='bg-white rounded-2xl shadow-sm p-8 mb-8'
+        >
+          <p className='text-gray-700 text-lg leading-relaxed mb-6'>
+            TutorGo 是一個專為台灣市場設計的家教媒合平台，致力於打造更公平、更透明、更安全的家教生態圈。
+          </p>
+          <p className='text-gray-700 text-lg leading-relaxed mb-6'>
+            <strong className='text-blue-600'>我們的願景：</strong>讓每位學生都能找到最適合的老師，讓每位優質老師都能被看見，同時降低平台手續費，讓更多資源留在教學現場。
+          </p>
+          <div className='grid grid-cols-1 md:grid-cols-2 gap-6 mt-8'>
+            <div className='bg-blue-50 rounded-lg p-4'>
+              <h4 className='font-semibold text-blue-800 mb-2'>為學生與家長</h4>
+              <p className='text-sm text-gray-600'>提供多重篩選工具，確保找到合適的老師</p>
+            </div>
+            <div className='bg-green-50 rounded-lg p-4'>
+              <h4 className='font-semibold text-green-800 mb-2'>為老師</h4>
+              <p className='text-sm text-gray-600'>建立個人品牌，提升教學機會與收入</p>
+            </div>
+          </div>
+        </motion.div>
+      </section>
+
+      {/* 目標用戶 */}
+      <section className='max-w-5xl mx-auto px-4 py-16 bg-gray-50'>
+        <motion.h2
+          {...inViewMotion(shouldReduceMotion, { duration: 0.5, amount: 0.3 })}
+          className='text-3xl md:text-4xl font-bold mb-10 text-center'
+        >
+          目標用戶
+        </motion.h2>
+        <div className='grid grid-cols-1 md:grid-cols-3 gap-8'>
+          <motion.div
+            {...inViewMotion(shouldReduceMotion, { duration: 0.5, amount: 0.3 })}
+            className='bg-white rounded-2xl shadow-sm p-6 text-center flex flex-col items-center'
+          >
+            <Users className='w-12 h-12 text-blue-600 mb-4' />
+            <h3 className='font-bold mb-3 text-lg'>需求方（學生／家長）</h3>
+            <p className='text-gray-600'>
+              國小學生（由家長代為操作）、國中高中學生、大學生、社會人士
+            </p>
+          </motion.div>
+          <motion.div
+            {...inViewMotion(shouldReduceMotion, { duration: 0.5, delay: 0.1, amount: 0.3 })}
+            className='bg-white rounded-2xl shadow-sm p-6 text-center flex flex-col items-center'
+          >
+            <BookOpen className='w-12 h-12 text-green-600 mb-4' />
+            <h3 className='font-bold mb-3 text-lg'>供給方（老師）</h3>
+            <p className='text-gray-600'>
+              大學生（兼職接案）、在職教師或專業家教
+            </p>
+          </motion.div>
+          <motion.div
+            {...inViewMotion(shouldReduceMotion, { duration: 0.5, delay: 0.2, amount: 0.3 })}
+            className='bg-white rounded-2xl shadow-sm p-6 text-center flex flex-col items-center'
+          >
+            <Globe className='w-12 h-12 text-purple-600 mb-4' />
+            <h3 className='font-bold mb-3 text-lg'>地區範圍</h3>
+            <p className='text-gray-600'>
+              第一版主打全台灣，支援實體（到府／定點）及線上（視訊）教學，無地區限制
+            </p>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* 教學模式 */}
+      <section className='max-w-5xl mx-auto px-4 py-16'>
+        <motion.h2
+          {...inViewMotion(shouldReduceMotion, { duration: 0.5, amount: 0.3 })}
+          className='text-3xl md:text-4xl font-bold mb-10 text-center'
+        >
+          教學模式
+        </motion.h2>
+        <div className='grid grid-cols-1 md:grid-cols-3 gap-8'>
+          <motion.div
+            {...inViewMotion(shouldReduceMotion, { duration: 0.5, amount: 0.3 })}
+            className='bg-white rounded-2xl shadow-sm p-6 text-center flex flex-col items-center'
+          >
+            <MapPin className='w-12 h-12 text-blue-600 mb-4' />
+            <h3 className='font-bold mb-3 text-lg'>到府家教</h3>
+            <p className='text-gray-600'>
+              老師前往學生家中授課
+            </p>
+          </motion.div>
+          <motion.div
+            {...inViewMotion(shouldReduceMotion, { duration: 0.5, delay: 0.1, amount: 0.3 })}
+            className='bg-white rounded-2xl shadow-sm p-6 text-center flex flex-col items-center'
+          >
+            <Smartphone className='w-12 h-12 text-green-600 mb-4' />
+            <h3 className='font-bold mb-3 text-lg'>定點上課</h3>
+            <p className='text-gray-600'>
+              學生前往老師指定地點（如咖啡廳、圖書館）
+            </p>
+          </motion.div>
+          <motion.div
+            {...inViewMotion(shouldReduceMotion, { duration: 0.5, delay: 0.2, amount: 0.3 })}
+            className='bg-white rounded-2xl shadow-sm p-6 text-center flex flex-col items-center'
+          >
+            <CheckCircle className='w-12 h-12 text-purple-600 mb-4' />
+            <h3 className='font-bold mb-3 text-lg'>線上視訊</h3>
+            <p className='text-gray-600'>
+              透過視訊軟體遠端授課，支援跨縣市媒合
+            </p>
+          </motion.div>
+        </div>
+        <motion.p
+          {...inViewMotion(shouldReduceMotion, { duration: 0.5, delay: 0.3, amount: 0.3 })}
+          className='text-center text-gray-600 mt-8'
+        >
+          老師可同時支援多種模式，學生可在搜尋時篩選偏好的模式。
+        </motion.p>
+      </section>
+
+      {/* 分級認證 */}
+      <section className='max-w-5xl mx-auto px-4 py-16 bg-gray-50'>
+        <motion.h2
+          {...inViewMotion(shouldReduceMotion, { duration: 0.5, amount: 0.3 })}
+          className='text-3xl md:text-4xl font-bold mb-10 text-center'
+        >
+          分級認證圖標計畫
+        </motion.h2>
+        <motion.p
+          {...inViewMotion(shouldReduceMotion, { duration: 0.5, amount: 0.3 })}
+          className='text-center text-gray-700 mb-8'
+        >
+          TutorGo 將建立分級認證制度，讓優質老師更容易被學生發現。認證將基於教學經驗、評價和相關證照等因素。
+        </motion.p>
+        <div className='grid grid-cols-1 md:grid-cols-3 gap-8'>
+          <motion.div
+            {...inViewMotion(shouldReduceMotion, { duration: 0.5, amount: 0.3 })}
+            className='bg-white rounded-2xl shadow-sm p-6 text-center flex flex-col items-center'
+          >
+            <div className='w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mb-4'>
+              <BadgeCheck className='w-6 h-6 text-blue-600' />
+            </div>
+            <h3 className='font-bold text-lg mb-2'>基礎認證</h3>
+            <p className='text-gray-600 text-sm'>身份驗證，提升基本信任</p>
+          </motion.div>
+          <motion.div
+            {...inViewMotion(shouldReduceMotion, { duration: 0.5, delay: 0.1, amount: 0.3 })}
+            className='bg-white rounded-2xl shadow-sm p-6 text-center flex flex-col items-center'
+          >
+            <div className='w-12 h-12 bg-yellow-100 rounded-full flex items-center justify-center mb-4'>
+              <Award className='w-6 h-6 text-yellow-600' />
+            </div>
+            <h3 className='font-bold text-lg mb-2'>專業認證</h3>
+            <p className='text-gray-600 text-sm'>學歷與證照認證，提升曝光度</p>
+          </motion.div>
+          <motion.div
+            {...inViewMotion(shouldReduceMotion, { duration: 0.5, delay: 0.2, amount: 0.3 })}
+            className='bg-white rounded-2xl shadow-sm p-6 text-center flex flex-col items-center'
+          >
+            <div className='w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center mb-4'>
+              <Star className='w-6 h-6 text-purple-600' />
+            </div>
+            <h3 className='font-bold text-lg mb-2'>菁英認證</h3>
+            <p className='text-gray-600 text-sm'>系統自動評定，最高榮譽</p>
+          </motion.div>
+        </div>
       </section>
 
       {/* 產品特色 */}
@@ -180,6 +353,42 @@ const TutorGo = () => {
         </motion.div>
       </section>
 
+      {/* 開發時程 */}
+      <section className='max-w-5xl mx-auto px-4 py-16'>
+        <motion.h2
+          {...inViewMotion(shouldReduceMotion, { duration: 0.5, amount: 0.3 })}
+          className='text-3xl md:text-4xl font-bold mb-10 text-center'
+        >
+          開發進度
+        </motion.h2>
+        <motion.div
+          {...inViewMotion(shouldReduceMotion, { duration: 0.5, amount: 0.3 })}
+          className='bg-white rounded-2xl shadow-sm p-8 text-center'
+        >
+          <div className='flex items-center justify-center mb-4'>
+            <Clock className='w-8 h-8 text-blue-600 mr-3' />
+            <h3 className='text-xl font-bold'>目前階段：規劃與開發中</h3>
+          </div>
+          <p className='text-gray-700 mb-6'>
+            我們正在積極開發 TutorGo，預計將於 2027 年初開放內測體驗。
+          </p>
+          <div className='grid grid-cols-1 md:grid-cols-3 gap-6'>
+            <div className='bg-blue-50 rounded-lg p-4'>
+              <div className='text-2xl font-bold text-blue-600 mb-2'>Q2 2026</div>
+              <div className='text-sm text-gray-600'>完成核心架構設計</div>
+            </div>
+            <div className='bg-green-50 rounded-lg p-4'>
+              <div className='text-2xl font-bold text-green-600 mb-2'>Q4 2026</div>
+              <div className='text-sm text-gray-600'>App 開發與測試</div>
+            </div>
+            <div className='bg-purple-50 rounded-lg p-4'>
+              <div className='text-2xl font-bold text-purple-600 mb-2'>Q1 2027</div>
+              <div className='text-sm text-gray-600'>內測與正式上線</div>
+            </div>
+          </div>
+        </motion.div>
+      </section>
+
       {/* 常見問答 */}
       <section className='max-w-4xl mx-auto px-4 py-16'>
         <motion.h2
@@ -268,7 +477,7 @@ const TutorGo = () => {
             href='mailto:tutor@hyjdevelop.com'
             className='text-blue-600 hover:underline text-lg font-bold'
           >
-            tutor@hyjdevelop.com
+            hyjdevelop@gmail.com
           </a>
         </motion.div>
       </section>
