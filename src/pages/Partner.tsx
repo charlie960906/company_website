@@ -174,6 +174,20 @@ const Partner = () => {
                 訪問網站
               </a>
             </div>
+            <div className='bg-indigo-50 p-6 rounded-lg'>
+              <h3 className='font-bold mb-2'>興新手冊</h3>
+              <p className='text-gray-600 text-sm'>
+                中興大學新生問題整理網頁。
+              </p>
+              <a
+                href='https://nchufreshman.hyjdevelop.com'
+                target='_blank'
+                rel='noopener noreferrer'
+                className='text-indigo-600 hover:underline text-sm'
+              >
+                訪問網站
+              </a>
+            </div>
           </div>
         </div>
 
