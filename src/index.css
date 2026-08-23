@@ -13,6 +13,20 @@
   --bg-overlay: radial-gradient(1200px 800px at 60% 10%, rgba(59,130,246,0.06), transparent 60%),
                  radial-gradient(900px 700px at 10% 70%, rgba(16,185,129,0.05), transparent 55%),
                  radial-gradient(1000px 700px at 90% 80%, rgba(99,102,241,0.05), transparent 60%);
+  --page-bg: #ffffff;
+  --page-text: #0f172a;
+  --surface-bg: rgba(255,255,255,0.85);
+  --card-bg: rgba(255,255,255,0.7);
+  --border-color: rgba(148,163,184,0.2);
+}
+
+.dark {
+  color-scheme: dark;
+  --page-bg: #020617;
+  --page-text: #e2e8f0;
+  --surface-bg: rgba(15,23,42,0.92);
+  --card-bg: rgba(30,41,59,0.76);
+  --border-color: rgba(71,85,105,0.28);
 }
 
 @layer base {
@@ -25,6 +39,12 @@
 html, body, #root {
   overflow-x: hidden;
   max-width: 100%;
+}
+
+body {
+  background: var(--page-bg);
+  color: var(--page-text);
+  transition: background 400ms ease, color 400ms ease;
 }
 
 /* 單一全局背景：避免每段切換時閃爍 */
@@ -43,6 +63,21 @@ html, body, #root {
     radial-gradient(900px 600px at 12% 75%, rgba(16,185,129,0.02), transparent 60%),
     radial-gradient(1000px 650px at 88% 85%, rgba(99,102,241,0.02), transparent 65%),
     #ffffff;
+}
+
+.dark .app-bg {
+  background:
+    linear-gradient(
+      to bottom,
+      rgba(255,255,255,0.04) 0%,
+      rgba(255,255,255,0.00) 12%,
+      rgba(255,255,255,0.00) 88%,
+      rgba(255,255,255,0.04) 100%
+    ),
+    radial-gradient(1100px 700px at 60% 10%, rgba(96,165,250,0.08), transparent 65%),
+    radial-gradient(900px 600px at 12% 75%, rgba(52,211,153,0.06), transparent 60%),
+    radial-gradient(1000px 650px at 88% 85%, rgba(129,140,248,0.05), transparent 65%),
+    #020617;
 }
 
 @media (min-width: 1024px) {
@@ -112,6 +147,77 @@ textarea:focus-visible {
   outline: 3px solid #2563eb;
   outline-offset: 2px;
   border-radius: 6px;
+}
+
+.dark a,
+.dark button,
+.dark input,
+.dark textarea,
+.dark select {
+  color: inherit;
+}
+
+.dark .hero-subtitle,
+.dark .body-text,
+.dark .section-title,
+.dark .card-title {
+  color: #e2e8f0;
+}
+
+.dark .bg-white,
+.dark [class*='bg-white/'],
+.dark .bg-gray-50,
+.dark .bg-gray-100,
+.dark .bg-blue-50,
+.dark .bg-blue-100,
+.dark .bg-green-100,
+.dark .bg-purple-100,
+.dark .bg-yellow-100,
+.dark .bg-pink-100,
+.dark .bg-slate-50,
+.dark .bg-slate-100 {
+  background-color: var(--surface-bg) !important;
+  color: inherit !important;
+}
+
+.dark .text-gray-900,
+.dark .text-gray-800,
+.dark .text-gray-700,
+.dark .text-gray-600,
+.dark .text-black,
+.dark .text-slate-900,
+.dark .text-slate-800 {
+  color: #e2e8f0 !important;
+}
+
+.dark .border-gray-100,
+.dark .border-gray-200,
+.dark .border-gray-300,
+.dark .border-blue-50,
+.dark .border-slate-100,
+.dark .border-slate-200,
+.dark .border-slate-300 {
+  border-color: var(--border-color) !important;
+}
+
+.dark .hover\:bg-gray-100:hover,
+.dark .hover\:bg-blue-50:hover,
+.dark .hover\:bg-blue-100:hover,
+.dark .hover\:bg-green-100:hover,
+.dark .hover\:bg-purple-100:hover,
+.dark .hover\:bg-yellow-100:hover,
+.dark .hover\:bg-pink-100:hover,
+.dark .hover\:bg-white:hover,
+.dark .hover\:bg-slate-100:hover {
+  background-color: rgba(148,163,184,0.12) !important;
+}
+
+.hero-section {
+  transition: background 400ms ease, color 400ms ease;
+}
+
+.dark .hero-section {
+  background: linear-gradient(180deg, #111827 0%, #020617 100%) !important;
 }
 
 /* 全站排版元件化（統一字級樣式） */

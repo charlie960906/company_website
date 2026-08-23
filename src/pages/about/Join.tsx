@@ -68,7 +68,7 @@ const Join = () => {
         initial={{ opacity: 0, y: shouldReduceMotion ? 0 : 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, ease: [0.33, 1, 0.68, 1] }}
-        className='min-h-screen max-h-screen flex flex-col items-center justify-center bg-gradient-to-b from-blue-50 to-white text-center px-4 relative py-12 overflow-hidden'
+        className='hero-section min-h-screen max-h-screen flex flex-col items-center justify-center bg-gradient-to-b from-blue-50 to-white text-center px-4 relative py-12 overflow-hidden'
       >
         <motion.h1
           initial={{ opacity: 0, y: shouldReduceMotion ? 0 : 20 }}
@@ -180,7 +180,7 @@ const Join = () => {
             沒有找到適合的職位？歡迎直接寄送履歷給我們！
           </p>
           <a
-            href='mailto:jobs@hyjdevelop.com'
+            href='mailto:hyjdevelop@gmail.com'
             className='inline-flex items-center bg-blue-600 text-white px-8 py-3 rounded-lg hover:bg-blue-700 transition-colors font-medium'
           >
             <Mail className='w-5 h-5 mr-2' />
@@ -283,7 +283,7 @@ const Join = () => {
                     關閉
                   </button>
                   <a
-                    href={`mailto:jobs@hyjdevelop.com?subject=應徵職位：${selectedJob.title}`}
+                    href={`mailto:hyjdevelop@gmail.com?subject=應徵職位：${selectedJob.title}`}
                     className='flex-1 px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors text-center'
                   >
                     立即應徵

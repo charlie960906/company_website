@@ -1,3 +1,4 @@
+import { useEffect, useRef } from 'react';
 import {
   Server,
   Shield,
@@ -11,57 +12,133 @@ import {
 
 import { Link } from 'react-router-dom';
 import { motion, useReducedMotion } from 'framer-motion';
+import anime from 'animejs';
 import { inViewMotion } from 'src/utils/motion';
 import HistoryTimeline from 'src/components/HistoryTimeline';
 
+const HOME_HERO_METRICS = [
+  { id: 'hero-customer-count', label: '服務客戶', target: 320, suffix: '+' },
+  { id: 'hero-project-count', label: '成功案例', target: 18, suffix: '+' },
+  { id: 'hero-experience-year', label: '團隊年資', target: 5, suffix: '+' },
+];
+
 const Home = () => {
   const shouldReduceMotion = useReducedMotion();
+  const heroSectionRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const prefersReduceMotion =
+      shouldReduceMotion ||
+      (typeof window !== 'undefined' &&
+        window.matchMedia('(prefers-reduced-motion: reduce)').matches);
+
+    const heroSection = heroSectionRef.current;
+    if (!heroSection) return;
+
+    const targets = heroSection.querySelectorAll<HTMLElement>('.hero-animate');
+    if (prefersReduceMotion) {
+      targets.forEach((item) => {
+        item.style.opacity = '1';
+        item.style.transform = 'none';
+      });
+      return;
+    }
+
+    anime.timeline({ easing: 'easeOutExpo', duration: 900 })
+      .add({
+        targets,
+        translateY: [30, 0],
+        opacity: [0, 1],
+        delay: anime.stagger(140),
+      })
+      .add(
+        {
+          targets: '.hero-bg-shape',
+          scale: [0.95, 1.05],
+          opacity: [0.6, 0.85],
+          duration: 2600,
+          direction: 'alternate',
+          loop: true,
+          easing: 'easeOutSine',
+        },
+        0
+      );
+
+    HOME_HERO_METRICS.forEach(({ id, target, suffix }, idx) => {
+      const metricElement = document.getElementById(id);
+      if (!metricElement) return;
+
+      anime({
+        targets: { value: 0 },
+        value: target,
+        round: 1,
+        duration: 2000,
+        delay: 600 + idx * 120,
+        easing: 'easeOutElastic(1, .8)',
+        update: (anim) => {
+          metricElement.textContent = `${anim.animations[0].currentValue}${suffix}`;
+        },
+      });
+    });
+  }, [shouldReduceMotion]);
+
   return (
     <div className='min-h-screen'>
       {/* Hero Section */}
-      <section className='section-hero flex flex-col items-center justify-center text-center px-4 relative overflow-hidden mb-8 md:mb-16'>
-        <div className='pointer-events-none absolute -top-40 -right-32 w-96 h-96 bg-blue-100 rounded-full blur-3xl opacity-60'></div>
-        <div className='pointer-events-none absolute -bottom-40 -left-32 w-96 h-96 bg-yellow-100 rounded-full blur-3xl opacity-60'></div>
+      <section
+        ref={heroSectionRef}
+        className='section-hero flex flex-col items-center justify-center text-center px-4 relative overflow-hidden mb-8 md:mb-16'
+      >
+        <div className='hero-bg-shape pointer-events-none absolute -top-40 -right-32 w-96 h-96 bg-blue-100 rounded-full blur-3xl opacity-60'></div>
+        <div className='hero-bg-shape pointer-events-none absolute -bottom-40 -left-32 w-96 h-96 bg-yellow-100 rounded-full blur-3xl opacity-60'></div>
 
-        <motion.h1
-          initial={{ opacity: 0, y: shouldReduceMotion ? 0 : 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, ease: [0.33, 1, 0.68, 1] }}
-          className='hero-title mb-3 px-4 text-balance'
-        >
+        <h1 className='hero-animate opacity-0 hero-title mb-3 px-4 text-balance'>
           我們致力於科技開發
           <div className='mt-4 space-x-2 sm:space-x-4 md:space-x-10'>
             <span className='text-blue-500'>軟體</span>
             <span className='text-yellow-400'>網站</span>
             <span className='text-red-500'>社群</span>
           </div>
-        </motion.h1>
+        </h1>
 
-        <motion.p
-          initial={{ opacity: 0, y: shouldReduceMotion ? 0 : 16 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.1 }}
-          className='body-text text-gray-800 max-w-xl mx-auto mb-0 px-4 text-balance'
-        >
+        <p className='hero-animate opacity-0 body-text text-gray-800 max-w-xl mx-auto mb-0 px-4 text-balance'>
           我們的產品將各地的人與人聯繫在一起
-        </motion.p>
-        <motion.p
-          initial={{ opacity: 0, y: shouldReduceMotion ? 0 : 16 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.2 }}
-          className='body-text text-gray-800 max-w-xl mx-auto mb-0 px-4 text-balance'
-        >
+        </p>
+        <p className='hero-animate opacity-0 body-text text-gray-800 max-w-xl mx-auto mb-0 px-4 text-balance'>
           為大家創造機會並發出聲音
-        </motion.p>
-        <motion.p
-          initial={{ opacity: 0, y: shouldReduceMotion ? 0 : 16 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.3 }}
-          className='body-text text-gray-800 max-w-xl mx-auto mb-0 px-4 text-balance'
-        >
+        </p>
+        <p className='hero-animate opacity-0 body-text text-gray-800 max-w-xl mx-auto mb-0 px-4 text-balance'>
           我們正在努力，建立一個安全、自由、開放的社群
-        </motion.p>
+        </p>
 
+        <div className='hero-animate opacity-0 mt-8 flex flex-col sm:flex-row items-center justify-center gap-4'>
+          <Link
+            to='/partner'
+            className='rounded-full bg-blue-600 px-8 py-3 text-white shadow-lg shadow-blue-500/10 transition hover:bg-blue-700'
+          >
+            了解更多
+          </Link>
+          <button className='rounded-full border border-blue-200 px-8 py-3 text-blue-700 bg-white/80 transition hover:bg-blue-100'>
+            最新專案
+          </button>
+        </div>
+
+        <div className='hero-animate opacity-0 mt-10 grid grid-cols-1 sm:grid-cols-3 gap-4 w-full max-w-4xl'>
+          {HOME_HERO_METRICS.map((metric) => (
+            <div
+              key={metric.id}
+              className='rounded-3xl bg-white/80 border border-slate-200 p-5 shadow-sm'
+            >
+              <div
+                id={metric.id}
+                className='text-4xl font-bold text-blue-600 leading-tight'
+              >
+                0
+              </div>
+              <p className='mt-2 text-sm text-gray-600'>{metric.label}</p>
+            </div>
+          ))}
+        </div>
       </section>
 
       {/* Mission & Tech Section */}

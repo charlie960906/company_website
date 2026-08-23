@@ -432,7 +432,7 @@ const Privacy = () => {
                       發送郵件至我們的隱私專用信箱
                     </h5>
                     <p className='text-sm text-gray-700 mt-1'>
-                      data-request@hyjdevelop.com
+                      hyjdevelop@gmail.com
                     </p>
                   </div>
                 </div>
@@ -496,7 +496,7 @@ const Privacy = () => {
               <h4 className='font-semibold text-blue-800 mb-3 text-lg'>
                 一般隱私問題：
               </h4>
-              <p className='text-gray-600 mb-2'>privacy@hyjdevelop.com</p>
+              <p className='text-gray-600 mb-2'>hyjdevelop@gmail.com</p>
               <p className='text-sm text-gray-500'>
                 適用於隱私政策諮詢、權利行使等一般問題
               </p>
@@ -505,7 +505,7 @@ const Privacy = () => {
               <h4 className='font-semibold text-blue-800 mb-3 text-lg'>
                 資料刪除申請：
               </h4>
-              <p className='text-gray-600 mb-2'>data-request@hyjdevelop.com</p>
+              <p className='text-gray-600 mb-2'>hyjdevelop@gmail.com</p>
               <p className='text-sm text-gray-500'>
                 專門處理資料刪除、更正等權利行使申請
               </p>

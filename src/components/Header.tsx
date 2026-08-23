@@ -1,6 +1,6 @@
 import React, { useState, useCallback } from 'react';
 import { Link } from 'react-router-dom';
-import { Menu, ChevronDown, ChevronUp } from 'lucide-react';
+import { Menu, ChevronDown, ChevronUp, Moon, Sun } from 'lucide-react';
 import { motion, AnimatePresence, Variants } from 'framer-motion';
 
 // 定義選單項目的類型
@@ -28,6 +28,22 @@ const Header: React.FC = () => {
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
   const [communityOpen, setCommunityOpen] = useState(false);
   const [aboutOpen, setAboutOpen] = useState(false);
+  const [theme, setTheme] = useState<'light' | 'dark'>(() => {
+    if (typeof window === 'undefined') return 'light';
+    const savedTheme = window.localStorage.getItem('theme');
+    if (savedTheme === 'dark' || savedTheme === 'light') return savedTheme;
+    return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+  });
+
+  React.useEffect(() => {
+    const isDark = theme === 'dark';
+    document.documentElement.classList.toggle('dark', isDark);
+    window.localStorage.setItem('theme', theme);
+  }, [theme]);
+
+  const toggleTheme = useCallback(() => {
+    setTheme(prev => (prev === 'dark' ? 'light' : 'dark'));
+  }, []);
 
   // 定義選單項目
   const menuItems: DropdownMenuItem[] = [
@@ -159,7 +175,7 @@ const Header: React.FC = () => {
   }, []);
 
   return (
-    <header className='bg-white/80 backdrop-blur-md fixed w-full top-0 z-50 shadow-sm mobile-header' role='banner'>
+    <header className='bg-white/80 backdrop-blur-md fixed w-full top-0 z-50 shadow-sm mobile-header dark:bg-slate-900/80 dark:text-slate-100' role='banner'>
       <nav className='container mx-auto px-4 py-3' aria-label='主要導覽'>
         <div className='flex items-center justify-between'>
           <Link
@@ -176,7 +192,7 @@ const Header: React.FC = () => {
           </Link>
 
           {/* Desktop Menu */}
-          <div className='hidden md:flex items-center space-x-6'>
+          <div className='hidden md:flex flex-1 items-center justify-end space-x-4'>
             {menuItems.map((item, index) =>
               item.dropdown ? (
                 <div
@@ -201,7 +217,7 @@ const Header: React.FC = () => {
                     activeDropdown === '認識我們') ? (
                     <div className='absolute top-[calc(100%-4px)] left-0 w-40'>
                       <div className='h-4'></div>
-                      <div className='bg-white rounded-lg shadow-lg py-2'>
+                      <div className='bg-white rounded-lg shadow-lg py-2 dark:bg-slate-900 dark:shadow-black/20'>
                         {item.dropdown.map((subItem, subIndex) => (
                           <Link
                             key={subIndex}
@@ -227,21 +243,47 @@ const Header: React.FC = () => {
                 </Link>
               )
             )}
+            <button
+              type='button'
+              className='hidden md:inline-flex items-center justify-center px-3 py-2 rounded-full border border-slate-200 bg-white/85 text-slate-800 shadow-sm transition-colors hover:bg-slate-100 dark:border-slate-700 dark:bg-slate-800/90 dark:text-slate-100 dark:hover:bg-slate-700'
+              onClick={toggleTheme}
+              aria-label={theme === 'dark' ? '切換到日間模式' : '切換到夜間模式'}
+            >
+              {theme === 'dark' ? (
+                <Sun className='h-5 w-5' />
+              ) : (
+                <Moon className='h-5 w-5' />
+              )}
+            </button>
           </div>
 
           {/* Mobile Menu Button */}
-          <button
-            className='md:hidden p-2 rounded-lg hover:bg-gray-100 transition-colors'
-            onClick={() => {
-              setIsMenuOpen(prev => !prev);
-              if (isMenuOpen) closeMenu();
-            }}
-            aria-label='開啟或關閉選單'
-            aria-expanded={isMenuOpen}
-            aria-controls='mobile-menu'
-          >
-            <Menu className='h-6 w-6' />
-          </button>
+          <div className='flex items-center gap-2'>
+            <button
+              type='button'
+              className='md:hidden p-2 rounded-full border border-slate-200 bg-white/85 text-slate-800 shadow-sm transition-colors hover:bg-slate-100 dark:border-slate-700 dark:bg-slate-800/90 dark:text-slate-100 dark:hover:bg-slate-700'
+              onClick={toggleTheme}
+              aria-label={theme === 'dark' ? '切換到日間模式' : '切換到夜間模式'}
+            >
+              {theme === 'dark' ? (
+                <Sun className='h-5 w-5' />
+              ) : (
+                <Moon className='h-5 w-5' />
+              )}
+            </button>
+            <button
+              className='md:hidden p-2 rounded-lg hover:bg-gray-100 transition-colors dark:hover:bg-slate-700'
+              onClick={() => {
+                setIsMenuOpen(prev => !prev);
+                if (isMenuOpen) closeMenu();
+              }}
+              aria-label='開啟或關閉選單'
+              aria-expanded={isMenuOpen}
+              aria-controls='mobile-menu'
+            >
+              <Menu className='h-6 w-6' />
+            </button>
+          </div>
         </div>
 
         {/* Mobile Menu with Framer Motion */}
@@ -249,7 +291,7 @@ const Header: React.FC = () => {
           {isMenuOpen && (
             <motion.div
               id='mobile-menu'
-              className='md:hidden py-4 w-full overflow-hidden bg-white/95 backdrop-blur-sm border-t border-gray-200 absolute top-full left-0 z-50'
+              className='md:hidden py-4 w-full overflow-hidden bg-white/95 backdrop-blur-sm border-t border-gray-200 absolute top-full left-0 z-50 dark:bg-slate-950/95 dark:border-slate-700'
               style={{ willChange: 'transform, opacity' }}
             >
               <motion.div

@@ -198,7 +198,7 @@ const Security = () => {
             如果您發現任何安全問題，請立即聯繫我們的安全團隊。
           </p>
           <a
-            href='mailto:security@hyjdevelop.com'
+            href='mailto:hyjdevelop@gmail.com'
             className='inline-flex items-center bg-blue-600 text-white px-8 py-3 rounded-lg hover:bg-blue-700 transition-colors font-medium'
           >
             <Shield className='w-5 h-5 mr-2' />

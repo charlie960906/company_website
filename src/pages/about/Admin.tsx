@@ -6,7 +6,7 @@ const Admin = () => {
   return (
     <div className='min-h-screen pb-24'>
       {/* Hero Section */}
-      <section className='min-h-screen max-h-screen flex flex-col items-center justify-center bg-gradient-to-b from-blue-50 to-white text-center px-4 relative py-12 overflow-hidden'>
+      <section className='hero-section min-h-screen max-h-screen flex flex-col items-center justify-center bg-gradient-to-b from-blue-50 to-white text-center px-4 relative py-12 overflow-hidden'>
         <motion.h1
           initial={{ opacity: 0, y: (useReducedMotion() ? 0 : 20) }}
           animate={{ opacity: 1, y: 0 }}

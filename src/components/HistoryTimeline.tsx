@@ -1,5 +1,7 @@
 import { useEffect, useMemo, useRef, useState, useCallback } from 'react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
+import { useReducedMotion } from 'framer-motion';
+import anime from 'animejs';
 
 interface TimelineEvent {
   date: string;
@@ -139,15 +141,18 @@ const allEvents: TimelineEvent[] = [
 ];
 
 const HistoryTimeline = () => {
+  const shouldReduceMotion = useReducedMotion();
   const [currentIndex, setCurrentIndex] = useState(0);
   const [knobPosition, setKnobPosition] = useState(0);
   const [progressPosition, setProgressPosition] = useState(0);
   const [visibleCount, setVisibleCount] = useState(3);
   const [isDragging, setIsDragging] = useState(false);
+  const [timelineAnimated, setTimelineAnimated] = useState(false);
 
   const timelineRef = useRef<HTMLDivElement>(null);
   const rafId = useRef<number | null>(null);
   const dragPositionRef = useRef<number | null>(null);
+  const timelineSectionRef = useRef<HTMLDivElement>(null);
 
   const sortedEvents = useMemo((): TimelineEventWithYear[] =>
     [...allEvents]
@@ -192,8 +197,11 @@ const HistoryTimeline = () => {
     [currentYear, years]
   );
   const clamp01 = (x: number) => Math.max(0, Math.min(1, x));
-  const positionFromTime = (t: number) =>
-    clamp01((t - timelineStart) / (timelineEnd - timelineStart));
+  const positionFromTime = useCallback(
+    (t: number) =>
+      clamp01((t - timelineStart) / (timelineEnd - timelineStart)),
+    [timelineStart, timelineEnd]
+  );
   const yearPosition = (y: number) =>
     clamp01(positionFromTime(new Date(y, 0, 1).getTime()));
   // const timeFromPosition = (p: number) => timelineStart + p * (timelineEnd - timelineStart);
@@ -203,7 +211,57 @@ const HistoryTimeline = () => {
     const initialPosition = positionFromTime(eventTimes[0]);
     setKnobPosition(initialPosition);
     setProgressPosition(initialPosition);
-  }, [eventTimes]);
+  }, [eventTimes, positionFromTime]);
+
+  useEffect(() => {
+    if (shouldReduceMotion || timelineAnimated) return;
+    const section = timelineSectionRef.current;
+    if (!section || typeof IntersectionObserver === 'undefined') return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (!entry.isIntersecting || timelineAnimated) return;
+        setTimelineAnimated(true);
+
+        anime.timeline({ easing: 'easeOutExpo', duration: 800 })
+          .add({
+            targets: '.timeline-card',
+            translateY: [24, 0],
+            opacity: [0, 1],
+            delay: anime.stagger(120),
+            easing: 'easeOutQuart',
+          })
+          .add(
+            {
+              targets: '.timeline-dot',
+              scale: [0.6, 1],
+              opacity: [0, 1],
+              delay: anime.stagger(30),
+              duration: 500,
+              easing: 'easeOutBack',
+            },
+            0
+          )
+          .add(
+            {
+              targets: '.timeline-year',
+              translateY: [12, 0],
+              opacity: [0, 1],
+              delay: anime.stagger(25),
+              duration: 650,
+              easing: 'easeOutQuart',
+            },
+            150
+          );
+      },
+      {
+        threshold: 0.3,
+      }
+    );
+
+    observer.observe(section);
+    return () => observer.disconnect();
+  }, [shouldReduceMotion, timelineAnimated]);
 
   const indexFromPosition = useCallback(
     (p: number) => {
@@ -273,6 +331,33 @@ const HistoryTimeline = () => {
     [isDragging]
   );
 
+  const easeOutBack = (t: number, s = 0.9) => {
+    const c1 = s;
+    const c3 = c1 + 1;
+    return 1 + c3 * Math.pow(t - 1, 3) + c1 * Math.pow(t - 1, 2);
+  };
+
+  const animateToIndex = useCallback(
+    (idx: number, duration = 500) => {
+      const to = positionFromTime(eventTimes[idx]);
+      const from = knobPosition;
+      const start = performance.now();
+      setCurrentIndex(idx);
+      if (rafId.current) cancelAnimationFrame(rafId.current);
+      const tick = (now: number) => {
+        const t = Math.min(1, (now - start) / duration);
+        const eased = easeOutBack(t);
+        const next = from + (to - from) * eased;
+        setKnobPosition(next);
+        setProgressPosition(next);
+        if (t < 1) rafId.current = requestAnimationFrame(tick);
+        else rafId.current = null;
+      };
+      rafId.current = requestAnimationFrame(tick);
+    },
+    [eventTimes, knobPosition, positionFromTime]
+  );
+
   const finishDrag = useCallback(() => {
     if (dragPositionRef.current === null) {
       setIsDragging(false);
@@ -282,7 +367,7 @@ const HistoryTimeline = () => {
     animateToIndex(idx);
     dragPositionRef.current = null;
     setIsDragging(false);
-  }, [indexFromPosition]);
+  }, [animateToIndex, indexFromPosition]);
 
   const handleMouseUp = useCallback(() => {
     if (rafId.current) {
@@ -382,30 +467,6 @@ const HistoryTimeline = () => {
     isTrackSwiping.current = false;
   };
 
-  const easeOutBack = (t: number, s = 0.9) => {
-    const c1 = s;
-    const c3 = c1 + 1;
-    return 1 + c3 * Math.pow(t - 1, 3) + c1 * Math.pow(t - 1, 2);
-  };
-
-  const animateToIndex = (idx: number, duration = 500) => {
-    const to = positionFromTime(eventTimes[idx]);
-    const from = knobPosition;
-    const start = performance.now();
-    setCurrentIndex(idx);
-    if (rafId.current) cancelAnimationFrame(rafId.current);
-    const tick = (now: number) => {
-      const t = Math.min(1, (now - start) / duration);
-      const eased = easeOutBack(t);
-      const next = from + (to - from) * eased;
-      setKnobPosition(next);
-      setProgressPosition(next);
-      if (t < 1) rafId.current = requestAnimationFrame(tick);
-      else rafId.current = null;
-    };
-    rafId.current = requestAnimationFrame(tick);
-  };
-
   const goPrev = () => {
     if (isDragging) return;
     const nextIndex = Math.max(0, currentIndex - 1);
@@ -449,7 +510,7 @@ const HistoryTimeline = () => {
   };
 
   return (
-    <div className='w-full max-w-full sm:max-w-7xl mx-auto px-2 sm:px-4 mb-10 sm:mb-16'>
+    <div ref={timelineSectionRef} className='w-full max-w-full sm:max-w-7xl mx-auto px-2 sm:px-4 mb-10 sm:mb-16'>
       {/* 事件卡片滑動（左右箭頭與卡片同一行） */}
       <div className='mb-8 sm:mb-12 px-2 sm:px-6 md:px-10'>
         <div className='flex items-center gap-2 sm:gap-4 md:gap-6'>
@@ -581,9 +642,9 @@ const HistoryTimeline = () => {
               return (
                 <div
                   key={idx}
-                  className={`absolute top-1/2 -translate-y-1/2 w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full ${
+                  className={`timeline-dot absolute top-1/2 -translate-y-1/2 w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full ${
                     active ? 'bg-blue-600' : 'bg-gray-400'
-                  } hover:scale-110 transition-transform duration-100 cursor-pointer`}
+                  } hover:scale-110 transition-transform duration-100 cursor-pointer opacity-0`}
                   style={{ left: `${left}%` }}
                   onClick={e => {
                     e.stopPropagation();
@@ -644,7 +705,7 @@ const HistoryTimeline = () => {
               return (
                 <div
                   key={y}
-                  className={`absolute top-0 text-base sm:text-lg font-bold ${isYearActive(y) ? 'text-blue-600' : 'text-gray-900'} ${isFirst ? 'translate-x-0' : isLast ? 'translate-x-[-100%]' : '-translate-x-1/2'}`}
+                  className={`timeline-year absolute top-0 text-base sm:text-lg font-bold ${isYearActive(y) ? 'text-blue-600' : 'text-gray-900'} ${isFirst ? 'translate-x-0' : isLast ? 'translate-x-[-100%]' : '-translate-x-1/2'} opacity-0`}
                   style={{ left: `${left}%` }}
                 >
                   {y}

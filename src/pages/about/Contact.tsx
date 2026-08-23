@@ -14,7 +14,7 @@ const Contact = () => {
   return (
     <div className='min-h-screen pb-24'>
       {/* Hero Section */}
-      <section className='min-h-screen max-h-screen flex flex-col items-center justify-center bg-gradient-to-b from-blue-50 to-white text-center px-4 relative py-12 overflow-hidden'>
+      <section className='hero-section min-h-screen max-h-screen flex flex-col items-center justify-center bg-gradient-to-b from-blue-50 to-white text-center px-4 relative py-12 overflow-hidden'>
         <motion.h1
           initial={{ opacity: 0, y: shouldReduceMotion ? 0 : 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -43,12 +43,12 @@ const Contact = () => {
             </div>
             <h3 className='font-bold mb-2'>電子郵件</h3>
             <a
-              href='mailto:support@hyjdevelop.com'
+              href='mailto:hyjdevelop@gmail.com'
               target='_blank'
               rel='noopener noreferrer'
               className='text-gray-600 hover:text-blue-600 underline'
             >
-              support@hyjdevelop.com
+              hyjdevelop@gmail.com
             </a>
           </div>
 

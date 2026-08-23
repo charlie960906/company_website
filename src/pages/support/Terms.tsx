@@ -86,7 +86,7 @@ const Terms = () => {
           </div>
 
           <div className='text-center text-sm text-gray-500 mt-12'>
-            <p>如需授權或原始素材，請寄信至：support@hyjdevelop.com</p>
+            <p>如需授權或原始素材，請寄信至：hyjdevelop@gmail.com</p>
             <p className='mt-2'>最後更新：2025年3月15日</p>
           </div>
         </div>

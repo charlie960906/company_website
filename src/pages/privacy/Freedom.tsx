@@ -596,7 +596,7 @@ const Freedom = () => {
               <h4 className='font-semibold text-green-800 mb-3 text-lg'>
                 一般諮詢：
               </h4>
-              <p className='text-gray-600 mb-2'>freedom@hyjdevelop.com</p>
+              <p className='text-gray-600 mb-2'>hyjdevelop@gmail.com</p>
               <p className='text-sm text-gray-500'>
                 適用於表達自由政策諮詢、權利保護等一般問題
               </p>
@@ -605,7 +605,7 @@ const Freedom = () => {
               <h4 className='font-semibold text-green-800 mb-3 text-lg'>
                 內容申訴：
               </h4>
-              <p className='text-gray-600 mb-2'>appeal@hyjdevelop.com</p>
+              <p className='text-gray-600 mb-2'>hyjdevelop@gmail.com</p>
               <p className='text-sm text-gray-500'>
                 專門處理內容限制申訴、帳號解封等請求
               </p>

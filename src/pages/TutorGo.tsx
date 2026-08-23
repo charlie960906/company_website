@@ -24,7 +24,7 @@ const TutorGo = () => {
   return (
     <div className='min-h-screen pb-24'>
       {/* Hero Section */}
-      <section className='min-h-screen max-h-screen flex flex-col items-center justify-center bg-gradient-to-b from-yellow-50 to-white text-center px-4 relative py-12 overflow-hidden'>
+      <section className='hero-section min-h-screen max-h-screen flex flex-col items-center justify-center bg-gradient-to-b from-yellow-50 to-white text-center px-4 relative py-12 overflow-hidden'>
         <motion.h1
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -474,7 +474,7 @@ const TutorGo = () => {
             如有任何問題、合作或建議，歡迎來信：
           </p>
           <a
-            href='mailto:tutor@hyjdevelop.com'
+            href='mailto:hyjdevelop@gmail.com'
             className='text-blue-600 hover:underline text-lg font-bold'
           >
             hyjdevelop@gmail.com

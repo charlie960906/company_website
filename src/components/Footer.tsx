@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 const Footer = () => {
   return (
-    <footer className='bg-white/80 backdrop-blur-sm text-gray-800 border-t'>
+    <footer className='bg-white/80 backdrop-blur-sm text-gray-800 border-t dark:bg-slate-900/80 dark:text-slate-200 dark:border-slate-700'>
       <div className='container mx-auto px-4 py-6'>
         <div className='text-center mb-6'>
           <p>
@@ -152,7 +152,7 @@ const Footer = () => {
                 href='https://fb.hyjdevelop.com'
                 target='_blank'
                 rel='noopener noreferrer'
-                className='text-gray-600 hover:text-blue-600 transition-colors'
+                className='text-gray-600 hover:text-blue-600 transition-colors dark:text-slate-400 dark:hover:text-blue-400'
                 aria-label='Follow us on Facebook'
               >
                 <FaFacebookF className='h-6 w-6' />

@@ -99,7 +99,7 @@ const Partner = () => {
           </div>
 
           <a
-            href='mailto:support@hyjdevelop.com'
+            href='mailto:hyjdevelop@gmail.com'
             className='inline-flex items-center text-blue-600 hover:text-blue-700'
           >
             聯絡我們討論合作細節 <ArrowRight className='w-4 h-4 ml-1' />
@@ -148,56 +148,25 @@ const Partner = () => {
           </a>
         </div>
 
-        {/* 目前合作對象 */}
+        {/* 目前上線作品 */}
         <div className='bg-white rounded-lg shadow-sm p-8 mb-12'>
           <div className='flex items-center mb-6'>
             <Globe className='w-8 h-8 text-indigo-600 mr-3' />
-            <h2 className='text-2xl font-bold'>目前合作對象</h2>
+            <h2 className='text-2xl font-bold'>目前上線作品</h2>
           </div>
 
           <p className='text-gray-600 mb-6'>
-            以下是目前與 HYJdevelop 合作的團體與組織，感謝他們的支持，
-            讓我們能透過團隊的技術為這些團體注入新的活力。
+            以下是目前由 HYJdevelop 維護的上線作品。
           </p>
 
           <div className='grid md:grid-cols-2 gap-6'>
             <div className='bg-indigo-50 p-6 rounded-lg'>
-              <h3 className='font-bold mb-2'>SLRC - 學生學習資源社群</h3>
+              <h3 className='font-bold mb-2'>hyjblog.hyjdevelop.com</h3>
               <p className='text-gray-600 text-sm'>
-                一個專注於提供技術學習資源的學生社群，與 HYJdevelop
-                共同推廣教育資源共享。
+                HYJdevelop 的官方部落格。
               </p>
               <a
-                href='./SLRC'
-                target='_blank'
-                rel='noopener noreferrer'
-                className='text-indigo-600 hover:underline text-sm'
-              >
-                訪問網站
-              </a>
-            </div>
-            <div className='bg-indigo-50 p-6 rounded-lg'>
-              <h3 className='font-bold mb-2'>CYSH IRC</h3>
-              <p className='text-gray-600 text-sm'>
-                嘉義高中資訊研究社，致力於推廣學生資訊學習之社團
-              </p>
-              <a
-                href='https://www.instagram.com/cysh_irc/?hl=zh-tw'
-                target='_blank'
-                rel='noopener noreferrer'
-                className='text-indigo-600 hover:underline text-sm'
-              >
-                訪問網站
-              </a>
-            </div>
-            <div className='bg-indigo-50 p-6 rounded-lg'>
-              <h3 className='font-bold mb-2'>嘉義青年基地</h3>
-              <p className='text-gray-600 text-sm'>
-                是一群聚在嘉義想帶大家認識嘉義的人們，由 HYJdevelop
-                輔助建構官方網站
-              </p>
-              <a
-                href='https://www.instagram.com/chiayiyouth/?hl=zh-tw'
+                href='https://hyjblog.hyjdevelop.com'
                 target='_blank'
                 rel='noopener noreferrer'
                 className='text-indigo-600 hover:underline text-sm'
@@ -218,13 +187,13 @@ const Partner = () => {
           <p className='text-gray-600 mb-6'>
             最後如果您也認同 HYJdevelop
             的理念，希望在學生邁向未來的路上提供支持，
-            歡迎寄信至「support@hyjdevelop.com」，以實際行動支持 HYJdevelop
+            歡迎寄信至「hyjdevelop@gmail.com」，以實際行動支持 HYJdevelop
             的運作。
             您的支持不僅能幫助更多團體前行，也能讓學生自治的種子散播至臺灣的每個角落。
           </p>
 
           <a
-            href='mailto:support@hyjdevelop.com'
+            href='mailto:hyjdevelop@gmail.com'
             className='inline-flex items-center text-purple-600 hover:text-purple-700'
           >
             聯絡我們了解更多 <ArrowRight className='w-4 h-4 ml-1' />

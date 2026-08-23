@@ -265,10 +265,10 @@ const Service = () => {
           <p className='text-gray-700'>
             如對本條款有任何疑問，請來信：
             <a
-              href='mailto:support@hyjdevelop.com'
+              href='mailto:hyjdevelop@gmail.com'
               className='text-blue-600 hover:underline ml-1'
             >
-              support@hyjdevelop.com
+              hyjdevelop@gmail.com
             </a>
           </p>
         </motion.section>
