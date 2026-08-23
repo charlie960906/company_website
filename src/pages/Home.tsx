@@ -16,12 +16,6 @@ import anime from 'animejs';
 import { inViewMotion } from 'src/utils/motion';
 import HistoryTimeline from 'src/components/HistoryTimeline';
 
-const HOME_HERO_METRICS = [
-  { id: 'hero-customer-count', label: '服務客戶', target: 320, suffix: '+' },
-  { id: 'hero-project-count', label: '成功案例', target: 18, suffix: '+' },
-  { id: 'hero-experience-year', label: '團隊年資', target: 5, suffix: '+' },
-];
-
 const Home = () => {
   const shouldReduceMotion = useReducedMotion();
   const heroSectionRef = useRef<HTMLDivElement>(null);
@@ -64,22 +58,6 @@ const Home = () => {
         0
       );
 
-    HOME_HERO_METRICS.forEach(({ id, target, suffix }, idx) => {
-      const metricElement = document.getElementById(id);
-      if (!metricElement) return;
-
-      anime({
-        targets: { value: 0 },
-        value: target,
-        round: 1,
-        duration: 2000,
-        delay: 600 + idx * 120,
-        easing: 'easeOutElastic(1, .8)',
-        update: (anim) => {
-          metricElement.textContent = `${anim.animations[0].currentValue}${suffix}`;
-        },
-      });
-    });
   }, [shouldReduceMotion]);
 
   return (
@@ -123,22 +101,6 @@ const Home = () => {
           </button>
         </div>
 
-        <div className='hero-animate opacity-0 mt-10 grid grid-cols-1 sm:grid-cols-3 gap-4 w-full max-w-4xl'>
-          {HOME_HERO_METRICS.map((metric) => (
-            <div
-              key={metric.id}
-              className='rounded-3xl bg-white/80 border border-slate-200 p-5 shadow-sm'
-            >
-              <div
-                id={metric.id}
-                className='text-4xl font-bold text-blue-600 leading-tight'
-              >
-                0
-              </div>
-              <p className='mt-2 text-sm text-gray-600'>{metric.label}</p>
-            </div>
-          ))}
-        </div>
       </section>
 
       {/* Mission & Tech Section */}
