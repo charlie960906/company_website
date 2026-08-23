@@ -37,7 +37,7 @@ const Admin = () => {
                 className='w-48 h-48 object-cover rounded-lg'
               />
               <div>
-                <h2 className='text-2xl font-bold mb-2'>黃宥鈞</h2>
+                <h2 className='text-2xl font-bold mb-2'>老黃大大</h2>
                 <p className='text-lg text-blue-600 mb-4'>
                   創辦人、主席兼執行長
                 </p>
@@ -98,7 +98,7 @@ const Admin = () => {
                 className='w-48 h-48 object-cover rounded-lg'
               />
               <div>
-                <h2 className='text-2xl font-bold mb-2'>許安祐</h2>
+                <h2 className='text-2xl font-bold mb-2'>鯊魚YY</h2>
                 <p className='text-lg text-blue-600 mb-4'>技術總監</p>
                 <a
                   href='https://larryeng.hyjdevelop.com'
